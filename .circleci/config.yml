@@ -1,0 +1,21 @@
+version: 2.1
+default: &default
+  working_directory: ~/repo
+executors:
+  xenials:
+    <<: *default
+    docker:
+      - image: ubuntu:xenial
+jobs:
+  build:
+    executor: xenials
+    steps:
+      - checkout
+      - run:
+          name: run install scripts
+          command: ./install.sh
+workflows:
+  version: 2
+  test:
+    jobs:
+      - build
