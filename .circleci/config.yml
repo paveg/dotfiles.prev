@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: run install scripts
+          name: install dotfiles
           command: ./install.sh
 workflows:
   version: 2
