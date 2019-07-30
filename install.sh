@@ -14,9 +14,9 @@ prepare() {
     if is_osx; then
        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     elif is_linux; then
-        sudo apt-get update && sudo apt-get install build-essential curl file git
+        sudo apt-get update && sudo apt-get install build-essential curl file git gcc
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-        export PATH="$HOME/.linuxbrew/bin:$PATH"
+        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
     fi
     brew update
 }
