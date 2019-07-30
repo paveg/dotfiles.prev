@@ -3,6 +3,8 @@ set -e
 export PLATFORM
 source ./lib/utilities.sh
 
+fomuras=("zsh" "cmake" "anyenv" "wget" "htop" "tmux" "fzf" "tig" "jq")
+
 # install Homebrew
 prepare() {
     if has "brew"; then
@@ -19,6 +21,7 @@ prepare() {
 
 log_pass "Starting the installation..."
 prepare
+brew install ${fomuras[@]}
 
 # Set DOTPATH as default variable
 if [ -z "${DOTPATH:-}" ]; then
