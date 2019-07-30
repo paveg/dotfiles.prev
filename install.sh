@@ -16,7 +16,8 @@ prepare() {
     elif is_linux; then
         sudo apt-get update && sudo apt-get install build-essential curl file git gcc
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
+        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
+        source ~/.profile
     fi
     brew update
 }
