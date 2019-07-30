@@ -12,12 +12,16 @@ prepare() {
         return
     fi
     if is_osx; then
-       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     elif is_linux; then
-        sudo apt-get update && sudo apt-get install build-essential curl file git gcc
-        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
-        source ~/.profile
+         log_info "break linux now"
+         exit 0
+#        sudo apt-get update && sudo apt-get install -y --no-install-recommends build-essential curl file git gcc language-pack-ja
+#        sudo update-locale LANG=ja_JP.UTF-8
+#        sudo useradd -m ryota && echo 'ryota ALL=NOPASSWD: ALL' | sudo tee -a /etc/sudoers
+#        sudo -u ryota -H sh -c 'echo -ne '\n' | bash -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"'
+#        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
+#        source ~/.profile
     fi
     brew update
 }
