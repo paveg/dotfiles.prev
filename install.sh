@@ -16,7 +16,9 @@ prepare() {
     elif is_linux; then
         sudo apt-get update && sudo apt-get install build-essential curl file git
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+        export PATH="$HOME/.linuxbrew/bin:$PATH"
     fi
+    brew update
 }
 
 log_pass "Starting the installation..."
