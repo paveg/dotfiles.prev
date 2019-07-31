@@ -18,7 +18,7 @@ docker.build: ## Build docker image
 	@docker build -t $(IMAGE_NAME) .
 
 docker.base.build: ## Build base docker image
-	@docker build -f ./docker/base/Dockerfile --build-arg USERNAME=ryota -t $(BASE_IMAGE_NAME) .
+	@docker build -f ./docker/base/Dockerfile --build-arg USERNAME=dev -t $(BASE_IMAGE_NAME) .
 
 docker.base.push: ## Push base docker image
 	@echo "push to $(BASE_IMAGE_NAME):$(VERSION_TAG)"
