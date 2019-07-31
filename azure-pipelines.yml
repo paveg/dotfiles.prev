@@ -1,7 +1,10 @@
+resources:
+  containers:
+    - container: dev
+      image: paveg/dot-ubuntu-base:latest
 jobs:
   - job: xenial
-    container:
-      image: paveg/dot-ubuntu-base:latest
+    container: dev
     steps:
       - script: ./install.sh
         displayName: run install script
