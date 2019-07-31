@@ -1,10 +1,4 @@
 jobs:
-  - job: xenial
-    pool:
-      vmImage: 'ubuntu-16.04'
-    steps:
-      - script: ./install.sh
-        displayName: run install script
   - job: macOS
     pool:
       vmImage: 'macOS-10.14'

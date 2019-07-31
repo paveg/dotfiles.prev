@@ -5,7 +5,11 @@ executors:
   xenials:
     <<: *default
     docker:
-      - image: ubuntu:xenial
+      - image: paveg/dot-ubuntu-base:latest
+        environment:
+          LANG: ja_JP.UTF-8
+          LC_ALL: ja_JP.UTF-8
+          LANGUAGE: ja_JP.UTF-8
 jobs:
   build:
     executor: xenials
