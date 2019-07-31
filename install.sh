@@ -24,7 +24,9 @@ prepare() {
 
 log_pass "Starting the installation..."
 prepare
-brew install ${fomuras[@]}
+if ! is_circleci; then
+    brew install ${fomuras[@]}
+fi
 
 # Set DOTPATH as default variable
 if [ -z "${DOTPATH:-}" ]; then
