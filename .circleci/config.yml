@@ -17,7 +17,7 @@ jobs:
       - checkout
       - run:
           name: install dotfiles
-          command: ./install.sh
+          command: ./installer.sh
 workflows:
   version: 2
   test:
