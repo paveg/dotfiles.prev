@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM paveg/dot-ubuntu-base:latest
 
-COPY install.sh ./
+COPY . .
 RUN ./install.sh
