@@ -28,7 +28,7 @@ install_zsh_by_brew() {
         brew install zsh zsh-completions
         log_pass "Installation complete zsh!"
         sudo sh -c 'echo $(brew --prefix)/bin/zsh >> /etc/shells'
-        chsh -s $(brew --prefix)/bin/zsh
+        echo -ne '\n' | chsh -s $(brew --prefix)/bin/zsh
     else
         log_info "zsh is already installed."
     fi
