@@ -1,4 +1,14 @@
+resources:
+  containers:
+    - container: dev
+      image: paveg/dot-ubuntu-base:latest
+      options: --user 0:0
 jobs:
+  - job: xenial
+    container: dev
+    steps:
+      - script: ./install.sh
+        displayName: run install script
   - job: macOS
     pool:
       vmImage: 'macOS-10.14'

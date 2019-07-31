@@ -3,7 +3,7 @@ set -e
 export PLATFORM
 source ./lib/utilities.sh
 
-fomuras=("zsh" "cmake" "anyenv" "wget" "htop" "tmux" "fzf" "tig" "jq")
+fomuras=("zsh" "anyenv" "wget" "htop" "tmux" "fzf" "tig" "jq")
 
 # install Homebrew
 prepare() {
