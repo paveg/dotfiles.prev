@@ -5,7 +5,7 @@ executors:
   xenials:
     <<: *default
     docker:
-      - image: ubuntu:xenial
+      - image: dot-ubuntu-base:latest
 jobs:
   build:
     executor: xenials
