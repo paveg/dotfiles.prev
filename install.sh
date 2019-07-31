@@ -1,39 +1,55 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 export PLATFORM
 source ./lib/utilities.sh
 
-fomuras=("zsh" "anyenv" "wget" "htop" "tmux" "fzf" "tig" "jq")
+trap catch ERR
 
-# install Homebrew
-prepare() {
-    if has "brew"; then
-        log_info "already installed Homebrew"
-        return
-    fi
-    if is_osx; then
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    elif is_linux; then
-        sudo apt-get update && sudo apt-get install -y --no-install-recommends build-essential ca-certificates curl file git gcc
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
-        source ~/.profile
-    fi
-    brew update
+function catch {
+    log_fail "Failed to installation"
 }
 
-log_pass "Starting the installation..."
-prepare
-if ! is_circleci; then
-    brew install ${fomuras[@]}
-fi
+install_brew() {
+    if has "brew"; then
+        log_info "Homebrew is already installed."
+        return
+    elif is_linux; then
+        log_info "work in progress for linux"
+        return
+    fi
+    log_info "Installing Homebrew..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    log_pass "Installation complete Homebrew!"
+}
 
-# Set DOTPATH as default variable
-if [ -z "${DOTPATH:-}" ]; then
-    DOTPATH=~/.dotfiles; export DOTPATH
-fi
-if [ -d "$DOTPATH" ]; then
-    log_fail "$DOTPATH: already exists"
-    exit 1
-fi
+install_zsh_by_brew() {
+    if ! brew list | grep zsh &> /dev/null; then
+        log_info "Installing zsh..."
+        brew install zsh zsh-completions
+        log_pass "Installation complete zsh!"
+        sudo sh -c 'echo $(brew --prefix)/bin/zsh >> /etc/shells'
+        chsh -s $(brew --prefix)/bin/zsh
+    else
+        log_info "zsh is already installed."
+    fi
+}
+
+install_brew_packages() {
+    local fomuras=( ghq tree direnv anyenv wget htop tmux fzf tig jq )
+    log_info "Installing brew packages..."
+    for fomura in ${fomuras[@]}; do
+        if ! brew list | grep $fomura &> /dev/null; then
+            log_info "Installing ${fomura}..."
+            brew install ${fomura}
+        else
+            log_warn "${fomura} is already installed."
+        fi
+    done
+    log_pass "Installation complete brew packages."
+}
+
+log_info "dotfiles start..."
+install_brew
+install_zsh_by_brew
+install_brew_packages
 log_pass "dotfiles ok."

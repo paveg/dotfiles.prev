@@ -23,4 +23,3 @@ docker.base.build: ## Build base docker image
 docker.base.push: ## Push base docker image
 	@echo "push to $(BASE_IMAGE_NAME):$(VERSION_TAG)"
 	@docker push $(BASE_IMAGE_NAME):$(VERSION_TAG)
-
