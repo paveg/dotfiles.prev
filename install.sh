@@ -3,7 +3,7 @@ set -e
 export PLATFORM
 source ./lib/utilities.sh
 
-fomuras=("zsh" "cmake" "anyenv" "wget" "htop" "tmux" "fzf" "tig" "jq")
+fomuras=("zsh" "anyenv" "wget" "htop" "tmux" "fzf" "tig" "jq")
 
 # install Homebrew
 prepare() {
@@ -14,7 +14,7 @@ prepare() {
     if is_osx; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     elif is_linux; then
-        sudo apt-get update && sudo apt-get install -y --no-install-recommends build-essential ca-certificates curl file git gcc g++
+        sudo apt-get update && sudo apt-get install -y --no-install-recommends build-essential ca-certificates curl file git gcc
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
         echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
         source ~/.profile
