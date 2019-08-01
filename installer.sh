@@ -58,10 +58,6 @@ install_brew_packages() {
 
 install_brew_cask_packages() {
   log_info "Installing brew cask packages..."
-  if is_debug; then
-    log_info "Debugging now..."
-    return
-  fi
   if is_osx; then
     export HOMEBREW_CASK_OPTS="--appdir=/Applications"
     for package in ${CASK_PACKAGES[@]}; do
