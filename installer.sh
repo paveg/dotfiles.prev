@@ -89,6 +89,4 @@ if [ -z "${DOTPATH:-}" ]; then
     DOTPATH=~/.dotfiles; export DOTPATH
 fi
 
-. .zsh.d/.zshenv
-
 log_pass "dotfiles ok."
