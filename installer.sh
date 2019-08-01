@@ -43,7 +43,7 @@ install_zsh_by_brew() {
 }
 
 install_brew_packages() {
-    local fomuras=( ghq tree direnv anyenv wget htop tmux fzf tig jq )
+    local fomuras=( docker ghq tree direnv anyenv wget htop tmux fzf tig jq )
     log_info "Installing brew packages..."
     for fomura in ${fomuras[@]}; do
         if ! brew list | grep $fomura &> /dev/null; then
@@ -56,9 +56,28 @@ install_brew_packages() {
     log_pass "Installation complete brew packages."
 }
 
+install_brew_cask_packages() {
+  log_info "Installing brew cask packages..."
+  local packages=( alfred clipy keycastr shiftit spotify google-japanese-ime docker )
+  if is_osx; then
+    for package in ${packages[@]}; do
+      if ! brew cask list | grep $package &> /dev/null; then
+        log_info "Installing ${package}..."
+        brew cask install ${package}
+      else
+        log_warn "${package} is already installed."
+      fi
+    done
+  else
+    log_info "current os is not MacOS."
+  fi
+  log_pass "Installation complete brew cask."
+}
+
 log_info "dotfiles start..."
 install_brew
 reconfigure_brew
 install_zsh_by_brew
 install_brew_packages
+install_brew_cask_packages
 log_pass "dotfiles ok."
