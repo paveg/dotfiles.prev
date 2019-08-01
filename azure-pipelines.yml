@@ -1,8 +1,8 @@
-resources:
-  containers:
-    - container: dev
-      image: paveg/dot-ubuntu-base:latest
-      options: --user 0:0
+# resources:
+#   containers:
+#     - container: dev
+#       image: paveg/dot-ubuntu-base:latest
+#       options: --user 0:0
 jobs:
   - job: macOS
     pool:
