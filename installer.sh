@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 export PLATFORM
-source ./lib/utilities.sh
-source ./lib/package_list.sh
+. lib/utilities.sh
+. lib/package_list.sh
 
 trap catch ERR
 
@@ -15,6 +15,9 @@ reconfigure_brew() {
   brew cleanup
   brew update
   brew tap --repair
+  if is_linux; then
+    git -C "/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core" remote set-url origin https://github.com/Homebrew/linuxbrew-core.git
+  fi
   log_pass "configuration complete!"
 }
 
@@ -34,9 +37,9 @@ install_brew() {
 install_zsh_by_brew() {
     if ! brew list | grep zsh &> /dev/null; then
         log_info "Installing zsh..."
-        brew install zsh zsh-completions
+        brew install zsh zsh-completions zplug
         log_pass "Installation complete zsh!"
-        sudo sh -c 'echo $(brew --prefix)/bin/zsh >> /etc/shells'
+        echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells
         echo -ne '\n' | sudo chsh -s $(brew --prefix)/bin/zsh
     else
         log_info "zsh is already installed."
@@ -80,4 +83,12 @@ reconfigure_brew
 install_zsh_by_brew
 install_brew_packages
 install_brew_cask_packages
+
+# Set DOTPATH as default variable
+if [ -z "${DOTPATH:-}" ]; then
+    DOTPATH=~/.dotfiles; export DOTPATH
+fi
+
+. .zsh.d/.zshenv
+
 log_pass "dotfiles ok."
