@@ -1,7 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 export PLATFORM
-source ./lib/utilities.sh
+. lib/utilities.sh
+. lib/package_list.sh
 
 trap catch ERR
 
@@ -14,6 +15,9 @@ reconfigure_brew() {
   brew cleanup
   brew update
   brew tap --repair
+  if is_linux; then
+    git -C "/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core" remote set-url origin https://github.com/Homebrew/linuxbrew-core.git
+  fi
   log_pass "configuration complete!"
 }
 
@@ -33,9 +37,9 @@ install_brew() {
 install_zsh_by_brew() {
     if ! brew list | grep zsh &> /dev/null; then
         log_info "Installing zsh..."
-        brew install zsh zsh-completions
+        brew install zsh zsh-completions zplug
         log_pass "Installation complete zsh!"
-        sudo sh -c 'echo $(brew --prefix)/bin/zsh >> /etc/shells'
+        echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells
         echo -ne '\n' | sudo chsh -s $(brew --prefix)/bin/zsh
     else
         log_info "zsh is already installed."
@@ -43,9 +47,8 @@ install_zsh_by_brew() {
 }
 
 install_brew_packages() {
-    local fomuras=( ghq tree direnv anyenv wget htop tmux fzf tig jq )
     log_info "Installing brew packages..."
-    for fomura in ${fomuras[@]}; do
+    for fomura in ${FOMURAS[@]}; do
         if ! brew list | grep $fomura &> /dev/null; then
             log_info "Installing ${fomura}..."
             brew install ${fomura}
@@ -56,9 +59,36 @@ install_brew_packages() {
     log_pass "Installation complete brew packages."
 }
 
+install_brew_cask_packages() {
+  log_info "Installing brew cask packages..."
+  if is_osx; then
+    export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+    for package in ${CASK_PACKAGES[@]}; do
+      if ! brew cask list | grep $package &> /dev/null; then
+        log_info "Installing ${package}..."
+        brew cask install ${package}
+      else
+        log_warn "${package} is already installed."
+      fi
+    done
+  else
+    log_info "current os is not MacOS."
+  fi
+  log_pass "Installation complete brew cask."
+}
+
 log_info "dotfiles start..."
 install_brew
 reconfigure_brew
 install_zsh_by_brew
 install_brew_packages
+install_brew_cask_packages
+
+# Set DOTPATH as default variable
+if [ -z "${DOTPATH:-}" ]; then
+    DOTPATH=~/.dotfiles; export DOTPATH
+fi
+
+. .zsh.d/.zshenv
+
 log_pass "dotfiles ok."
