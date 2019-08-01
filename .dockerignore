@@ -1,0 +1,4 @@
+.idea
+.envrc
+azure-pipelines.yml
+.circleci/config.yml
