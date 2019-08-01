@@ -10,14 +10,11 @@ function catch {
 }
 
 reconfigure_brew() {
-  if is_linux; then
-    log_info "Reconfigure Homebrew for linux..."
-    brew cleanup
-    brew update
-    brew tap --repair
-  else
-    log_info "Skip to reconfigure brew!"
-  fi
+  log_info "Reconfigure Homebrew..."
+  brew cleanup
+  brew update
+  brew tap --repair
+  log_pass "configuration complete!"
 }
 
 install_brew() {
