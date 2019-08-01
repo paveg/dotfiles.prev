@@ -9,6 +9,14 @@ function catch {
     log_fail "Failed to installation"
 }
 
+reconfigure_brew() {
+  log_info "Reconfigure Homebrew..."
+  brew cleanup
+  brew update
+  brew tap --repair
+  log_pass "configuration complete!"
+}
+
 install_brew() {
     if has "brew"; then
         log_info "Homebrew is already installed."
@@ -50,6 +58,7 @@ install_brew_packages() {
 
 log_info "dotfiles start..."
 install_brew
+reconfigure_brew
 install_zsh_by_brew
 install_brew_packages
 log_pass "dotfiles ok."

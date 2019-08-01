@@ -5,7 +5,7 @@ executors:
   xenials:
     <<: *default
     docker:
-      - image: paveg/dot-ubuntu-base:latest
+      - image: linuxbrew/linuxbrew:latest
         environment:
           LANG: en_US.UTF-8
           LC_ALL: en_US.UTF-8
@@ -16,8 +16,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: prepare
+          command: sudo apt-get update && sudo apt-get install -y curl git
+      - run:
           name: install dotfiles
-          command: ./installer.sh
+          command: make install
 workflows:
   version: 2
   test:
