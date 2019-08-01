@@ -12,11 +12,12 @@ install: ## Install dotfiles
 	./installer.sh
 
 docker.build: ## Build docker image
-	@docker build -t ${APP_NAME}:${TAG} .
+	@docker build -t $(APP_NAME):$(VERSION_TAG) .
 
 docker.run: ## Run on docker
-	@docker run -it --rm ${APP_NAME}:${TAG} zsh
+	@docker run -it --rm $(APP_NAME):$(VERSION_TAG) zsh
 
 docker.push: ## Push docker image
-	@echo "push to ${DOCKERHUB_NAME}/$(APP_NAME):$(VERSION_TAG)"
-	@docker push $(APP_NAME):$(VERSION_TAG)
+	@echo "push to $(DOCKERHUB_NAME)/$(APP_NAME):$(VERSION_TAG)"
+	@docker tag $(APP_NAME):$(VERSION_TAG) $(DOCKERHUB_NAME)/$(APP_NAME):$(VERSION_TAG)
+	@docker push  $(DOCKERHUB_NAME)/$(APP_NAME)
