@@ -2,6 +2,7 @@
 set -euo pipefail
 export PLATFORM
 source ./lib/utilities.sh
+source ./lib/package_list.sh
 
 trap catch ERR
 
@@ -43,9 +44,8 @@ install_zsh_by_brew() {
 }
 
 install_brew_packages() {
-    local fomuras=( docker ghq tree direnv anyenv wget htop tmux fzf tig jq )
     log_info "Installing brew packages..."
-    for fomura in ${fomuras[@]}; do
+    for fomura in ${FOMURAS[@]}; do
         if ! brew list | grep $fomura &> /dev/null; then
             log_info "Installing ${fomura}..."
             brew install ${fomura}
@@ -58,9 +58,13 @@ install_brew_packages() {
 
 install_brew_cask_packages() {
   log_info "Installing brew cask packages..."
-  local packages=( alfred clipy keycastr shiftit spotify google-japanese-ime docker )
+  if is_debug; then
+    log_info "Debugging now..."
+    return
+  fi
   if is_osx; then
-    for package in ${packages[@]}; do
+    export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+    for package in ${CASK_PACKAGES[@]}; do
       if ! brew cask list | grep $package &> /dev/null; then
         log_info "Installing ${package}..."
         brew cask install ${package}
