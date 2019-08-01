@@ -17,7 +17,7 @@ jobs:
       - checkout
       - run:
           name: prepare
-          command: sudo apt-get update && sudo apt-get install -y curl git
+          command: sudo apt-get update && sudo apt-get install -y curl git bison
       - run:
           name: install dotfiles
           command: make install
