@@ -19,13 +19,8 @@ jobs:
           name: prepare
           command: sudo apt-get update && sudo apt-get install -y curl git
       - run:
-          name: clone repository
-          command: git clone https://github.com/paveg/dotfiles
-      - run:
           name: install dotfiles
-          command: |
-            cd dotfiles
-            ./installer.sh
+          command: make install
 workflows:
   version: 2
   test:
