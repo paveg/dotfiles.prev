@@ -1,5 +1,13 @@
 # dotfiles
 
+[![CircleCI](https://circleci.com/gh/paveg/dotfiles.svg?style=svg&circle-token=8450388e746829bdec04897f4153e91b085b3a9e)][circleci]
+![Build Status][azure]
+[![DockerHub](https://images.microbadger.com/badges/version/paveg/dotfiles.svg)][dockerhub]
+
+[azure]: https://dev.azure.com/pavegy/pavegy/_apis/build/status/paveg.dotfiles?branchName=master
+[circleci]: https://circleci.com/gh/paveg/dotfiles
+[dockerhub]: https://microbadger.com/images/paveg/dotfiles
+
 ## Prepare
 
 ### linux
