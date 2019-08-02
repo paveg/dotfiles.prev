@@ -28,6 +28,7 @@ umask 022
 if [ -z "${ZPLUG_LOADFILE:-}" ]; then
   export ZPLUG_LOADFILE=$ZDOTDIR/utils/zplug.zsh
 fi
-load $ZPLUG_LOADFILE
 
+load $ZPLUG_LOADFILE
 load $ZDOTDIR/utils/env.zsh
+load
