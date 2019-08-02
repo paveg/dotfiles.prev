@@ -9,6 +9,6 @@
 ## Installation
 
 ```bash
-$ git clone https://github.com/paveg/dotfiles $HOME
+$ git clone https://github.com/paveg/dotfiles $HOME/dotfiles
 $ cd dotfiles && make install
 ```

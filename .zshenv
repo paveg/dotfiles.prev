@@ -3,7 +3,7 @@ setopt no_global_rcs
 
 # Set dotfiles root directory as default variable
 if [ -z "${DOTPATH:-}" ]; then\
-    DOTPATH=$HOME/dotfiles; export DOTPATH;\
+  export DOTPATH=$HOME/dotfiles
 fi
 
 export ZDOTDIR=$DOTPATH/.zsh.d
