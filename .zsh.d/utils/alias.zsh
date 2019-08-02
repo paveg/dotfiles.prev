@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # alias utilities
 
 # when exa exists
