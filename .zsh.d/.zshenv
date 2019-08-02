@@ -13,7 +13,9 @@ if [ -z "${DOTPATH:-}" ]; then
 fi
 
 # zsh core packages
-export ZPLUG_HOME=$HOME/.zplug
+if [ -z "${ZPLUG_HOME:-}" ]; then
+  ZPLUG_HOME=$HOME/.zplug; export ZPLUG_HOME
+fi
 
 # XDG Base Directory Specification
 # @see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html

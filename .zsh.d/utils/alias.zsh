@@ -28,7 +28,6 @@ fi
 
 # when hub exists
 if (( $+commands[hub] )); then
-  alias git="hub"
   alias g="hub"
 fi
 

@@ -41,6 +41,9 @@ install_zsh_by_brew() {
         log_pass "Installation complete zsh!"
         echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells
         echo -ne '\n' | sudo chsh -s $(brew --prefix)/bin/zsh
+        if [ -z "${ZPLUG_HOME:-}" ]; then
+          ZPLUG_HOME=$HOME/.zplug; export ZPLUG_HOME
+        fi
     else
         log_info "zsh is already installed."
     fi
@@ -83,6 +86,9 @@ reconfigure_brew
 install_zsh_by_brew
 install_brew_packages
 install_brew_cask_packages
+
+# zplug clone
+git clone https://github.com/zplug/zplug $ZPLUG_HOME
 
 # Set DOTPATH as default variable
 if [ -z "${DOTPATH:-}" ]; then
