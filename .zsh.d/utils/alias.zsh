@@ -7,7 +7,7 @@ if (($+commands[exa])); then
   alias ls="exa -F"
   alias ll="exa -hlBFS"
   alias ld="exa -ld"
-  alias la="exa -AF"
+  alias la="exa -aF"
 else
   alias ls="ls -F"
   alias ll="ls -hlS"
@@ -29,6 +29,7 @@ fi
 # when hub exists
 if (($+commands[hub])); then
   alias g="hub"
+  alias hb="hub browse"
 fi
 
 # when htop exists
@@ -75,3 +76,10 @@ alias be="bundle exec"
 alias zshenv='vi $ZDOTDIR/.zshenv'
 alias zprofile='vi $ZDOTDIR/.zprofile'
 alias zshrc='vi $ZDOTDIR/.zshrc'
+alias zalias='vi $ZDOTDIR/utils/alias.zsh'
+alias zcore='vi $ZDOTDIR/utils/core.zsh'
+alias zfunction='vi $ZDOTDIR/utils/function.zsh'
+alias zenv='vi $ZDOTDIR/utils/env.zsh'
+
+# anyenv's python
+alias brew="env PATH=${PATH/${ANYENV_ROOT}/envs\/pyenv\/shims:?/} brew"
