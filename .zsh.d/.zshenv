@@ -7,14 +7,12 @@ export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
-# Set dotfiles root directory as default variable
-if [ -z "${DOTPATH:-}" ]; then
-  DOTPATH=$HOME/.dotfiles; export DOTPATH
-fi
+# load utilities
+. $DOTPATH/lib/utilities.sh
 
 # zsh core packages
 if [ -z "${ZPLUG_HOME:-}" ]; then
-  ZPLUG_HOME=$HOME/.zplug; export ZPLUG_HOME
+    ZPLUG_HOME=$HOME/.zplug; export ZPLUG_HOME
 fi
 
 # XDG Base Directory Specification
@@ -32,4 +30,3 @@ export ANYENV_ROOT=$HOME/.anyenv
 
 # Helm
 export HELM_HOME=$HOME/.helm
-
