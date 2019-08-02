@@ -4,6 +4,11 @@
   type direnv > /dev/null && eval "$(direnv hook zsh)"
 }
 
+# Install anyenv-install
+if [[ ! -e $XDG_CONFIG_HOME/anyenv/anyenv-install ]]; then
+  anyenv install --init
+fi
+
 # anyenv
 
 if [ -d $ANYENV_ROOT ]; then

@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-. $ZPLUG_HOME/init.zsh
-
 # zplug integrations
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 

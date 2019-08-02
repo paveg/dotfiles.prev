@@ -17,6 +17,9 @@ export BREW_PREFIX=$(brew --prefix)
 if [ -z "${ZPLUG_HOME:-}" ]; then
   export ZPLUG_HOME=$HOME/.zplug
 fi
+if [ -z "${ZPLUG_LOADFILE:-}" ]; then
+  export ZPLUG_LOADFILE=$ZDOTDIR/utils/zplug.zsh
+fi
 
 # XDG Base Directory Specification
 # @see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
