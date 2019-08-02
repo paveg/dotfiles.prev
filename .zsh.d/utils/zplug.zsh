@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # zplug integrations
-zplug "zplug/zplug", hook-build:'zplug --self-manage'
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # pure theme
 zplug "mafredri/zsh-async", from:github
@@ -11,15 +11,18 @@ zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "glidenote/hub-zsh-completion"
-zplug 'Valodim/zsh-curl-completion'
+zplug "Valodim/zsh-curl-completion"
 
 # enhance change directory
 zplug "b4b4r07/enhancd", use:"enhancd.sh"
 zplug "mollifier/cd-gitroot"
+zplug "paulirish/git-open", as:plugin
 
 # fzf with gomi
-zplug "junegunn/fzf-bin", as:command, from:"gh-r", rename-to:"fzf", frozen:1
+zplug "junegunn/fzf-bin", as:command, from:"gh-r", rename-to:"fzf"
 zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
+zplug "junegunn/fzf", use:"shell/key-bindings.zsh"
+zplug "junegunn/fzf", use:"shell/completion.zsh"
 zplug "b4b4r07/zsh-gomi", as:command, use:"bin/gomi", on:"junegunn/fzf-bin"
 
 # peco
