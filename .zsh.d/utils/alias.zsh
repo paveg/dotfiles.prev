@@ -29,6 +29,7 @@ fi
 # when hub exists
 if (($+commands[hub])); then
   alias g="hub"
+  alias hb="hub browse"
 fi
 
 # when htop exists
@@ -77,3 +78,5 @@ alias zprofile='vi $ZDOTDIR/.zprofile'
 alias zshrc='vi $ZDOTDIR/.zshrc'
 alias zalias='vi $ZDOTDIR/utils/alias.zsh'
 alias zcore='vi $ZDOTDIR/utils/core.zsh'
+alias zfunction='vi $ZDOTDIR/utils/function.zsh'
+alias zenv='vi $ZDOTDIR/utils/env.zsh'
