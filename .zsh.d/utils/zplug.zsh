@@ -32,7 +32,15 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # emoji
 zplug "b4b4r07/emoji-cli", if:"which jq"
 
-if [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/utils/zplug.zsh ] || [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/.zshrc ]; then
+need_update() {
+  if [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/utils/zplug.zsh ] || [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/.zshrc ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+if need_update; then
   touch $ZPLUG_HOME/check.zplug
   if [[ -f $ZPLUG_HOME/init.zsh ]]; then
     if ! zplug check --verbose; then
