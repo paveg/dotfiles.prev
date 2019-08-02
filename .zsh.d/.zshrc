@@ -21,6 +21,7 @@ umask 022
   setopt hist_verify
 }
 
+. $ZPLUG_HOME/init.zsh
 . $ZDOTDIR/utils/core.zsh # enable load function
 
 # check only once for zplug.
@@ -29,6 +30,4 @@ if [ -z "${ZPLUG_LOADFILE:-}" ]; then
 fi
 load $ZPLUG_LOADFILE
 
-: "direnv" && {
-  type direnv > /dev/null && eval "$(direnv hook zsh)"
-}
+load $ZDOTDIR/utils/env.zsh
