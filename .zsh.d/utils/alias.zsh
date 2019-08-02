@@ -75,3 +75,5 @@ alias be="bundle exec"
 alias zshenv='vi $ZDOTDIR/.zshenv'
 alias zprofile='vi $ZDOTDIR/.zprofile'
 alias zshrc='vi $ZDOTDIR/.zshrc'
+alias zalias='vi $ZDOTDIR/utils/alias.zsh'
+alias zcore='vi $ZDOTDIR/utils/core.zsh'
