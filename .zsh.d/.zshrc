@@ -21,14 +21,13 @@ umask 022
   setopt hist_verify
 }
 
-. $ZPLUG_HOME/init.zsh
 . $ZDOTDIR/utils/core.zsh # enable load function
 
 # check only once for zplug.
-if [ "$ZPLUG_LOADFILE" != "$ZDOTDIR/utils/zplug.zsh" ]; then
+if [ -z "${ZPLUG_LOADFILE:-}" ]; then
   export ZPLUG_LOADFILE=$ZDOTDIR/utils/zplug.zsh
-  load $ZPLUG_LOADFILE
 fi
+load $ZPLUG_LOADFILE
 
 : "direnv" && {
   type direnv > /dev/null && eval "$(direnv hook zsh)"
