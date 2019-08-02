@@ -71,3 +71,7 @@ alias mkdir="mkdir -p"
 # Ruby alias
 alias be="bundle exec"
 
+# zsh alias
+alias zshenv='vi $ZDOTDIR/.zshenv'
+alias zprofile='vi $ZDOTDIR/.zprofile'
+alias zshrc='vi $ZDOTDIR/.zshrc'

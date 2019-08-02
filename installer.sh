@@ -90,9 +90,4 @@ install_brew_cask_packages
 # zplug clone
 git clone https://github.com/zplug/zplug $ZPLUG_HOME
 
-# Set DOTPATH as default variable
-if [ -z "${DOTPATH:-}" ]; then
-    DOTPATH=~/.dotfiles; export DOTPATH
-fi
-
 log_pass "dotfiles ok."

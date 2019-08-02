@@ -6,5 +6,5 @@ declare -ax FOMURAS=(
 )
 declare -ax CASK_PACKAGES=(
     alfred clipy keycastr shiftit spotify google-japanese-ime docker karabiner-elements dropbox google-chrome \
-    kindle iterm2 slack jetbrains-toolbox
+    kindle iterm2 slack jetbrains-toolbox 1password
 )

@@ -11,7 +11,6 @@ load() {
   lib=${1:?"You have to specify a library file."}
   if [[ -f "$lib" ]]; then
     zcompare $lib
-    source $lib
+    . $lib
   fi
 }
-
