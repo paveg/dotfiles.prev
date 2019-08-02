@@ -93,6 +93,10 @@ install_brew_cask_packages
 git clone https://github.com/zplug/zplug $ZPLUG_HOME
 
 log_pass "welcome to zsh!"
-ln -sf $DOTPATH/.zshenv $HOME/.zshenv
+
+if [ -z "${DOTPATH:-}" ]; then
+  DOTPATH=$HOME/dotfiles; export DOTPATH
+  ln -sf $DOTPATH/.zshenv $HOME/.zshenv
+fi
 
 log_pass "dotfiles ok."

@@ -1,20 +1,14 @@
-.PHONY: help pre.install install docker.build docker.run docker.push
+.PHONY: help install docker.build docker.run docker.push
 
 .DEFAULT_GOAL := help
 DOCKERHUB_NAME := paveg
 APP_NAME := dotfiles
 VERSION_TAG := latest
-REPOSITORY_URL := https://github.com/paveg/dotfiles
 
 help: ## Show options
 	@grep -E '^[a-zA-Z_-{\.}]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
-pre.install: ## pre install, setup tools
-	@if [ -z "${DOTPATH:-}" ]; then\
-		DOTPATH=$HOME/dotfiles; export DOTPATH;\
-	fi
-
-install: pre.install ## Install dotfiles
+install: ## Install dotfiles
 	./installer.sh
 
 docker.build: ## Build docker image
