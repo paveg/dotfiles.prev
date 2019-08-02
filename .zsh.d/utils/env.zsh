@@ -6,11 +6,16 @@
 
 # Install anyenv-install
 if [[ ! -e $XDG_CONFIG_HOME/anyenv/anyenv-install ]]; then
-  anyenv install --init
+  echo -ne '\n' | anyenv install --init
+fi
+
+# Install anyenv update command
+if [[ ! -e $ANYENV_ROOT/plugins/anyenv-update ]]; then
+  mkdir -p $ANYENV_ROOT/plugins
+  git clone https://github.com/znz/anyenv-update.git $ANYENV_ROOT/plugins/anyenv-update
 fi
 
 # anyenv
-
 if [ -d $ANYENV_ROOT ]; then
   export PATH=$ANYENV_ROOT/bin:$PATH
   for D in `command ls $ANYENV_ROOT/envs`
@@ -21,7 +26,7 @@ fi
 
 # lazy load anyenv
 # Due to this, when you install global command (ex. npm i --global) you need to
-# eval "$(anyenv init -)" to validaty
+# eval "$(anyenv init -)" to validity
 function anyenv_init() {
   eval "$(anyenv init -)"
 }
@@ -84,4 +89,3 @@ function scalaenv() {
   anyenv_init
   scalaenv "$@"
 }
-
