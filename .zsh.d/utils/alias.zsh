@@ -3,7 +3,7 @@
 # alias utilities
 
 # when exa exists
-if (( $+commands[exa] )); then
+if (($+commands[exa])); then
   alias ls="exa -F"
   alias ll="exa -hlBFS"
   alias ld="exa -ld"
@@ -16,28 +16,28 @@ else
 fi
 
 # when bat exists
-if (( $+commands[bat] )); then
+if (($+commands[bat])); then
   alias cat=bat
 fi
 
 # when nvim exists
-if (( $+commands[nvim] )); then
+if (($+commands[nvim])); then
   alias vi="nvim"
   alias vim="nvim"
 fi
 
 # when hub exists
-if (( $+commands[hub] )); then
+if (($+commands[hub])); then
   alias g="hub"
 fi
 
 # when htop exists
-if (( $+commands[htop] )); then
+if (($+commands[htop])); then
   alias top="htop"
 fi
 
 # when kubectl exists
-if (( $+commands[kubectl] )); then
+if (($+commands[kubectl])); then
   alias k="kubectl"
   alias kc="kubectl config current-context"
   alias ku="kubectl config use-context"
@@ -45,7 +45,7 @@ if (( $+commands[kubectl] )); then
 fi
 
 # when onelogin-aws-login exists
-if (( $+commands[onelogin-aws-login] )) && [ -n "$ONELOGIN_AWS_MAIL" ]; then
+if (($+commands[onelogin-aws-login])) && [ -n "$ONELOGIN_AWS_MAIL" ]; then
   local usermail="${ONELOGIN_AWS_MAIL}"
   alias ol="onelogin-aws-login -u ${usermail}"
 else
@@ -53,7 +53,7 @@ else
 fi
 
 # when remake exists
-if (( $+commands[remake] )); then
+if (($+commands[remake])); then
   alias make="remake"
 fi
 

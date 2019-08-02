@@ -7,7 +7,8 @@ RUN sudo apt-get update && sudo apt-get install -y bison tzdata && \
   sudo update-locale LANG=ja_JP.UTF-8 && \
   sudo ln -sf /usr/share/zoneinfo/Azia/Tokyo /etc/localtime
 
-COPY . .
-RUN make install
+RUN mkdir -p dotfiles
+COPY . ./dotfiles
+RUN cd dotfiles && make install
 
 CMD ["zsh"]
