@@ -1,4 +1,4 @@
-.PHONY: help install
+.PHONY: help install docker.build docker.run docker.push
 
 .DEFAULT_GOAL := help
 DOCKERHUB_NAME := paveg
