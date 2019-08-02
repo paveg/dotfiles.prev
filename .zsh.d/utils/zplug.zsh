@@ -5,7 +5,7 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # pure theme
 zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme
+zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme && export PURE_PROMPT_SYMBOL="❯❯❯"
 
 # completion
 zplug "zsh-users/zsh-completions"
@@ -53,6 +53,7 @@ if need_update; then
         zplug install
       fi
     fi
-    zplug load --verbose
   fi
 fi
+
+zplug load
