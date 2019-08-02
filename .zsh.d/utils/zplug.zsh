@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+. $ZPLUG_HOME/init.zsh
+
 # zplug integrations
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
@@ -43,9 +45,9 @@ need_update() {
   fi
 }
 
-if need_update; then
-  touch $ZPLUG_HOME/check.zplug
-  if [[ -f $ZPLUG_HOME/init.zsh ]]; then
+if [[ -f $ZPLUG_HOME/init.zsh ]]; then
+  if need_update; then
+    touch $ZPLUG_HOME/check.zplug
     if ! zplug check --verbose; then
       printf "Install? [y/N]: "
       if read -q; then
@@ -54,6 +56,5 @@ if need_update; then
       fi
     fi
   fi
+  zplug load
 fi
-
-zplug load
