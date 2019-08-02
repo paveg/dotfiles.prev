@@ -23,12 +23,6 @@ umask 022
 
 . $ZPLUG_HOME/init.zsh
 . $ZDOTDIR/utils/core.zsh # enable load function
-
-# check only once for zplug.
-if [ -z "${ZPLUG_LOADFILE:-}" ]; then
-  export ZPLUG_LOADFILE=$ZDOTDIR/utils/zplug.zsh
-fi
-
 load $ZPLUG_LOADFILE
 load $ZDOTDIR/utils/env.zsh
-load
+load $ZDOTDIR/utils/function.zsh
