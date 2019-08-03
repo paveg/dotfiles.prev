@@ -1,3 +1,17 @@
+filetype plugin indent off
+
+" able to control mouse
+set mouse=a
+
+" use true colors on terminal
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set clipboard+=unnamedplus
+set title
+set number
+
 " reset augroup
 augroup MyAutoCmd
   autocmd!
@@ -16,3 +30,6 @@ function! s:load(file) abort
 endfunction
 
 call s:load('plugins')
+
+filetype plugin indent on
+
