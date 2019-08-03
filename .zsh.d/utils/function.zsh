@@ -1,11 +1,12 @@
 #!/bin/zsh
 
 fbr() {
-  local branches branch
-  branches=$(git branch -vv) &&
-  branch=$(echo "$branches" | fzf --ansi --reverse +m) &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-  echo
+  local branches=$(git branch -vv | fzf --ansi --reverse --query "$LBUFFER")
+  if [ -n "$branches" ]; then
+    BUFFER="git checkout $(echo "$branches" | awk '{print $1}' | sed "s/.* //")"
+    zle accept-line
+  fi
+  zle clear-screen
 }
 zle -N fbr
 
