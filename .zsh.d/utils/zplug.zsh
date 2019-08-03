@@ -6,7 +6,7 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 # pure theme
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme &&
- export PURE_PROMPT_SYMBOL="%{$fg[green]%}${HOST} %{$fg[red]%}❯❯❯"
+  export PURE_PROMPT_SYMBOL="%{$fg[green]%}pav@${HOST} %{$fg[red]%}❯❯❯"
 
 # completion
 zplug "zsh-users/zsh-completions"
