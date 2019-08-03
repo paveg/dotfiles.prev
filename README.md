@@ -42,7 +42,8 @@ $ cd dotfiles && make install
 ### Directory
 
 ```
-❯ tree -aL 3 --dirsfirst -I '.git|.idea' .
+~/dotfiles 1s
+host ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc' .
 .
 ├── .circleci
 │   └── config.yml
@@ -52,23 +53,34 @@ $ cd dotfiles && make install
 │   │   ├── core.zsh     # Define core zsh configrtion
 │   │   ├── env.zsh      # Define environment
 │   │   ├── function.zsh # Define convenient function
-│   │   └── zplug.zsh    # for zplug
-│   ├── .zprofile        # source only once library at startup terminal
-│   ├── .zshenv          # actual zsh environment
-│   └── .zshrc           # normal zshrc; defined common zsh configuraton
+│   │   ├── keybind.zsh
+│   │   └── zplug.zsh    # For zplug
+│   ├── .zprofile        # Source only once library at startup terminal
+│   ├── .zshenv          # Actual zsh environment
+│   └── .zshrc           # Normal zshrc; defined common zsh configuraton
+├── etc
+│   ├── init_vim         # Init nvim shellscript
+│   └── installer        # Installer dotfiles
 ├── lib
-│   ├── package_list.sh  # brew an brew cask packages list
-│   └── utilities.sh     # utility bash shell functions
+│   ├── package_list.sh  # Brew an brew cask packages list
+│   └── utilities.sh     # Utility bash shell functions
+├── nvim
+│   ├── dein
+│   │   ├── lazy.toml    # Lazy load plugins
+│   │   ├── plugins.toml # Dein plugins
+│   │   └── python.toml  # Python plugins
+│   ├── rc
+│   │   └── plugins.vim  # Init plugins
+│   └── init.vim         # Init.vim, a.k.a .vimrc
 ├── .dockerignore
-├── .envrc
+├── .gitconfig           # Global gitconfig, linked $XDG_CONFIG_HOME/git/config
 ├── .gitignore
 ├── .zshenv              # Invite you to zsh
 ├── Dockerfile
 ├── LICENSE
 ├── Makefile
 ├── README.md
-├── azure-pipelines.yml
-└── installer.sh         # Install this dotfile
+└── azure-pipelines.yml
 ```
 
 ## Continuous Integration
