@@ -1,4 +1,4 @@
-.PHONY: help install docker.build docker.run docker.push
+.PHONY: help install docker.build docker.run docker.push init.envs
 
 .DEFAULT_GOAL := help
 DOCKERHUB_NAME := paveg
@@ -21,3 +21,9 @@ docker.push: ## Push docker image
 	@echo "push to $(DOCKERHUB_NAME)/$(APP_NAME):$(VERSION_TAG)"
 	@docker tag $(APP_NAME):$(VERSION_TAG) $(DOCKERHUB_NAME)/$(APP_NAME):$(VERSION_TAG)
 	@docker push  $(DOCKERHUB_NAME)/$(APP_NAME)
+
+init.envs: ## Install anyenvs, please execute after `anyenv install --init`
+	@for ev in rbenv goenv nodenv pyenv sbtenv scalaenv tfenv; do\
+		echo -ne '\n' | anyenv install $$ev;\
+	done;\
+	echo "installation completed anyenvs!"
