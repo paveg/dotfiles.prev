@@ -1,3 +1,7 @@
+if [ $ZDOTDIR/.zshrc -nt $ZDOTDIR/.zshrc.zwc ]; then
+  zcompile $ZDOTDIR/.zshrc
+fi
+
 umask 022
 typeset -gx -U path PATH
 
@@ -16,7 +20,7 @@ fpath=(~/.zsh/completion $fpath)
 }
 
 : "common configuration" && {
-  autoload -U compinit && compinit -d $ZPLUG_HOME/zcompdump
+  autoload -Uz compinit; compinit
   zstyle ':completion:*:default' menu select=1
   autoload -Uz colors
   colors
@@ -45,10 +49,16 @@ fpath=(~/.zsh/completion $fpath)
   zstyle ':completion:*:*:docker-*:*' option-stacking yes
 }
 
-. $ZPLUG_HOME/init.zsh
-
+load $ZPLUG_HOME/init.zsh
 load $ZPLUG_LOADFILE
 load $ZDOTDIR/utils/alias.zsh
 load $ZDOTDIR/utils/env.zsh
 load $ZDOTDIR/utils/function.zsh
 load $ZDOTDIR/utils/keybind.zsh
+
+if is_debug ;then
+  if (which zprof > /dev/null) ;then
+    zprof | less
+  fi
+fi
+

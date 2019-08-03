@@ -2,7 +2,7 @@
 
 zcompare() {
   if [[ -s ${1} && (! -s ${1}.zwc || ${1} -nt ${1}.zwc) ]]; then
-    log_info "recompile: ${1}"
+    echo "recompile: ${1}"
     zcompile ${1}
   fi
 }
