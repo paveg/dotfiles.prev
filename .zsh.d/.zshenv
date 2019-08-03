@@ -25,9 +25,11 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 # Homebrew Cask Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Shell configuration
 if is_osx; then
   export SHELL=/usr/local
-elif is_linux
+elif is_linux; then
   export SHELL="$(brew --prefix)/bin/zsh"
 fi
 

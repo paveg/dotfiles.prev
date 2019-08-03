@@ -1,0 +1,35 @@
+[user]
+  name = Ryota Ikezawa
+  email = pavegy@gmail.com
+[color]
+  branch = auto
+  diff = auto
+  grep = auto
+  interactive = auto
+  status = auto
+[core]
+  editor = nvim
+  quotepath = false
+[ghq]
+  root = ~/src
+[credential]
+  helper = osxkeychain
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "nvimdiff"]
+  cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
+[alias]
+  a = add
+  p = pull
+  b = branch
+  s = status
+  bd = branch -d
+  bdf = branch -D
+  ci = commit
+  cl = config --list
+  co = checkout
+  cb = checkout -b
+  ll = log --pretty=oneline
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
