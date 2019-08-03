@@ -2,7 +2,7 @@
 setopt no_global_rcs
 
 # Set dotfiles root directory as default variable
-if [ -z "${DOTPATH:-}" ]; then\
+if [ -z "${DOTPATH:-}" ]; then
   export DOTPATH=$HOME/dotfiles
 fi
 
