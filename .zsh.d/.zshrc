@@ -39,6 +39,8 @@ path=( \
 
 . $ZPLUG_HOME/init.zsh
 . $ZDOTDIR/utils/core.zsh # enable load function
+
 load $ZPLUG_LOADFILE
+load $ZDOTDIR/utils/alias.zsh
 load $ZDOTDIR/utils/env.zsh
 load $ZDOTDIR/utils/function.zsh
