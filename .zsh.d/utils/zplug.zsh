@@ -50,7 +50,7 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
     if ! zplug check --verbose; then
       printf "Install? [y/N]: "
       if read -q; then
-        echo
+        log_info
         zplug install
       fi
     fi
