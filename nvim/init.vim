@@ -22,6 +22,7 @@ set number
 
 " Multi byte character config
 set ambiwidth=double
+
 " Do not make swapfile
 set noswapfile
 
