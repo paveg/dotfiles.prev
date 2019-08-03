@@ -8,6 +8,11 @@
 [circleci]: https://circleci.com/gh/paveg/dotfiles
 [dockerhub]: https://microbadger.com/images/paveg/dotfiles
 
+## Styles
+
+![styles](./examples/styles.png)
+
+
 ## Prepare
 
 ### linux
@@ -41,8 +46,8 @@ $ cd dotfiles && make install
 
 ### Directory
 
-```
-~/dotfiles 1s
+```textmate
+~/dotfiles
 host ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc' .
 .
 ├── .circleci
@@ -50,14 +55,14 @@ host ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc' .
 ├── .zsh.d
 │   ├── utils
 │   │   ├── alias.zsh    # Define the alias you usually use
-│   │   ├── core.zsh     # Define core zsh configrtion
+│   │   ├── core.zsh     # Define core zsh configuration
 │   │   ├── env.zsh      # Define environment
 │   │   ├── function.zsh # Define convenient function
-│   │   ├── keybind.zsh
-│   │   └── zplug.zsh    # For zplug
+│   │   ├── keybind.zsh  # Define zsh key bindings
+│   │   └── zplug.zsh    # Zsh plugin manager configuration
 │   ├── .zprofile        # Source only once library at startup terminal
 │   ├── .zshenv          # Actual zsh environment
-│   └── .zshrc           # Normal zshrc; defined common zsh configuraton
+│   └── .zshrc           # Normal zshrc; defined common zsh configuration
 ├── etc
 │   ├── init_vim         # Init nvim shellscript
 │   └── installer        # Installer dotfiles
