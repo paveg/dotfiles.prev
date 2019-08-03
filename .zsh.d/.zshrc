@@ -8,6 +8,8 @@ path=( \
   "$path[@]" \
 )
 
+fpath=(~/.zsh/completion $fpath)
+
 : "help command configuration" && {
   autoload -Uz run-help
   autoload -Uz run-help-git
@@ -15,6 +17,7 @@ path=( \
 
 : "common configuration" && {
   autoload -U compinit && compinit -d $ZPLUG_HOME/zcompdump
+  zstyle ':completion:*:default' menu select=1
   autoload -Uz colors
   colors
   setopt correct
@@ -35,6 +38,11 @@ path=( \
   setopt hist_no_store
   setopt hist_reduce_blanks
   setopt hist_verify
+}
+
+: "docker completion" && {
+  zstyle ':completion:*:*:docker:*' option-stacking yes
+  zstyle ':completion:*:*:docker-*:*' option-stacking yes
 }
 
 . $ZPLUG_HOME/init.zsh
