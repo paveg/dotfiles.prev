@@ -43,3 +43,4 @@ load $ZPLUG_LOADFILE
 load $ZDOTDIR/utils/alias.zsh
 load $ZDOTDIR/utils/env.zsh
 load $ZDOTDIR/utils/function.zsh
+load $ZDOTDIR/utils/keybind.zsh

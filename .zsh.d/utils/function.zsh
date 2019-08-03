@@ -1,9 +1,5 @@
 #!/bin/zsh
 
-bindkey "^r" fzf-select-history
-bindkey '^]' fzf-src-ghq
-bindkey '^m' ref_enter
-
 fzf-select-history() {
   local tac
   if which tac > /dev/null; then
