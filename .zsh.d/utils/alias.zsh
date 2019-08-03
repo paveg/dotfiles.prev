@@ -80,6 +80,7 @@ alias zalias='vi $ZDOTDIR/utils/alias.zsh'
 alias zcore='vi $ZDOTDIR/utils/core.zsh'
 alias zfunction='vi $ZDOTDIR/utils/function.zsh'
 alias zenv='vi $ZDOTDIR/utils/env.zsh'
+alias ezplug='vi $ZDOTDIR/utils/zplug.zsh'
 
 # anyenv's python
 alias brew="env PATH=${PATH/${ANYENV_ROOT}/envs\/pyenv\/shims:?/} brew"

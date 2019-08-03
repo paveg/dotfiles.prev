@@ -35,7 +35,6 @@ function anyenv_unset() {
   unset -f nodenv
   unset -f rbenv
   unset -f pyenv
-  unset -f plenv
   unset -f tfenv
   unset -f goenv
   unset -f sbtenv
@@ -58,12 +57,6 @@ function pyenv() {
   anyenv_unset
   anyenv_init
   pyenv "$@"
-}
-
-function plenv() {
-  anyenv_unset
-  anyenv_init
-  plenv "$@"
 }
 
 function goenv() {
