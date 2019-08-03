@@ -8,9 +8,27 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+" every launguage paths
+let g:python_host_prog = expand('$PYENV_ROOT/shims/python2')
+let g:python3_host_prog = expand('$PYENV_ROOT/shims/python3')
+let g:ruby_host_prog = expand('$RBENV_ROOT/shims/ruby')
+
 set clipboard+=unnamedplus
 set title
 set number
+" Multi byte character config
+set ambiwidth=double
+" Do not make swapfile
+set noswapfile
+
+set list
+set listchars=tab:>-,trail:*,nbsp:+
+
+set smartindent
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " reset augroup
 augroup MyAutoCmd
