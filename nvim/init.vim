@@ -1,21 +1,25 @@
 filetype plugin indent off
 
-" able to control mouse
+" Able to control mouse
 set mouse=a
 
-" use true colors on terminal
+" Use true colors on terminal
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" every launguage paths
+" Every launguage paths
 let g:python_host_prog = expand('$PYENV_ROOT/shims/python2')
 let g:python3_host_prog = expand('$PYENV_ROOT/shims/python3')
 let g:ruby_host_prog = expand('$RBENV_ROOT/shims/ruby')
 
+" Combine clipboard
 set clipboard+=unnamedplus
+
+" Displays title and line number
 set title
 set number
+
 " Multi byte character config
 set ambiwidth=double
 " Do not make swapfile
@@ -30,7 +34,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-" reset augroup
+" Reset augroup
 augroup MyAutoCmd
   autocmd!
 augroup END
@@ -50,4 +54,4 @@ endfunction
 call s:load('plugins')
 
 filetype plugin indent on
-
+syntax on

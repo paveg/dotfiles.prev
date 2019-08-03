@@ -1,5 +1,13 @@
 #!/bin/zsh
 
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf --ansi --reverse +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+zle -N fbr
+
 fzf-select-history() {
   local tac
   if which tac > /dev/null; then
