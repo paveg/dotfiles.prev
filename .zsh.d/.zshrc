@@ -12,13 +12,29 @@ path=( \
   "$path[@]" \
 )
 
+_zpcompinit_custom() {
+  setopt extendedglob local_options
+  autoload -Uz compinit
+  local zcd=${ZDOTDIR:-$HOME}/.zcompdump
+  local zcdc="$zcd.zwc"
+  # Compile the completion dump to increase startup speed, if dump is newer or doesn't exist,
+  # in the background as this is doesn't affect the current session
+  if [[ -f "$zcd"(#qN.m+1) ]]; then
+    compinit -i -d "$zcd"
+    { rm -f "$zcdc" && zcompile "$zcd" } &!
+  else
+    compinit -C -d "$zcd"
+    { [[ ! -f "$zcdc" || "$zcd" -nt "$zcdc" ]] && rm -f "$zcdc" && zcompile "$zcd" } &!
+  fi
+}
+
 : "help command configuration" && {
   autoload -Uz run-help
   autoload -Uz run-help-git
 }
 
 : "common configuration" && {
-  autoload -Uz compinit; compinit -i
+  _zpcompinit_custom
   zstyle ':completion:*:default' menu select=1
   autoload -Uz colors
   colors
@@ -48,15 +64,13 @@ path=( \
 }
 
 load $ZPLUG_HOME/init.zsh
-load $ZPLUG_LOADFILE
 load $ZDOTDIR/utils/alias.zsh
 load $ZDOTDIR/utils/env.zsh
 load $ZDOTDIR/utils/function.zsh
 load $ZDOTDIR/utils/keybind.zsh
 
-if is_debug ;then
-  if (which zprof > /dev/null) ;then
+if is_debug; then
+  if (which zprof > /dev/null); then
     zprof | less
   fi
 fi
-
