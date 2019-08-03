@@ -1,3 +1,6 @@
+# load utilities
+. $DOTPATH/lib/utilities.sh
+
 # timezone
 export TZ="Asia/Tokyo"
 
@@ -9,9 +12,6 @@ export LC_CTYPE="${LANGUAGE}"
 
 # Homebrew prefix path
 export BREW_PREFIX=$(brew --prefix)
-
-# load utilities
-. $DOTPATH/lib/utilities.sh
 
 # zsh core packages
 if [ -z "${ZPLUG_HOME:-}" ]; then
