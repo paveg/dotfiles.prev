@@ -2,6 +2,7 @@
 
 bindkey "^r" fzf-select-history
 bindkey '^]' fzf-src-ghq
+bindkey '^m' ref_enter
 
 fzf-select-history() {
   local tac
@@ -27,5 +28,22 @@ fzf-src-ghq () {
   zle clear-screen
 }
 zle -N fzf-src-ghq
+
+ref_enter() {
+  if [ -n "$BUFFER" ]; then
+    zle accept-line
+    return 0
+  fi
+  echo
+  ls -aGU
+  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+    echo
+    echo -e "\e[0;33m--- git status ---\e[0m"
+    git status -sb
+  fi
+  zle reset-prompt
+  return 0
+}
+zle -N ref_enter
 
 log_info "function.zsh loaded."
