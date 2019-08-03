@@ -1,5 +1,6 @@
 # load utilities
 . $DOTPATH/lib/utilities.sh
+. $ZDOTDIR/utils/core.zsh # enable load function
 
 # timezone
 export TZ="Asia/Tokyo"
