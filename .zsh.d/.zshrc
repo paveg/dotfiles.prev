@@ -1,4 +1,17 @@
 umask 022
+typeset -gx -U path PATH
+
+path=( \
+  /usr/local/bin(N-/) \
+  $HOME/bin(N-/) \
+  /usr/local/sbin(N-/) \
+  "$path[@]" \
+)
+
+: "help command configuration" && {
+  autoload -Uz run-help
+  autoload -Uz run-help-git
+}
 
 : "common configuration" && {
   autoload -U compinit && compinit -d $ZPLUG_HOME/zcompdump
@@ -25,7 +38,8 @@ umask 022
 }
 
 . $ZPLUG_HOME/init.zsh
-. $ZDOTDIR/utils/core.zsh # enable load function
+
 load $ZPLUG_LOADFILE
+load $ZDOTDIR/utils/alias.zsh
 load $ZDOTDIR/utils/env.zsh
 load $ZDOTDIR/utils/function.zsh
