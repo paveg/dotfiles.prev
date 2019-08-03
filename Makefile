@@ -1,4 +1,4 @@
-.PHONY: help install docker.build docker.run docker.push init.envs
+.PHONY: help install docker.build docker.run docker.push init.envs init.vim
 
 .DEFAULT_GOAL := help
 DOCKERHUB_NAME := paveg
