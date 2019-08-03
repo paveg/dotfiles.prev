@@ -22,7 +22,6 @@ zplug "paulirish/git-open", as:plugin
 # fzf with gomi
 zplug "junegunn/fzf-bin", as:command, from:"gh-r", rename-to:"fzf"
 zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
-zplug "junegunn/fzf", use:"shell/key-bindings.zsh"
 zplug "junegunn/fzf", use:"shell/completion.zsh"
 zplug "b4b4r07/zsh-gomi", as:command, use:"bin/gomi", on:"junegunn/fzf-bin"
 
