@@ -1,6 +1,15 @@
 # load utilities
-. $DOTPATH/lib/utilities.sh
 . $ZDOTDIR/utils/core.zsh # enable load function
+load $DOTPATH/lib/utilities.sh
+
+if [ -z ${DEBUG:-} ]; then
+  export DEBUG=0
+fi
+
+if is_debug; then
+  log_info "profiling..."
+  zmodload zsh/zprof && zprof
+fi
 
 # timezone
 export TZ="Asia/Tokyo"
@@ -26,7 +35,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 # Homebrew Cask Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
+export EDITOR=nvim
 # Shell configuration
 if is_osx; then
   export SHELL=/usr/local/bin/zsh
