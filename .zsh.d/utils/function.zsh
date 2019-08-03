@@ -42,4 +42,3 @@ ref_enter() {
 }
 zle -N ref_enter
 
-log_info "function.zsh loaded."
