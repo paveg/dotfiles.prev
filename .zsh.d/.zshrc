@@ -2,6 +2,8 @@ umask 022
 
 : "common configuration" && {
   autoload -U compinit && compinit -d $ZPLUG_HOME/zcompdump
+  autoload -Uz colors
+  colors
   setopt correct
   setopt nobeep
   setopt no_tify
