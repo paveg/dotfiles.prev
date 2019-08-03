@@ -10,9 +10,6 @@ export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
-# Homebrew prefix path
-export BREW_PREFIX=$(brew --prefix)
-
 # zsh core packages
 if [ -z "${ZPLUG_HOME:-}" ]; then
   export ZPLUG_HOME=$HOME/.zplug
@@ -28,7 +25,11 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 # Homebrew Cask Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export SHELL=$BREW_PREFIX/bin/zsh
+if is_osx; then
+  export SHELL=/usr/local
+elif is_linux
+  export SHELL="$(brew --prefix)/bin/zsh"
+fi
 
 # anyenv
 # see: https://github.com/anyenv/anyenv
