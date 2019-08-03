@@ -27,3 +27,8 @@ init.envs: ## Install anyenvs, please execute after `anyenv install --init`
 		echo -ne '\n' | anyenv install $$ev;\
 	done;\
 	echo "installation completed anyenvs!"
+
+init.vim: ## Initialize vim configration
+	@pyenv install 3.7.4 && pyenv global 3.7.4 && pyenv rehash;\
+	@pip3 install neovim
+	@ln -sf $(XDG_CONFIG_HOME)/nvim $(DOTPATH)/nvim
