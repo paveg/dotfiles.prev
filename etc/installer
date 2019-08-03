@@ -27,7 +27,7 @@ install_brew() {
     log_info "Homebrew is already installed."
     return
   elif is_linux; then
-    log_info "work in progress for linux"
+    log_info "work in progress for linux."
     return
   fi
   log_info "Installing Homebrew..."
