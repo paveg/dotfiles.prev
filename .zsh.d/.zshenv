@@ -35,7 +35,12 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 # Homebrew Cask Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export EDITOR=nvim
+
+if (($+commands[nvim])); then
+  export EDITOR=nvim
+  export GIT_EDITOR="${EDITOR}"
+fi
+
 # Shell configuration
 if is_osx; then
   export SHELL=/usr/local/bin/zsh
