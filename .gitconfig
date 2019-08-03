@@ -27,6 +27,7 @@
   s = status
   bd = branch -d
   bdf = branch -D
+  pu = push
   ci = commit
   cl = config --list
   co = checkout

@@ -6,10 +6,30 @@ hook_add = '''
   let g:lightline = {'colorscheme': 'wombat'}
 '''
 
+# auto close
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
 # Toml
 [[plugins]]
 repo  = 'cespare/vim-toml'
 
+# Colors
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+# vim-git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
 # Golang
 [[plugins]]
 repo = 'fatih/vim-go'
+
+# Ruby
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+
