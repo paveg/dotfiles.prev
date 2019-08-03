@@ -29,7 +29,8 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Shell configuration
 if is_osx; then
-  export SHELL=/usr/local
+  export SHELL=/usr/local/bin/zsh
+  export VIM=/usr/local/bin/nvim
 elif is_linux; then
   export SHELL="$(brew --prefix)/bin/zsh"
 fi
