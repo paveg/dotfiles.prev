@@ -16,8 +16,12 @@ zplug "Valodim/zsh-curl-completion"
 
 # enhance change directory
 zplug "b4b4r07/enhancd", use:"enhancd.sh"
+
+# for git
 zplug "mollifier/cd-gitroot"
 zplug "paulirish/git-open", as:plugin
+zplug "plugins/git", from:oh-my-zsh
+zplug "peterhurford/git-aliases.zsh"
 
 # fzf with gomi
 zplug "junegunn/fzf-bin", as:command, from:"gh-r", rename-to:"fzf"
@@ -31,6 +35,10 @@ zplug "b4b4r07/dotfiles", as:command, use:"bin/peco-tmux"
 
 zplug "lib/clipboard", from:"oh-my-zsh", if:"[[ $OSTYPE == *darwin* ]]"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:3
+
+# for docker
+zplug "docker/cli", use:"contrib/completion/zsh/_docker", defer:2
 
 # emoji
 zplug "b4b4r07/emoji-cli", if:"which jq"
@@ -49,7 +57,7 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
     if ! zplug check --verbose; then
       printf "Install? [y/N]: "
       if read -q; then
-        log_info
+        echo
         zplug install
       fi
     fi

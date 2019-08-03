@@ -1,4 +1,55 @@
-" reset augroup
+filetype plugin indent off
+
+" Able to control mouse
+set mouse=a
+
+" Use true colors on terminal
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" Every launguage paths
+let g:python_host_prog = expand('$PYENV_ROOT/shims/python2')
+let g:python3_host_prog = expand('$PYENV_ROOT/shims/python3')
+let g:ruby_host_prog = expand('$RBENV_ROOT/shims/ruby')
+
+" Combine clipboard
+set clipboard+=unnamedplus
+
+" Displays title and line number
+set title
+set number
+
+" Multi byte character config
+set ambiwidth=double
+
+" Do not make swapfile
+set noswapfile
+
+set list
+set listchars=tab:>-,trail:*,nbsp:+
+
+set smartindent
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+" Paste command in correctly
+if &term =~ "xterm"
+  let &t_SI .= "\e[?2004h"
+  let &t_EI .= "\e[?2004l"
+  let &pastetoggle = "\e[201~"
+
+  function XTermPasteBegin(ret)
+    set paste
+    return a:ret
+  endfunction
+
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+
+" Reset augroup
 augroup MyAutoCmd
   autocmd!
 augroup END
@@ -16,3 +67,6 @@ function! s:load(file) abort
 endfunction
 
 call s:load('plugins')
+
+filetype plugin indent on
+syntax on

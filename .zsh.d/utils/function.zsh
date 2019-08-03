@@ -1,8 +1,14 @@
 #!/bin/zsh
 
-bindkey "^r" fzf-select-history
-bindkey '^]' fzf-src-ghq
-bindkey '^m' ref_enter
+fbr() {
+  local branches=$(git branch -vv | fzf --ansi --reverse --query "$LBUFFER")
+  if [ -n "$branches" ]; then
+    BUFFER="git checkout $(echo "$branches" | awk '{print $1}' | sed "s/.* //")"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N fbr
 
 fzf-select-history() {
   local tac
@@ -46,4 +52,3 @@ ref_enter() {
 }
 zle -N ref_enter
 
-log_info "function.zsh loaded."

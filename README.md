@@ -8,6 +8,11 @@
 [circleci]: https://circleci.com/gh/paveg/dotfiles
 [dockerhub]: https://microbadger.com/images/paveg/dotfiles
 
+## Styles
+
+![styles](./examples/styles.png)
+
+
 ## Prepare
 
 ### linux
@@ -41,34 +46,46 @@ $ cd dotfiles && make install
 
 ### Directory
 
-```
-❯ tree -aL 3 --dirsfirst -I '.git|.idea' .
+```textmate
+~/dotfiles
+host ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc' .
 .
 ├── .circleci
 │   └── config.yml
 ├── .zsh.d
 │   ├── utils
 │   │   ├── alias.zsh    # Define the alias you usually use
-│   │   ├── core.zsh     # Define core zsh configrtion
+│   │   ├── core.zsh     # Define core zsh configuration
 │   │   ├── env.zsh      # Define environment
 │   │   ├── function.zsh # Define convenient function
-│   │   └── zplug.zsh    # for zplug
-│   ├── .zprofile        # source only once library at startup terminal
-│   ├── .zshenv          # actual zsh environment
-│   └── .zshrc           # normal zshrc; defined common zsh configuraton
+│   │   ├── keybind.zsh  # Define zsh key bindings
+│   │   └── zplug.zsh    # Zsh plugin manager configuration
+│   ├── .zprofile        # Source only once library at startup terminal
+│   ├── .zshenv          # Actual zsh environment
+│   └── .zshrc           # Normal zshrc; defined common zsh configuration
+├── etc
+│   ├── init_vim         # Init nvim shellscript
+│   └── installer        # Installer dotfiles
 ├── lib
-│   ├── package_list.sh  # brew an brew cask packages list
-│   └── utilities.sh     # utility bash shell functions
+│   ├── package_list.sh  # Brew an brew cask packages list
+│   └── utilities.sh     # Utility bash shell functions
+├── nvim
+│   ├── dein
+│   │   ├── lazy.toml    # Lazy load plugins
+│   │   ├── plugins.toml # Dein plugins
+│   │   └── python.toml  # Python plugins
+│   ├── rc
+│   │   └── plugins.vim  # Init plugins
+│   └── init.vim         # Init.vim, a.k.a .vimrc
 ├── .dockerignore
-├── .envrc
+├── .gitconfig           # Global gitconfig, linked $XDG_CONFIG_HOME/git/config
 ├── .gitignore
 ├── .zshenv              # Invite you to zsh
 ├── Dockerfile
 ├── LICENSE
 ├── Makefile
 ├── README.md
-├── azure-pipelines.yml
-└── installer.sh         # Install this dotfile
+└── azure-pipelines.yml
 ```
 
 ## Continuous Integration
