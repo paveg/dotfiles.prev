@@ -12,15 +12,13 @@ path=( \
   "$path[@]" \
 )
 
-fpath=(~/.zsh/completion $fpath)
-
 : "help command configuration" && {
   autoload -Uz run-help
   autoload -Uz run-help-git
 }
 
 : "common configuration" && {
-  autoload -Uz compinit; compinit
+  autoload -Uz compinit; compinit -i
   zstyle ':completion:*:default' menu select=1
   autoload -Uz colors
   colors
