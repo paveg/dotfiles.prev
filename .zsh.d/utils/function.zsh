@@ -51,4 +51,3 @@ ref_enter() {
   return 0
 }
 zle -N ref_enter
-

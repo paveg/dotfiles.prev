@@ -28,7 +28,7 @@ fi
 # Due to this, when you install global command (ex. npm i --global) you need to
 # eval "$(anyenv init -)" to validity
 function anyenv_init() {
-  eval "$(anyenv init -)"
+  eval "$(anyenv init - --no-rehash)"
 }
 
 function anyenv_unset() {

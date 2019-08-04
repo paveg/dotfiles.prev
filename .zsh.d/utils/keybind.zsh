@@ -6,4 +6,3 @@ bindkey '^e' fbr
 # Required Keybind
 bindkey "^A" beginning-of-line
 bindkey "^K" kill-line
-
