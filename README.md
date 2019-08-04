@@ -71,7 +71,8 @@ pav@ryota-3.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdu
 │   ├── .zshenv          # Actual zsh environment
 │   └── .zshrc           # Normal zshrc; defined common zsh configuration
 ├── etc
-│   ├── init_vim         # Init nvim shellscript
+│   ├── initvim          # Init nvim shellscript
+│   ├── inittmux         # Init tmux shellscript
 │   └── installer        # Installer dotfiles
 ├── examples
 │   └── styles.png       # Example image for README.md
@@ -84,13 +85,14 @@ pav@ryota-3.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdu
 │   │   └── python.toml  # Python plugins
 │   ├── rc
 │   │   └── plugins.vim  # Init plugins
-│   └── init.vim         # Init.vim, a.k.a .vimrc
+│   └── init.vim         # Initialize vim, a.k.a .vimrc
 ├── pkg
 │   ├── brew.txt         # Brew package list
 │   └── brew_cask.txt    # Brew cask package list
 ├── .dockerignore
 ├── .gitconfig           # Global gitconfig, linked $XDG_CONFIG_HOME/git/config
 ├── .gitignore
+├── .tmux.conf           # Tmux configuration file
 ├── .zshenv              # Invite you to zsh
 ├── Dockerfile
 ├── LICENSE
