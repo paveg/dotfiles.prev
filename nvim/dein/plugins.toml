@@ -33,3 +33,9 @@ repo = 'vim-ruby/vim-ruby'
 [[plugins]]
 repo = 'tpope/vim-rails'
 
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+# cpp
+[[plugins]]
+repo = 'vim-jp/cpp-vim'
