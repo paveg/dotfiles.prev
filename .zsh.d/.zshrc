@@ -83,4 +83,4 @@ if is_debug; then
   fi
 fi
 
-log_pass "Loading complete .zshrc"
+# log_pass "Loading complete .zshrc"

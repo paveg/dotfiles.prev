@@ -9,4 +9,4 @@ if [[ ! -e $XDG_CONFIG_HOME/git ]]; then
   fi
 fi
 
-log_pass "Loading complete .zprofile"
+# log_pass "Loading complete .zprofile"
