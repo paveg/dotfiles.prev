@@ -1,0 +1,27 @@
+#!/bin/bash
+
+. "$DOTPATH/lib/utilities.sh"
+
+if [[ -z `anyenv envs` ]]; then
+  echo -ne '\n' | anyenv install --init
+else
+  echo "Already initialized anyenv"
+fi
+
+echo "Initializing anyenvs..."
+make init.envs
+
+echo "Initializing python3..."
+peyvn rehash
+echo -ne '\n' | pyenv install 3.7.4
+pyenv global 3.7.4
+pyenv rehash
+
+echo "Initializing nvim..."
+make init.vim
+
+echo "Initializing tmux..."
+make init.tmux
+
+echo "Installation completed..."
+

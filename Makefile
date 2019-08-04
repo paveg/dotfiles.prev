@@ -1,4 +1,4 @@
-.PHONY: help install docker.build docker.run docker.push init.envs init.vim
+.PHONY: help install install.after docker.build docker.run docker.push init.envs init.vim deploy.bin
 
 .DEFAULT_GOAL := help
 DOCKERHUB_NAME := paveg
@@ -10,6 +10,10 @@ help: ## Show options
 
 install: ## Install dotfiles
 	./etc/installer
+	make instll.after
+
+install.after: ## To execute command after dotfiles installed
+	./etc/after_install
 
 docker.build: ## Build docker image
 	@docker build -t $(APP_NAME):$(VERSION_TAG) .
