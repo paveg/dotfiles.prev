@@ -55,4 +55,12 @@ export ANYENV_ROOT=$HOME/.anyenv
 # Helm
 export HELM_HOME=$HOME/.helm
 
+local creds="$HOME/.local/secrets"
+if [[ ! -e "$creds" ]]; then
+  touch "$creds"
+  log_pass "create local credentials file - $creds."
+else
+  . $creds
+fi
+
 # log_pass "Loading complete .zshenv"
