@@ -10,6 +10,6 @@ RUN sudo apt-get update && \
 
 RUN mkdir -p dotfiles
 COPY . ./dotfiles
-RUN cd dotfiles && make install && make
+RUN cd dotfiles && make install
 
 CMD ["zsh"]

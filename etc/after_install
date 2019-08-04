@@ -1,6 +1,7 @@
 #!/bin/bash
+set -e
 
-. "$DOTPATH/lib/utilities.sh"
+export ANYENV_ROOT="$HOME/.anyenv"
 
 if [[ -z `anyenv envs` ]]; then
   echo -ne '\n' | anyenv install --init
@@ -12,7 +13,7 @@ echo "Initializing anyenvs..."
 make init.envs
 
 echo "Initializing python3..."
-peyvn rehash
+pyenv rehash
 echo -ne '\n' | pyenv install 3.7.4
 pyenv global 3.7.4
 pyenv rehash
