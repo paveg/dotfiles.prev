@@ -33,3 +33,6 @@ init.vim: ## Initialize vim configration
 
 init.tmux: ## Initialize tmux configration
 	./etc/inittmux
+
+deploy.bin: ## Deploy binaries
+	./etc/bdeploy
