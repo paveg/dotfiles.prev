@@ -36,14 +36,14 @@ install_brew() {
   fi
   log_info "Installing Homebrew..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  log_pass "Installation complete Homebrew!"
+  log_pass "Installation completed brew!"
 }
 
 install_zsh_by_brew() {
   if ! brew list | grep zsh &>/dev/null; then
     log_info "Installing zsh..."
     brew install zsh zsh-completions zplug
-    log_pass "Installation complete zsh!"
+    log_pass "Installation completed zsh!"
     echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
     echo -ne '\n' | sudo chsh -s "$(brew --prefix)/bin/zsh"
     if [[ -z "${ZPLUG_HOME:-}" ]]; then
@@ -66,7 +66,7 @@ install_brew_packages() {
       log_warn "$pkg is already installed."
     fi
   done < "$DOTPATH/pkg/brew.txt"
-  log_pass "Installation completed brew packages."
+  log_pass "Installation completed brew packages!"
 }
 
 install_brew_cask_packages() {
@@ -85,7 +85,7 @@ install_brew_cask_packages() {
   else
     log_info "current os is not MacOS."
   fi
-  log_pass "Installation complete brew cask."
+  log_pass "Installation completed brew cask packages!"
 }
 
 log_info "dotfiles start..."
