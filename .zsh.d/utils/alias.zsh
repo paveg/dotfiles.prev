@@ -80,5 +80,3 @@ alias zfunction='vi $ZDOTDIR/utils/function.zsh'
 alias zenv='vi $ZDOTDIR/utils/env.zsh'
 alias zkb='vi $ZDOTDIR/utils/keybind.zsh'
 alias ezplug='vi $ZDOTDIR/utils/zplug.zsh'
-
-log_pass "Loading complete alias.zsh"
