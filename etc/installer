@@ -9,7 +9,7 @@ if [[ -z "${DOTPATH:-}" ]]; then
   ln -sf "$DOTPATH/.zshenv" "$HOME/.zshenv"
 fi
 
-. "$DOTPATH/lib/utilities.sh"
+. "lib/utilities.sh"
 
 function catch() {
   log_fail "Failed to installation"
