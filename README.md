@@ -55,7 +55,7 @@ $ cd dotfiles && make install
 
 ```textmate
 ~/dotfiles
-host ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc' .
+pav@ryota-3.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump' .
 .
 ├── .circleci
 │   └── config.yml
@@ -73,8 +73,9 @@ host ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc' .
 ├── etc
 │   ├── init_vim         # Init nvim shellscript
 │   └── installer        # Installer dotfiles
+├── examples
+│   └── styles.png       # Example image for README.md
 ├── lib
-│   ├── package_list.sh  # Brew an brew cask packages list
 │   └── utilities.sh     # Utility bash shell functions
 ├── nvim
 │   ├── dein
@@ -84,6 +85,9 @@ host ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc' .
 │   ├── rc
 │   │   └── plugins.vim  # Init plugins
 │   └── init.vim         # Init.vim, a.k.a .vimrc
+├── pkg
+│   ├── brew.txt         # Brew package list
+│   └── brew_cask.txt    # Brew cask package list
 ├── .dockerignore
 ├── .gitconfig           # Global gitconfig, linked $XDG_CONFIG_HOME/git/config
 ├── .gitignore
