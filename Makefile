@@ -4,7 +4,7 @@
 DOCKERHUB_NAME := paveg
 APP_NAME := dotfiles
 VERSION_TAG := latest
-DOTPATH := ~/dotfiles
+DOTPATH := $(PWD)/dotfiles
 ZDOTDIR := $(DOTPATH)/.zsh.d
 
 help: ## Show options
