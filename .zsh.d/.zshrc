@@ -69,6 +69,7 @@ declare -ax load_paths=(
   $ZDOTDIR/utils/env.zsh\
   $ZDOTDIR/utils/function.zsh\
   $ZDOTDIR/utils/keybind.zsh
+  # $ZDOTDIR/utils/tmux.zsh 
 )
 
 for load_path in ${load_paths[@]}; do
