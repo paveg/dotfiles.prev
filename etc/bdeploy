@@ -1,0 +1,19 @@
+#!/bin/bash
+set -eu
+
+. "$DOTPATH/lib/utilities.sh"
+
+bin_deploy() {
+  local binary_name="$1"
+  if [[ ! -e "$HOME/bin/$binary_name" ]]; then
+    log_info "Not linking $binary_name ."
+    ln -s "$DOTPATH/bin/$binary_name" "$HOME/bin/$binary_name"
+    log_pass "Deploy completed $binary_name symbolic link."
+  else
+    log_warn "Already deployed $binary_name..."
+  fi
+}
+
+bin_deploy "gcp-context"
+bin_deploy "kube-context"
+
