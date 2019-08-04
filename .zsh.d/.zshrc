@@ -63,11 +63,17 @@ _zpcompinit_custom() {
   zstyle ':completion:*:*:docker-*:*' option-stacking yes
 }
 
-load $ZPLUG_HOME/init.zsh
-load $ZDOTDIR/utils/alias.zsh
-load $ZDOTDIR/utils/env.zsh
-load $ZDOTDIR/utils/function.zsh
-load $ZDOTDIR/utils/keybind.zsh
+declare -ax load_paths=(
+  $ZPLUG_HOME/init.zsh\
+  $ZDOTDIR/utils/alias.zsh\
+  $ZDOTDIR/utils/env.zsh\
+  $ZDOTDIR/utils/function.zsh\
+  $ZDOTDIR/utils/keybind.zsh
+)
+
+for load_path in ${load_paths[@]}; do
+  load $load_path
+done
 
 if is_debug; then
   if (which zprof > /dev/null); then
