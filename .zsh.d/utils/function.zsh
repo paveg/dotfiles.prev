@@ -52,3 +52,4 @@ ref_enter() {
 }
 zle -N ref_enter
 
+log_pass "Loading complete function.zsh"

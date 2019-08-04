@@ -7,3 +7,4 @@ bindkey '^e' fbr
 bindkey "^A" beginning-of-line
 bindkey "^K" kill-line
 
+log_pass "Loading complete keybind.zsh"

@@ -45,19 +45,21 @@ zplug "docker/cli", use:"contrib/completion/zsh/_docker", defer:2
 # emoji
 zplug "b4b4r07/emoji-cli", if:"which jq"
 
-is_zplug_update() {
-  if [ "$ZPLUG_UPDATE" = 1 ]; then
+if [ -z ${ZPLUG_UPDATE:-} ]; then
+  export ZPLUG_UPDATE=0
+fi
+
+is_update() {
+  if ([ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/utils/zplug.zsh ] ||\
+    [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/.zshrc ]) && [ "$ZPLUG_UPDATE" = 1 ] ; then
+    touch $ZPLUG_HOME/check.zplug
     return 0
   else
     return 1
   fi
 }
 
-if [ -z ${ZPLUG_UPDATE:-} ]; then
-  export ZPLUG_UPDATE=0
-fi
-
-if is_zplug_update; then
+if is_update; then
   if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -65,7 +67,8 @@ if is_zplug_update; then
       zplug install
     fi
   fi
-else
-  zplug load
-  log_info "zplug loaded"
 fi
+
+zplug load
+
+log_pass "Loading complete zplug.zsh"

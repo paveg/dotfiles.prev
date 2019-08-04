@@ -12,7 +12,6 @@
 
 ![styles](./examples/styles.png)
 
-
 ## Prepare
 
 ### linux
@@ -29,6 +28,14 @@
 $ git clone https://github.com/paveg/dotfiles $HOME/dotfiles
 $ cd dotfiles && make install
 ```
+
+## Configuration
+
+### Environment
+
+|key|value|
+|:---:|:---:|
+|ONELOGIN_AWS_MAIL|onelogin aws email|
 
 ## Constitution
 
