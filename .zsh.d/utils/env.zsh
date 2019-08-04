@@ -4,11 +4,6 @@
   type direnv > /dev/null && eval "$(direnv hook zsh)"
 }
 
-# Install anyenv-install
-if [[ ! -e $XDG_CONFIG_HOME/anyenv/anyenv-install ]]; then
-  echo -ne '\n' | anyenv install --init
-fi
-
 # Install anyenv update command
 if [[ ! -e $ANYENV_ROOT/plugins/anyenv-update ]]; then
   mkdir -p $ANYENV_ROOT/plugins
