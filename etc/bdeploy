@@ -16,4 +16,4 @@ bin_deploy() {
 
 bin_deploy "gcp-context"
 bin_deploy "kube-context"
-
+bin_deploy "wifi-info"
