@@ -77,6 +77,7 @@ pav@ryota-3.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdu
 │   └── wifi-info        # Fetch wi-fi information
 ├── etc
 │   ├── bdeploy          # Deploy binaries
+│   ├── initvim          # Init nvim shellscript
 │   ├── inittmux         # Init tmux shellscript
 │   └── installer        # Installer dotfiles
 ├── examples
