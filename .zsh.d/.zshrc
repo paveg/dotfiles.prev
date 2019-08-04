@@ -68,12 +68,13 @@ declare -ax load_paths=(
   $ZDOTDIR/utils/alias.zsh\
   $ZDOTDIR/utils/env.zsh\
   $ZDOTDIR/utils/function.zsh\
-  $ZDOTDIR/utils/keybind.zsh
+  $ZDOTDIR/utils/keybind.zsh\
+  $ZDOTDIR/utils/tmux.zsh
 )
 
 for load_path in ${load_paths[@]}; do
   load $load_path
-  log_pass "Loading complete $(basename $load_path)"
+  # log_pass "Loading complete $(basename $load_path)"
 done
 
 if is_debug; then
