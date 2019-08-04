@@ -1,10 +1,10 @@
 #!/bin/bash
 
 copy_str() {
-  if [ $# -eq 0 ]; then
+  if [[ $# -eq 0 ]]; then
     cat <&0
-  elif [ $# -eq 1 ]; then
-    if [ -f "$1" -a -r "$1" ]; then
+  elif [[ $# -eq 1 ]]; then
+    if [[ -f "$1" ]] && [[ -r "$1" ]]; then
       cat "$1"
     else
       echo "$1"
@@ -42,7 +42,7 @@ os_detect() {
 # is_osx returns true if running OS is Macintosh
 is_osx() {
   os_detect
-  if [ "$PLATFORM" = "osx" ]; then
+  if [[ "$PLATFORM" = "osx" ]]; then
     return 0
   else
     return 1
@@ -52,7 +52,7 @@ is_osx() {
 # is_linux returns true if running OS is GNU/Linux
 is_linux() {
   os_detect
-  if [ "$PLATFORM" = "linux" ]; then
+  if [[ "$PLATFORM" = "linux" ]]; then
     return 0
   else
     return 1
@@ -60,15 +60,15 @@ is_linux() {
 }
 
 is_bash() {
-  [ -n "$BASH_VERSION" ]
+  [[ -n "$BASH_VERSION" ]]
 }
 
 is_zsh() {
-  [ -n "$ZSH_VERSION" ]
+  [[ -n "$ZSH_VERSION" ]]
 }
 
 logging() {
-  if [ "$#" -eq 0 -o "$#" -gt 2 ]; then
+  if [[ "$#" -eq 0 ]] || [[ "$#" -gt 2 ]]; then
     echo "Usage: ink <fmt> <msg>"
     echo "Formatting Options:"
     echo "  TITLE, ERROR, WARN, INFO, SUCCESS"
@@ -127,13 +127,13 @@ log_echo() {
   logging TITLE "$1"
 }
 
-# is_tmux_runnning returns true if tmux is running
-is_tmux_runnning() {
-  [ ! -z "$TMUX" ]
+# is_tmux_running returns true if tmux is running
+is_tmux_running() {
+  [[ ! -z "$TMUX" ]]
 }
 
 ink() {
-  if [ "$#" -eq 0 -o "$#" -gt 2 ]; then
+  if [[ "$#" -eq 0 ]] || [[ "$#" -gt 2 ]]; then
     echo "Usage: ink <color> <text>"
     echo "Colors:"
     echo "  black, white, red, green, yellow, blue, purple, cyan, gray"
@@ -155,10 +155,9 @@ ink() {
   local text="$1"
   local color="$close"
 
-  if [ "$#" -eq 2 ]; then
+  if [[ "$#" -eq 2 ]]; then
     text="$2"
-    case "$1" in
-    black | red | green | yellow | blue | purple | cyan | gray | white)
+    case "$1" in (black | red | green | yellow | blue | purple | cyan | gray | white)
       eval color="\$$1"
       ;;
     esac
@@ -169,16 +168,7 @@ ink() {
 
 # is_debug returns true if $DEBUG is set
 is_debug() {
-  if [ "$DEBUG" = 1 ]; then
-    return 0
-  else
-    return 1
-  fi
-}
-
-# is_circleci returns true if $CIRCLECI is set
-is_circleci() {
-  if [ "$CIRCLECI" = true ]; then
+  if [[ "$DEBUG" = 1 ]]; then
     return 0
   else
     return 1
@@ -187,7 +177,7 @@ is_circleci() {
 
 # is_exists returns true if executable $1 exists in $PATH
 is_exists() {
-  which "$1" >/dev/null 2>&1
+  command -v "$1" >/dev/null 2>&1
   return $?
 }
 
