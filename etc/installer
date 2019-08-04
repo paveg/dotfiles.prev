@@ -2,14 +2,14 @@
 set -euo pipefail
 export PLATFORM
 
-. lib/utilities.sh
-
 trap catch ERR
 
-if [ -z "${DOTPATH:-}" ]; then
+if [[ -z "${DOTPATH:-}" ]]; then
   DOTPATH=$HOME/dotfiles; export DOTPATH
-  ln -sf $DOTPATH/.zshenv $HOME/.zshenv
+  ln -sf "$DOTPATH/.zshenv" "$HOME/.zshenv"
 fi
+
+. "$DOTPATH/lib/utilities.sh"
 
 function catch() {
   log_fail "Failed to installation"
@@ -44,9 +44,9 @@ install_zsh_by_brew() {
     log_info "Installing zsh..."
     brew install zsh zsh-completions zplug
     log_pass "Installation complete zsh!"
-    echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells
-    echo -ne '\n' | sudo chsh -s $(brew --prefix)/bin/zsh
-    if [ -z "${ZPLUG_HOME:-}" ]; then
+    echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
+    echo -ne '\n' | sudo chsh -s "$(brew --prefix)/bin/zsh"
+    if [[ -z "${ZPLUG_HOME:-}" ]]; then
       ZPLUG_HOME=$HOME/.zplug
       export ZPLUG_HOME
     fi
@@ -59,13 +59,13 @@ install_brew_packages() {
   log_info "Installing brew packages..."
   while read pkg
   do
-    if ! brew list | grep $pkg &>/dev/null; then
-      log_info "Installing ${pkg}..."
-      brew install ${pkg}
+    if ! brew list | grep "$pkg" &>/dev/null; then
+      log_info "Installing $pkg..."
+      brew install "$pkg"
      else
-      log_warn "${pkg} is already installed."
+      log_warn "$pkg is already installed."
     fi
-  done < $DOTPATH/pkg/brew.txt
+  done < "$DOTPATH/pkg/brew.txt"
   log_pass "Installation completed brew packages."
 }
 
@@ -75,13 +75,13 @@ install_brew_cask_packages() {
     export HOMEBREW_CASK_OPTS="--appdir=/Applications"
     while read pkg
     do
-      if ! brew cask list | grep $pkg &>/dev/null; then
-        log_info "Installing ${pkg}..."
-        brew cask install ${pkg}
+      if ! brew cask list | grep "$pkg" &>/dev/null; then
+        log_info "Installing $pkg..."
+        brew cask install "$pkg"
       else
-        log_warn "${pkg} is already installed."
+        log_warn "$pkg is already installed."
       fi
-    done < $DOTPATH/pkg/brew_cask.txt
+    done < "$DOTPATH/pkg/brew_cask.txt"
   else
     log_info "current os is not MacOS."
   fi
@@ -96,6 +96,6 @@ install_brew_packages
 install_brew_cask_packages
 
 # zplug clone
-git clone https://github.com/zplug/zplug $ZPLUG_HOME
+git clone https://github.com/zplug/zplug "$ZPLUG_HOME"
 
 log_pass "dotfiles ok."
