@@ -70,5 +70,3 @@ if is_update; then
 fi
 
 zplug load
-
-log_pass "Loading complete zplug.zsh"

@@ -82,5 +82,3 @@ function scalaenv() {
   anyenv_init
   scalaenv "$@"
 }
-
-log_pass "Loading complete env.zsh"
