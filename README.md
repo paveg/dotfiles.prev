@@ -70,8 +70,12 @@ pav@ryota-3.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdu
 │   ├── .zprofile        # Source only once library at startup terminal
 │   ├── .zshenv          # Actual zsh environment
 │   └── .zshrc           # Normal zshrc; defined common zsh configuration
+├── bin
+│   ├── gcp-context      # Fetch Google Cloud Platform information
+│   ├── kube-context     # Fetch kubectl information
+│   └── wifi-info        # Fetch wi-fi information
 ├── etc
-│   ├── initvim          # Init nvim shellscript
+│   ├── bdeploy
 │   ├── inittmux         # Init tmux shellscript
 │   └── installer        # Installer dotfiles
 ├── examples
