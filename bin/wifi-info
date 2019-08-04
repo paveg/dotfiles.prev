@@ -129,4 +129,5 @@ fi
 
 # Outputs wifi
 #   example: "fun-wifi 351Mbs ▂ ▅   "
-echo -e "${ssid} ${rate}Mbs ${signal}" &>2
+echo -e "${ssid} ${rate}Mbs ${signal}"
+0
