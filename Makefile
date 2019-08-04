@@ -29,4 +29,7 @@ init.envs: ## Install anyenvs, please execute after `anyenv install --init`
 	echo "installation completed anyenvs!"
 
 init.vim: ## Initialize vim configration
-	./etc/init_vim
+	./etc/initvim
+
+init.tmux: ## Initialize tmux configration
+	./etc/inittmux
