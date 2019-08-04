@@ -30,6 +30,14 @@ $ git clone https://github.com/paveg/dotfiles $HOME/dotfiles
 $ cd dotfiles && make install
 ```
 
+### after configuration
+
+```bash
+$ make install.after
+$ zplug install
+$ exec $SHELL -l
+```
+
 ## Configuration
 
 ### Environment
