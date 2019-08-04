@@ -54,3 +54,5 @@ export ANYENV_ROOT=$HOME/.anyenv
 
 # Helm
 export HELM_HOME=$HOME/.helm
+
+log_pass "Loading complete .zshenv"

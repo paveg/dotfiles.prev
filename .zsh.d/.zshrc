@@ -74,3 +74,5 @@ if is_debug; then
     zprof | less
   fi
 fi
+
+log_pass "Loading complete .zshrc"

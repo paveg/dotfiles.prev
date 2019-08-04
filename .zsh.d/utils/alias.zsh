@@ -49,8 +49,6 @@ fi
 if (($+commands[onelogin-aws-login])) && [ -n "$ONELOGIN_AWS_MAIL" ]; then
   local usermail="${ONELOGIN_AWS_MAIL}"
   alias ol="onelogin-aws-login -u ${usermail}"
-else
-  echo "onelogin-aws-login command or onelogin-aws-mail is not found."
 fi
 
 # when remake exists
@@ -82,3 +80,5 @@ alias zfunction='vi $ZDOTDIR/utils/function.zsh'
 alias zenv='vi $ZDOTDIR/utils/env.zsh'
 alias zkb='vi $ZDOTDIR/utils/keybind.zsh'
 alias ezplug='vi $ZDOTDIR/utils/zplug.zsh'
+
+log_pass "Loading complete alias.zsh"

@@ -8,3 +8,5 @@ if [[ ! -e $XDG_CONFIG_HOME/git ]]; then
     mv $HOME/.gitconfig $HOME/.gitconfig.bk
   fi
 fi
+
+log_pass "Loading complete .zprofile"
