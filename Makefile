@@ -10,7 +10,7 @@ help: ## Show options
 
 install: ## Install dotfiles
 	./etc/installer
-	source "$ZDOTDIR/.zshenv"
+	source $(ZDOTDIR)/.zshenv
 	make install.after
 	exec $SHELL -l && zplug install
 
