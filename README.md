@@ -76,7 +76,8 @@ pav@ryota-3.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdu
 │   ├── kube-context     # Fetch kubectl information
 │   └── wifi-info        # Fetch wi-fi information
 ├── etc
-│   ├── bdeploy
+│   ├── bdeploy          # Deploy binaries
+│   ├── initvim          # Init nvim shellscript
 │   ├── inittmux         # Init tmux shellscript
 │   └── installer        # Installer dotfiles
 ├── examples
