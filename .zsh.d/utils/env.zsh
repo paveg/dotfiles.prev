@@ -35,7 +35,7 @@ function anyenv_unset() {
   unset -f nodenv
   unset -f rbenv
   unset -f pyenv
-  unset -f tfenv
+  #  unset -f tfenv
   unset -f goenv
   unset -f sbtenv
   unset -f scalaenv
@@ -65,11 +65,11 @@ function goenv() {
   goenv "$@"
 }
 
-function tfenv() {
-  anyenv_unset
-  anyenv_init
-  tfenv "$@"
-}
+# function tfenv() {
+#   anyenv_unset
+#   anyenv_init
+#   tfenv "$@"
+# }
 
 function sbtenv() {
   anyenv_unset
