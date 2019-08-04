@@ -1,3 +1,7 @@
+if [ $ZDOTDIR/.zshrc -nt $ZDOTDIR/.zshrc.zwc ]; then
+  zcompile $ZDOTDIR/.zshrc
+fi
+
 umask 022
 typeset -gx -U path PATH
 
@@ -8,7 +12,21 @@ path=( \
   "$path[@]" \
 )
 
-fpath=(~/.zsh/completion $fpath)
+_zpcompinit_custom() {
+  setopt extendedglob local_options
+  autoload -Uz compinit
+  local zcd=${ZDOTDIR:-$HOME}/.zcompdump
+  local zcdc="$zcd.zwc"
+  # Compile the completion dump to increase startup speed, if dump is newer or doesn't exist,
+  # in the background as this is doesn't affect the current session
+  if [[ -f "$zcd"(#qN.m+1) ]]; then
+    compinit -i -d "$zcd"
+    { rm -f "$zcdc" && zcompile "$zcd" } &!
+  else
+    compinit -C -d "$zcd"
+    { [[ ! -f "$zcdc" || "$zcd" -nt "$zcdc" ]] && rm -f "$zcdc" && zcompile "$zcd" } &!
+  fi
+}
 
 : "help command configuration" && {
   autoload -Uz run-help
@@ -16,7 +34,7 @@ fpath=(~/.zsh/completion $fpath)
 }
 
 : "common configuration" && {
-  autoload -U compinit && compinit -d $ZPLUG_HOME/zcompdump
+  _zpcompinit_custom
   zstyle ':completion:*:default' menu select=1
   autoload -Uz colors
   colors
@@ -45,10 +63,23 @@ fpath=(~/.zsh/completion $fpath)
   zstyle ':completion:*:*:docker-*:*' option-stacking yes
 }
 
-. $ZPLUG_HOME/init.zsh
+declare -ax load_paths=(
+  $ZPLUG_HOME/init.zsh\
+  $ZDOTDIR/utils/alias.zsh\
+  $ZDOTDIR/utils/env.zsh\
+  $ZDOTDIR/utils/function.zsh\
+  $ZDOTDIR/utils/keybind.zsh
+)
 
-load $ZPLUG_LOADFILE
-load $ZDOTDIR/utils/alias.zsh
-load $ZDOTDIR/utils/env.zsh
-load $ZDOTDIR/utils/function.zsh
-load $ZDOTDIR/utils/keybind.zsh
+for load_path in ${load_paths[@]}; do
+  load $load_path
+  log_pass "Loading complete $(basename $load_path)"
+done
+
+if is_debug; then
+  if (which zprof > /dev/null); then
+    zprof | less
+  fi
+fi
+
+log_pass "Loading complete .zshrc"

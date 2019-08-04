@@ -3,6 +3,8 @@
 # zplug integrations
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
+zplug 'chrissicool/zsh-256color', use:"zsh-256color.plugin.zsh"
+
 # pure theme
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme &&
@@ -43,24 +45,28 @@ zplug "docker/cli", use:"contrib/completion/zsh/_docker", defer:2
 # emoji
 zplug "b4b4r07/emoji-cli", if:"which jq"
 
-need_update() {
-  if [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/utils/zplug.zsh ] || [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/.zshrc ]; then
+if [ -z ${ZPLUG_UPDATE:-} ]; then
+  export ZPLUG_UPDATE=0
+fi
+
+is_update() {
+  if ([ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/utils/zplug.zsh ] ||\
+    [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/.zshrc ]) && [ "$ZPLUG_UPDATE" = 1 ] ; then
+    touch $ZPLUG_HOME/check.zplug
     return 0
   else
     return 1
   fi
 }
 
-if [[ -f $ZPLUG_HOME/init.zsh ]]; then
-  if need_update; then
-    touch $ZPLUG_HOME/check.zplug
-    if ! zplug check --verbose; then
-      printf "Install? [y/N]: "
-      if read -q; then
-        echo
-        zplug install
-      fi
+if is_update; then
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo
+      zplug install
     fi
   fi
-  zplug load
 fi
+
+zplug load
