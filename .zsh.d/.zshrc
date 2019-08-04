@@ -74,7 +74,7 @@ declare -ax load_paths=(
 
 for load_path in ${load_paths[@]}; do
   load $load_path
-  log_pass "Loading complete $(basename $load_path)"
+  # log_pass "Loading complete $(basename $load_path)"
 done
 
 if is_debug; then
