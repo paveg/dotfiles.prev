@@ -2,7 +2,7 @@
 . $ZDOTDIR/utils/core.zsh # enable load function
 load $DOTPATH/lib/utilities.sh
 
-if [ -z ${DEBUG:-} ]; then
+if [[ -z ${DEBUG:-} ]]; then
   export DEBUG=0
 fi
 
@@ -21,10 +21,10 @@ export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
 # zsh core packages
-if [ -z "${ZPLUG_HOME:-}" ]; then
+if [[ -z "${ZPLUG_HOME:-}" ]]; then
   export ZPLUG_HOME=$HOME/.zplug
 fi
-if [ -z "${ZPLUG_LOADFILE:-}" ]; then
+if [[ -z "${ZPLUG_LOADFILE:-}" ]]; then
   export ZPLUG_LOADFILE=$ZDOTDIR/utils/zplug.zsh
 fi
 
