@@ -3,13 +3,13 @@ set -eu
 
 # utility functions ------------------------------
 
-isExists() {
+is_exists() {
   command -v "$1" >/dev/null 2>&1
   return $?
 }
 
-isNotExist() {
-  if isExists "$1"; then
+is_not_exists() {
+  if is_exists "$1"; then
     return 1
   else
     return 0
@@ -137,7 +137,7 @@ if [[ ! -d $repoDir ]]; then
   git clone $repoUrl $repoDir
 fi
 
-if isNotExist brew; then
+if is_not_exists brew; then
   # for macOS
   ruby -e "$(curl -fsSL https://githubusercontent.com/Homebrew/install/master/install)"
   log_pass "Homebrew installation is completed."
