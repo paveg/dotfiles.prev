@@ -25,6 +25,14 @@
 
 ## Quick Start
 
+### cURL
+
+```bash
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/install.sh)"
+```
+
+### Git
+
 ```bash
 $ git clone https://github.com/paveg/dotfiles $HOME/dotfiles
 $ cd dotfiles && make install
