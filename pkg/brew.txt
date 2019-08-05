@@ -1,3 +1,6 @@
+zsh
+zsh-completion
+zplug
 docker
 ghq
 tree

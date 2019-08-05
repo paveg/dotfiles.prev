@@ -169,5 +169,16 @@ do
 done < "$repoDir/pkg/brew.txt"
 log_pass "Packages installation is completed."
 
+# TODO: check and fix .zshenv and .zshrc paths.
+# symbolic link src/github.com/paveg/dotfiles to ~/dotfiles
+# ln -sf "$repoDir/" "$HOME/dotfiles"
+# ln -sf "$repoDir/.zshenv" "$HOME/.zshenv"
 log_pass "dotfiles OK."
 
+log_info "change shells..."
+export SHELL="$(brew --prefix)/bin/zsh"
+if [[ -z $(cat /etc/shells | grep $SHELL) ]]; then
+  echo $SHELL | sudo tee -a /etc/shells
+fi
+echo -ne '\n' | sudo chsh -s $SHELL
+exec $SHELL -l
