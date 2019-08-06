@@ -189,9 +189,7 @@ ln -sf "$dotpath/.zshenv" "$HOME/.zshenv"
 log_pass "dotfiles OK."
 
 log_info "change shells..."
-export SHELL="$(brew --prefix)/bin/zsh"
 if [[ -z $(cat /etc/shells | grep $SHELL) ]]; then
-  echo $SHELL | sudo tee -a /etc/shells
+  echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
 fi
-echo -ne '\n' | sudo chsh -s $SHELL
-exec $SHELL -l
+echo -ne '\n' | sudo chsh -s "$(brew --prefix)/bin/zsh"
