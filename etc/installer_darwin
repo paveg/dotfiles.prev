@@ -200,8 +200,6 @@ if ! is_ci; then
 fi
 setup_packages
 
-log_info "symbolic link: $dotpath/ to $HOME/dotfiles"
-ln -sf "$dotpath/" "$HOME/dotfiles"
 log_info "symbolic link: $dotpath/.zshenv to $HOME/.zshenv"
 ln -sf "$dotpath/.zshenv" "$HOME/.zshenv"
 log_pass "dotfiles OK."
