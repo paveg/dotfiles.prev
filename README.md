@@ -15,6 +15,12 @@
 
 ## Prepare
 
+required:
+  - cURL
+  - git
+  - brew / linuxbrew
+  - ruby
+
 ### linux
 
 - Please install Linuxbrew. ( [Repository](https://github.com/Linuxbrew) )
@@ -25,28 +31,18 @@
 
 ## Quick Start
 
-### cURL /  for MacOS
-
 ```bash
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/installer_darwin)"
 $ echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells
 $ sudo chsh -s $(brew --prefix)/bin/zsh
 ```
 
-### Git
-
-```bash
-$ git clone https://github.com/paveg/dotfiles $HOME/dotfiles
-$ cd dotfiles && make install
-```
-
 ### after configuration
 
-```bash
-$ make install.after
-$ zplug install
-$ exec $SHELL -l
-```
+- zplug
+- nvim
+- tmux
+- bin/\*
 
 ## Configuration
 
