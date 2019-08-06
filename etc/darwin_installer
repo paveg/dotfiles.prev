@@ -112,6 +112,20 @@ log_echo() {
 
 # install function ------------------------
 
+prepare() {
+  if is_not_exists brew; then
+    ruby -e "$(curl -fsSL https://githubusercontent.com/Homebrew/install/master/install)"
+    log_pass "Homebrew installation is completed."
+  else
+    log_warn "Homebrew is already installed."
+  fi
+  log_info "Prepare Homebrew..."
+  brew cleanup
+  brew update
+  brew tap --repair
+  log_pass "All green!"
+}
+
 setup_packages() {
   log_info "Install Packages..."
   while read pkg
@@ -166,13 +180,7 @@ if [[ ! -d $dotpath ]]; then
   git clone $repoUrl $dotpath
 fi
 
-if is_not_exists brew; then
-  ruby -e "$(curl -fsSL https://githubusercontent.com/Homebrew/install/master/install)"
-  log_pass "Homebrew installation is completed."
-else
-  log_warn "Homebrew is already installed."
-fi
-
+prepare
 setup_applications
 setup_packages
 
