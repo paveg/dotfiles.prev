@@ -14,6 +14,8 @@
   root = ~/src
 [credential]
   helper = osxkeychain
+[diff "sopsdiffer"]
+  textconv = sops -d
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
@@ -34,3 +36,14 @@
   cb = checkout -b
   ll = log --pretty=oneline
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[includeIf "gitdir:~/src/github.com/C-FO/"]
+  path = config.work
+[secrets]
+  patterns = private_key
+  patterns = private_key_id
+  providers = git secrets --aws-provider
+  patterns = [A-Z0-9]{20}
+  patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+  patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+  allowed = AKIAIOSFODNN7EXAMPLE
+  allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
