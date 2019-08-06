@@ -3,7 +3,7 @@ setopt no_global_rcs
 
 # Set dotfiles root directory as default variable
 if [[ -z "${DOTPATH:-}" ]]; then
-  if [[ -d $HOME/src/github.com/paveg/dotfiles ]]; then
+  if [[ -e $HOME/src/github.com/paveg/dotfiles ]]; then
     export DOTPATH=$HOME/src/github.com/paveg/dotfiles # for ghq src root
   else
     export DOTPATH=$HOME/dotfiles
