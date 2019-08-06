@@ -51,3 +51,26 @@ ref_enter() {
   return 0
 }
 zle -N ref_enter
+
+kex() {
+  if [[ "$1" = "" ]]; then
+    echo "Please, set your namespace"
+    return
+  fi
+  pod=$(kubectl get pod --namespace $1 | fzf-tmux --ansi --reverse | awk '{print $1}')
+  if [[ $? -eq 0 ]] && [[ "$pod" != "" ]]; then
+    echo ">>> exec pod bash $pod"
+    kubectl exec -it --namespace $1 $pod bash
+  fi
+}
+zle -N kex
+
+ksw() {
+  local current=$(kubectl config current-context)
+  echo "[info] select context... - current: $current"
+  context=$(kubectl config get-contexts | fzf-tmux --ansi --reverse | awk '{print $2}')
+  if [[ $? -eq 0 ]] && [[ "$context" != "" ]]; then
+    kubectl config use-context $context
+  fi
+}
+zle -N ksw
