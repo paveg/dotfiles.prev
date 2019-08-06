@@ -8,5 +8,5 @@ jobs:
     pool:
       vmImage: 'macOS-10.14'
     steps:
-      - script: make install
+      - script: make mac.install
         displayName: run install script
