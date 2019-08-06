@@ -44,6 +44,7 @@ _zpcompinit_custom() {
   setopt auto_pushd
   setopt auto_cd
   setopt interactive_comments
+  setopt ignoreeof
 }
 
 : "configuration for history" && {
@@ -61,6 +62,11 @@ _zpcompinit_custom() {
 : "docker completion" && {
   zstyle ':completion:*:*:docker:*' option-stacking yes
   zstyle ':completion:*:*:docker-*:*' option-stacking yes
+}
+
+: "kubernetes" && {
+  source <(kubectl completion zsh)
+  complete -o default -F __start_kubectl k
 }
 
 declare -ax load_paths=(
