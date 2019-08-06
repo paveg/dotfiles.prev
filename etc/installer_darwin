@@ -205,15 +205,3 @@ ln -sf "$dotpath/dotfiles/" "$HOME/dotfiles"
 log_info "symbolic link: $dotpath/.zshenv to $HOME/.zshenv"
 ln -sf "$dotpath/.zshenv" "$HOME/.zshenv"
 log_pass "dotfiles OK."
-
-log_info "change shells..."
-readonly shellpath="$(brew --prefix)/bin/zsh"
-if [[ -z $(cat /etc/shells | grep ${shellpath}) ]]; then
-  echo ${shellpath} | sudo tee -a /etc/shells
-fi
-echo -ne '\n' | sudo chsh -s ${shellpath}
-exec ${shellpath} -l
-echo "dotpath: $DOTPATH"
-echo "zdotdir: $ZDOTDIR"
-
-exit 0

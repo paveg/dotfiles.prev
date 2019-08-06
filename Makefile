@@ -12,7 +12,7 @@ install: ## Install dotfiles
 	./etc/installer
 
 mac.install: ## Install dotfiles for MacOS
-	./etc/darwin_installer
+	./etc/installer_darwin
 
 install.after: ## Install after configuration
 	./etc/after_install
