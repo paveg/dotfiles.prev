@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 export PLATFORM
 
@@ -177,7 +177,7 @@ log_echo() {
 }
 
 is_ci() {
-  if [[ "$CI" == "true" ]]; then
+  if [[ "${CI:false}" == "true" ]]; then
     return 0
   else
     return 1
@@ -259,10 +259,16 @@ if [[ ! -d $dotpath ]]; then
 fi
 
 prepare
-if ! is_ci; then
+if is_osx && ! is_ci; then
   setup_applications
 fi
 setup_packages
+
+if [[ -z "${ZPLUG_HOME:-}" ]]; then
+  ZPLUG_HOME=$HOME/.zplug
+  export ZPLUG_HOME
+fi
+git clone https://github.com/zplug/zplug "$ZPLUG_HOME"
 
 log_info "symbolic link: $dotpath/.zshenv to $HOME/.zshenv"
 ln -sf "$dotpath/.zshenv" "$HOME/.zshenv"
