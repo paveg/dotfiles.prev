@@ -32,7 +32,7 @@ required:
 ## Quick Start
 
 ```bash
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/installer_darwin)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/installer)"
 $ echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells
 $ sudo chsh -s $(brew --prefix)/bin/zsh
 ```
