@@ -181,7 +181,25 @@ is_exists() {
   return $?
 }
 
+# is_not_exists returns true if executable $1 not exist in $PATH
+is_not_exists() {
+  if is_exists "$1"; then
+    return 1
+  else
+    return 0
+  fi
+}
+
 # has is wrapper function
 has() {
   is_exists "$@"
+}
+
+is_ci() {
+  if [[ "$CI" == "true" ]]; then
+    return 0
+  else
+    return 1
+  fi
+
 }
