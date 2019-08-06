@@ -25,10 +25,10 @@
 
 ## Quick Start
 
-### cURL
+### cURL /  for MacOS
 
 ```bash
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/install.sh)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/darwin_installer)"
 ```
 
 ### Git

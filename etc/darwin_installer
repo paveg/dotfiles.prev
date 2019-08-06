@@ -110,6 +110,35 @@ log_echo() {
   logging TITLE "$1"
 }
 
+# install function ------------------------
+
+setup_packages() {
+  log_info "Install Packages..."
+  while read pkg
+  do
+    if ! brew list | grep $pkg &>/dev/null; then
+      log_info "Installing $pkg..."
+      brew install $pkg
+    else
+      log_warn "$pkg is already installed"
+    fi
+  done < "$dotpath/pkg/brew.txt"
+  log_pass "Packages installation is completed."
+}
+
+setup_applications() {
+  log_info "Install Applications..."
+  while read pkg
+  do
+    if ! brew cask list | grep $pkg &>/dev/null; then
+      log_info "Installing $pkg..."
+      brew cask install $pkg
+    else
+      log_warn "$pkg is already installed."
+    fi
+  done < "$dotpath/pkg/brew_cask.txt"
+  log_pass "Applications installation is completed."
+}
 
 # -----------------------------------------
 
@@ -121,7 +150,7 @@ log_info "start installing..."
 readonly githubUser="paveg"
 readonly githubRepo="dotfiles"
 readonly githubDir="$HOME/src/github.com"
-readonly repoDir="$githubDir/$githubUser/$githubRepo"
+readonly dotpath="$githubDir/$githubUser/$githubRepo"
 readonly repoUrl="https://github.com/$githubUser/$githubRepo.git"
 
 # configuration brew cask
@@ -133,46 +162,22 @@ if [[ ! -d "$githubDir" ]]; then
   mkdir -p "$githubDir"
 fi
 
-if [[ ! -d $repoDir ]]; then
-  git clone $repoUrl $repoDir
+if [[ ! -d $dotpath ]]; then
+  git clone $repoUrl $dotpath
 fi
 
 if is_not_exists brew; then
-  # for macOS
   ruby -e "$(curl -fsSL https://githubusercontent.com/Homebrew/install/master/install)"
   log_pass "Homebrew installation is completed."
 else
   log_warn "Homebrew is already installed."
 fi
 
-log_info "Install Applications..."
-while read pkg
-do
-  if ! brew cask list | grep $pkg &>/dev/null; then
-    log_info "Installing $pkg..."
-    brew cask install $pkg
-  else
-    log_warn "$pkg is already installed."
-  fi
-done < "$repoDir/pkg/brew_cask.txt"
-log_pass "Applications installation is completed."
+setup_applications
+setup_packages
 
-log_info "Install Packages..."
-while read pkg
-do
-  if ! brew list | grep $pkg &>/dev/null; then
-    log_info "Installing $pkg..."
-    brew install $pkg
-  else
-    log_warn "$pkg is already installed"
-  fi
-done < "$repoDir/pkg/brew.txt"
-log_pass "Packages installation is completed."
-
-# TODO: check and fix .zshenv and .zshrc paths.
-# symbolic link src/github.com/paveg/dotfiles to ~/dotfiles
-# ln -sf "$repoDir/" "$HOME/dotfiles"
-# ln -sf "$repoDir/.zshenv" "$HOME/.zshenv"
+ln -sf "$dotpath/dotfiles/" "$HOME/dotfiles"
+ln -sf "$dotpath/.zshenv" "$HOME/.zshenv"
 log_pass "dotfiles OK."
 
 log_info "change shells..."
