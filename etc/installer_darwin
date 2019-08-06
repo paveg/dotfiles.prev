@@ -177,17 +177,12 @@ log_info "start installing..."
 
 readonly githubUser="paveg"
 readonly githubRepo="dotfiles"
-readonly githubDir="$HOME/src/github.com"
-readonly dotpath="$githubDir/$githubUser/$githubRepo"
+readonly dotpath="$HOME/dotfiles"
 readonly repoUrl="https://github.com/$githubUser/$githubRepo.git"
 
 # configuration brew cask
 if [[ -z "${HOMEBREW_CASK_OPTS:-}" ]]; then
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-fi
-
-if [[ ! -d "$githubDir" ]]; then
-  mkdir -p "$githubDir"
 fi
 
 if [[ ! -d $dotpath ]]; then
