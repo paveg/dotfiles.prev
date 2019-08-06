@@ -1,3 +1,6 @@
+zsh
+zsh-completion
+zplug
 docker
 ghq
 tree
@@ -19,4 +22,5 @@ fd
 xsv
 ripgrep
 neovim
+git-secrets
 awk

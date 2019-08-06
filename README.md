@@ -25,6 +25,16 @@
 
 ## Quick Start
 
+### cURL /  for MacOS
+
+```bash
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/installer_darwin)"
+$ echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells
+$ sudo chsh -s $(brew --prefix)/bin/zsh
+```
+
+### Git
+
 ```bash
 $ git clone https://github.com/paveg/dotfiles $HOME/dotfiles
 $ cd dotfiles && make install
