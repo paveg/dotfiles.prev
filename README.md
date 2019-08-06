@@ -39,11 +39,10 @@ $ sudo chsh -s $(brew --prefix)/bin/zsh
 
 ### after configuration
 
-```bash
-$ make install.after
-$ zplug install
-$ exec $SHELL -l
-```
+- zplug
+- nvim
+- tmux
+- bin/\*
 
 ## Configuration
 

@@ -14,12 +14,13 @@ jobs:
   build:
     executor: xenials
     steps:
+      - checkout
       - run:
           name: prepare
           command: sudo apt-get update && sudo apt-get install -y curl git bison
       - run:
           name: install dotfiles
-          command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/installer_darwin)"
+          command: make install
 workflows:
   version: 2
   test:
