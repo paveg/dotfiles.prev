@@ -22,4 +22,5 @@ fd
 xsv
 ripgrep
 neovim
+git-secrets
 awk

@@ -39,3 +39,10 @@ repo = 'thinca/vim-quickrun'
 # cpp
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
+
+# TypeScript
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
