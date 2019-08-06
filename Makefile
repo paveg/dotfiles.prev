@@ -1,4 +1,4 @@
-.PHONY: help install mac.install install.after docker.build docker.run docker.push init.envs init.vim init.tmux deploy.bin
+.PHONY: help install install.after docker.build docker.run docker.push init.envs init.vim init.tmux deploy.bin
 
 .DEFAULT_GOAL := help
 DOCKERHUB_NAME := paveg
@@ -10,9 +10,6 @@ help: ## Show options
 
 install: ## Install dotfiles
 	./etc/installer
-
-mac.install: ## Install dotfiles for MacOS
-	./etc/installer_darwin
 
 install.after: ## Install after configuration
 	./etc/after_install
