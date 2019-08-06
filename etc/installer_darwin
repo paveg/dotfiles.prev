@@ -177,7 +177,7 @@ log_info "start installing..."
 
 readonly githubUser="paveg"
 readonly githubRepo="dotfiles"
-readonly dotpath="$HOME/dotfiles"
+readonly dotpath="$HOME/src/github.com/paveg/dotfiles"
 readonly repoUrl="https://github.com/$githubUser/$githubRepo.git"
 
 # configuration brew cask
