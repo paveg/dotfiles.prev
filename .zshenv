@@ -1,15 +1,8 @@
 # initialize zsh env
 setopt no_global_rcs
 
-# Set dotfiles root directory as default variable
-if [[ -z "${DOTPATH:-}" ]]; then
-  if [[ -e $HOME/src/github.com/paveg/dotfiles ]]; then
-    export DOTPATH=$HOME/src/github.com/paveg/dotfiles # for ghq src root
-  else
-    export DOTPATH=$HOME/dotfiles
-  fi
-fi
-
+# set your dotpath
+export DOTPATH=$HOME/src/github.com/paveg/dotfiles
 export ZDOTDIR=$DOTPATH/.zsh.d
 
 . $ZDOTDIR/.zshenv
