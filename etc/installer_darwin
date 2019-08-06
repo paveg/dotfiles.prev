@@ -170,8 +170,17 @@ setup_applications() {
 
 # -----------------------------------------
 
-# TODO: tool check
-# git
+log_info "tool check..."
+
+declare -ax cmds=(git ruby)
+for c in ${cmds[@]};
+do
+  log_info "check: $c."
+  if is_not_exists $c; then
+    log_fail "not found $c."
+    exit 1
+  fi
+done
 
 log_info "start installing..."
 
