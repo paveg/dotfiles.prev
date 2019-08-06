@@ -63,6 +63,11 @@ _zpcompinit_custom() {
   zstyle ':completion:*:*:docker-*:*' option-stacking yes
 }
 
+: "kubernetes" && {
+  source <(kubectl completion zsh)
+  complete -o default -F __start_kubectl k
+}
+
 declare -ax load_paths=(
   $ZPLUG_HOME/init.zsh\
   $ZDOTDIR/utils/alias.zsh\
