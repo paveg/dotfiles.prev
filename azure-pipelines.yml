@@ -10,3 +10,5 @@ jobs:
     steps:
       - script: make mac.install
         displayName: run install script
+        env:
+          CI: true
