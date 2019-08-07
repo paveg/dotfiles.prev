@@ -8,7 +8,5 @@ jobs:
     pool:
       vmImage: 'macOS-10.14'
     steps:
-      - script: bash -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/installer)"
+      - script: make install
         displayName: run install script
-        env:
-          CI: true
