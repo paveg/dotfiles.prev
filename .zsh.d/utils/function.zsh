@@ -26,7 +26,7 @@ fzf-select-history() {
 zle -N fzf-select-history
 
 ghq-fcd() {
-  local selected_dir=$(ghq list -p | fzf --reverse -m --preview 'bat --color=always --style=header,grid --line-range :100 {}/README.*' --query "$LBUFFER")
+  local selected_dir=$(ghq list -p | fzf --reverse -m --preview 'bat --color always --style header,grid --line-range :100 {}/README.*' --query "$LBUFFER")
   if [[ -n "$selected_dir" ]]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
@@ -36,7 +36,7 @@ ghq-fcd() {
 zle -N ghq-fcd
 
 fvim() {
-  local file=$(fd "$BUFFER" ./ -t file | fzf --reverse -m --preview 'bat --color=always --style=header,grid --line-range :100 {}' --query "$LBUFFER")
+  local file=$(fd "$BUFFER" ./ -t file | fzf --reverse -m --preview 'bat --color always --style header,grid --line-range :100 {}' --query "$LBUFFER")
   if [[ -n "$file" ]]; then
     BUFFER="nvim ${file}"
     zle accept-line
