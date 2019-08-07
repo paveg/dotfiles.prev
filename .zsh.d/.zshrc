@@ -8,6 +8,7 @@ typeset -gx -U path PATH
 path=( \
   /usr/local/bin(N-/) \
   $HOME/bin(N-/) \
+  $HOME/src/bin(N-/) \
   /usr/local/sbin(N-/) \
   "$path[@]" \
 )

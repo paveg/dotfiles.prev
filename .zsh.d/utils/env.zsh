@@ -75,3 +75,7 @@ function scalaenv() {
   anyenv_init
   scalaenv "$@"
 }
+
+# setup go
+export GOENV_DISABLE_GOPATH=1
+export GOPATH="$HOME/src"
