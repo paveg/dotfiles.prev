@@ -176,14 +176,6 @@ log_echo() {
   logging TITLE "$1"
 }
 
-is_ci() {
-  if [[ "${CI:false}" == "true" ]]; then
-    return 0
-  else
-    return 1
-  fi
-}
-
 # install function ------------------------
 
 prepare() {
@@ -262,7 +254,7 @@ if [[ ! -d $dotpath ]]; then
 fi
 
 prepare
-if is_osx && ! is_ci; then
+if is_osx; then
   setup_applications
 fi
 setup_packages
