@@ -213,6 +213,9 @@ setup_packages() {
   do
     if ! brew list | grep $pkg &>/dev/null; then
       log_info "Installing $pkg..."
+      if [[ "$pkg" = "saml2aws" ]]; then
+        brew tap versent/homebrew-taps
+      fi
       brew install $pkg
     else
       log_warn "$pkg is already installed"

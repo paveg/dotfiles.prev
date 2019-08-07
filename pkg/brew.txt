@@ -24,3 +24,5 @@ ripgrep
 neovim
 git-secrets
 awk
+awscli
+saml2aws
