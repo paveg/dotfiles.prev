@@ -16,6 +16,11 @@ if [ -d $ANYENV_ROOT ]; then
   for D in `command ls $ANYENV_ROOT/envs`
   do
     export PATH=$ANYENV_ROOT/envs/$D/shims:$PATH
+    if [[ "$D" = "pyenv" ]]; then
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+      export PYENV_ROOT=$ANYENV_ROOT/envs/$D
+    fi
   done
 fi
 
@@ -29,7 +34,6 @@ function anyenv_init() {
 function anyenv_unset() {
   unset -f nodenv
   unset -f rbenv
-  unset -f pyenv
   #  unset -f tfenv
   unset -f goenv
   unset -f sbtenv
@@ -46,12 +50,6 @@ function rbenv() {
   anyenv_unset
   anyenv_init
   rbenv "$@"
-}
-
-function pyenv() {
-  anyenv_unset
-  anyenv_init
-  pyenv "$@"
 }
 
 function goenv() {

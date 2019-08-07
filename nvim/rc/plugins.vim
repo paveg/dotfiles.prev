@@ -31,7 +31,7 @@ if has('python3')
 endif
 if has('ruby')
   call dein#load_toml(s:toml_dir . '/ruby.toml', {'lazy' : 1})
-fi
+endif
 call dein#load_toml(s:toml_dir . '/go.toml', {'lazy': 1})
 call dein#load_toml(s:toml_dir . '/javascript.toml', {'lazy': 1})
 
