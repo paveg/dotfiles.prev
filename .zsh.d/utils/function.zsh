@@ -25,15 +25,25 @@ fzf-select-history() {
 }
 zle -N fzf-select-history
 
-fzf-src-ghq () {
-  local selected_dir=$(ghq list -p | fzf --ansi --reverse --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
+ghq-fcd() {
+  local selected_dir=$(ghq list -p | fzf --reverse -m --preview 'bat --color=always --style=header,grid --line-range :100 {}/README.*' --query "$LBUFFER")
+  if [[ -n "$selected_dir" ]]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N fzf-src-ghq
+zle -N ghq-fcd
+
+fvim() {
+  local file=$(fd "$BUFFER" ./ -t file | fzf --reverse -m --preview 'bat --color=always --style=header,grid --line-range :100 {}' --query "$LBUFFER")
+  if [[ -n "$file" ]]; then
+    BUFFER="nvim ${file}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N fvim
 
 ref_enter() {
   if [ -n "$BUFFER" ]; then
