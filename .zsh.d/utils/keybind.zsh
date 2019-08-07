@@ -1,7 +1,8 @@
 bindkey "^r" fzf-select-history
-bindkey '^]' fzf-src-ghq
+bindkey '^]' ghq-fcd
 bindkey '^m' ref_enter
 bindkey '^e' fbr
+bindkey '^g' fvim
 
 # Required Keybind
 bindkey "^A" beginning-of-line
