@@ -1,12 +1,12 @@
 #!/bin/bash
 
 if ! type jq &>/dev/null; then
-    echo "jq: not found" >&2
+    echo "jq: -" >&2
     exit 1
 fi
 
 if ! type gcloud &>/dev/null; then
-    echo "gcloud: not found" >&2
+    echo "gcloud: -" >&2
     exit 1
 fi
 

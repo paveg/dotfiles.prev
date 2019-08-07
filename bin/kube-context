@@ -21,7 +21,7 @@ if ! type kubectl &>/dev/null; then
 fi
 
 if ! context="$(kubectl config current-context 2>/dev/null)"; then
-    echo "kubectl: not found"
+    echo "kubectl: -"
     exit 0
 fi
 
