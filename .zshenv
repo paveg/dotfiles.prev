@@ -1,5 +1,6 @@
 # initialize zsh env
 setopt no_global_rcs
+setopt combiningchars
 
 # set your dotpath
 export DOTPATH=$HOME/src/github.com/paveg/dotfiles
