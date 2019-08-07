@@ -8,7 +8,7 @@ jobs:
     pool:
       vmImage: 'macOS-10.14'
     steps:
-      - script: bash -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/installer_darwin)"
+      - script: bash -c "$(curl -fsSL https://raw.githubusercontent.com/paveg/dotfiles/master/etc/installer)"
         displayName: run install script
         env:
           CI: true
