@@ -72,5 +72,7 @@ endfunction
 
 call s:load('plugins')
 
+" Remapping jj to escape
+inoremap <silent> jj <ESC>
 filetype plugin indent on
 syntax on

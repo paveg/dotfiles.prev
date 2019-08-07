@@ -9,6 +9,8 @@ hook_add = '''
 # auto close
 [[plugins]]
 repo = 'Townk/vim-autoclose'
+[[plugins]]
+repo = 'tpope/vim-endwise'
 
 # Toml
 [[plugins]]
@@ -21,6 +23,16 @@ repo = 'altercation/vim-colors-solarized'
 # vim-git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+# change quote
+[[plugins]]
+repo = 'tpope/vim-surround'
+hook_add = '''
+  " replace double with single.
+  nmap ff <Plug>Csurround"'
+  " replace single with double
+  nmap tt <Plug>Csurround'"
+'''
 
 # execute file on nvim
 [[plugins]]
