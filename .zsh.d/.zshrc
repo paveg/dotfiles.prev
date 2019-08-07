@@ -45,6 +45,8 @@ _zpcompinit_custom() {
   setopt auto_cd
   setopt interactive_comments
   setopt ignoreeof
+  setopt no_flow_control
+
 }
 
 : "configuration for history" && {
