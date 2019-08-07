@@ -11,3 +11,24 @@ hook_add = '''
   inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
 '''
 
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+build = 'bash install.sh'
+rev = 'next'
+hook_add = '''
+  set hidden
+  let g:LanguageClient_serverCommands = {
+    \ 'go': ['gopls']
+    \ }
+  let g:LanguageClient_loadSettings = 1
+  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+'''
+
+if = 'has("nvim") && has("python3")'
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+on_event = ['InsertEnter']
+build = './install.sh'
+on_ft = ['ruby', 'go', 'python', 'typescript', 'javascript']
+
