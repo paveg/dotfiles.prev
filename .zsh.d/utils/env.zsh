@@ -16,9 +16,6 @@ if [ -d $ANYENV_ROOT ]; then
   for D in `command ls $ANYENV_ROOT/envs`
   do
     export PATH=$ANYENV_ROOT/envs/$D/shims:$PATH
-    if [[ "$D" != "tfenv" ]]; then
-      source $(dirname $(greadlink -f `whence -p "$D"`))/../completions/$D.zsh
-    fi
     if [[ "$D" = "pyenv" ]]; then
       eval "$(pyenv init -)"
       eval "$(pyenv virtualenv-init -)"
