@@ -34,7 +34,7 @@ function anyenv_init() {
 function anyenv_unset() {
   unset -f nodenv
   unset -f rbenv
-  #  unset -f tfenv
+  # unset -f tfenv
   unset -f goenv
   unset -f sbtenv
   unset -f scalaenv

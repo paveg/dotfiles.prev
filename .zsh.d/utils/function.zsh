@@ -45,6 +45,25 @@ fvim() {
 }
 zle -N fvim
 
+fzf-fd() {
+  if git rev-parse 2> /dev/null; then
+    source_files=$(git ls-files)
+  else
+    source_files=$(fd "$BUFFER" ./ -t f)
+  fi
+  selected_files=$(echo $source_files | fzf --ansi --reverse --prompt "[find file]" --query "$LBUFFER")
+
+  result=''
+  for file in $selected_files; do
+    result="${result}$(echo $file | tr '\n' ' ')"
+  done
+
+  BUFFER="${BUFFER}${result}"
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N fzf-fd
+
 ref_enter() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
