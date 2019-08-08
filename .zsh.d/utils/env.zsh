@@ -16,6 +16,9 @@ if [ -d $ANYENV_ROOT ]; then
   for D in `command ls $ANYENV_ROOT/envs`
   do
     export PATH=$ANYENV_ROOT/envs/$D/shims:$PATH
+    if [[ "$D" != "tfenv" ]]; then
+      source $(dirname $(greadlink -f `whence -p "$D"`))/../completions/$D.zsh
+    fi
     if [[ "$D" = "pyenv" ]]; then
       eval "$(pyenv init -)"
       eval "$(pyenv virtualenv-init -)"
@@ -27,50 +30,47 @@ fi
 # lazy load anyenv
 # Due to this, when you install global command (ex. npm i --global) you need to
 # eval "$(anyenv init -)" to validity
-function anyenv_init() {
-  eval "$(anyenv init - --no-rehash)"
+anyenv_init() {
+  eval "$(command anyenv init - --no-rehash)"
 }
 
-function anyenv_unset() {
-  unset -f nodenv
-  unset -f rbenv
-  # unset -f tfenv
-  unset -f goenv
-  unset -f sbtenv
-  unset -f scalaenv
+_unset() {
+  unset -f "$1" > /dev/null 2>&1
 }
 
-function nodenv() {
+anyenv_unset() {
+  _unset nodenv
+  _unset rbenv
+  _unset goenv
+  _unset sbtenv
+  _unset scalaenv
+}
+
+nodenv() {
   anyenv_unset
   anyenv_init
   nodenv "$@"
 }
 
-function rbenv() {
+rbenv() {
   anyenv_unset
   anyenv_init
   rbenv "$@"
 }
 
-function goenv() {
+goenv() {
   anyenv_unset
   anyenv_init
   goenv "$@"
 }
 
-# function tfenv() {
-#   anyenv_unset
-#   anyenv_init
-#   tfenv "$@"
-# }
-
-function sbtenv() {
+sbtenv() {
   anyenv_unset
   anyenv_init
   sbtenv "$@"
 }
 
-function scalaenv() {
+scalaenv() {
   anyenv_unset
   anyenv_init
   scalaenv "$@"

@@ -103,3 +103,14 @@ ksw() {
   fi
 }
 zle -N ksw
+
+fzf-lsec2() {
+  local ip=$(lsec2 -c | fzf --ansi --reverse --query "$LBUFFER" | awk '{print $2}')
+  if [[ "$ip" != "" ]]; then
+    BUFFER="ssh -t -t $ip"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N fzf-lsec2
+
