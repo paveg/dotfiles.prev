@@ -8,4 +8,5 @@ bindkey '^m' ref_enter
 bindkey '^e' fbr
 bindkey '^g' fzf-fd
 bindkey '^v' fvim
+bindkey '^p' fzf-lsec2
 
