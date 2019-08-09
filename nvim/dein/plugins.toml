@@ -14,7 +14,13 @@ repo = 'tpope/vim-endwise'
 
 # Toml
 [[plugins]]
-repo  = 'cespare/vim-toml'
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+hook_add = '''
+  let g:vim_markdown_folding_disabled = 1
+'''
 
 # Colors
 [[plugins]]
