@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 copy_str() {
   if [[ $# -eq 0 ]]; then
