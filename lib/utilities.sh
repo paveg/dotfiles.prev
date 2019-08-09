@@ -168,7 +168,7 @@ ink() {
 
 # is_debug returns true if $DEBUG is set
 is_debug() {
-  if [[ "$DEBUG" = 1 ]]; then
+  if [[ "${DEBUG:-0}" = 1 ]]; then
     return 0
   else
     return 1

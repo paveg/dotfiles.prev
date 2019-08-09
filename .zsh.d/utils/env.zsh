@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/zsh -e
 
 : "direnv" && {
   type direnv > /dev/null && eval "$(direnv hook zsh)"
