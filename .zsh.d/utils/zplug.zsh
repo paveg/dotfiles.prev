@@ -9,7 +9,6 @@ zplug 'chrissicool/zsh-256color', use:"zsh-256color.plugin.zsh"
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme &&
   export PURE_PROMPT_SYMBOL="%{$fg[green]%}pav@${HOST} %{$fg[red]%}❯❯❯"
-zplug "trapd00r/zsh-syntax-highlighting-filetypes", defer:2
 
 # completion
 zplug "zsh-users/zsh-completions"
