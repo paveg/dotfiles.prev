@@ -70,50 +70,53 @@ $ sudo chsh -s $(brew --prefix)/bin/zsh
 
 ```textmate
 ~/dotfiles
-pav@ryota-3.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump' .
+pav@ryota.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump|.zcompcache|examples' .
 .
 ├── .circleci
 │   └── config.yml
 ├── .zsh.d
 │   ├── utils
-│   │   ├── alias.zsh    # Define the alias you usually use
-│   │   ├── core.zsh     # Define core zsh configuration
-│   │   ├── env.zsh      # Define environment
-│   │   ├── function.zsh # Define convenient function
-│   │   ├── keybind.zsh  # Define zsh key bindings
-│   │   └── zplug.zsh    # Zsh plugin manager configuration
-│   ├── .zprofile        # Source only once library at startup terminal
-│   ├── .zshenv          # Actual zsh environment
-│   └── .zshrc           # Normal zshrc; defined common zsh configuration
+│   │   ├── alias.zsh         # Define the alias you usually use
+│   │   ├── core.zsh          # Define core zsh configuration
+│   │   ├── env.zsh           # Define environment
+│   │   ├── functions.zsh     # Define convenient function
+│   │   ├── key_bindings.zsh  # Define zsh key bindings
+│   │   └── zplug.zsh         # Zsh plugin manager configuration
+│   ├── .zprofile             # Source only once library at startup terminal
+│   ├── .zshenv               # Actual zsh environment
+│   └── .zshrc                # Normal zshrc; defined common zsh configuration
 ├── bin
-│   ├── gcp-context      # Fetch Google Cloud Platform information
-│   ├── kube-context     # Fetch kubectl information
-│   └── wifi-info        # Fetch wi-fi information
+│   ├── gcp-context           # Fetch Google Cloud Platform information
+│   ├── kube-context          # Fetch kubectl information
+│   └── wifi-info             # Fetch wi-fi information
 ├── etc
-│   ├── bdeploy          # Deploy binaries
-│   ├── initvim          # Init nvim shellscript
-│   ├── inittmux         # Init tmux shellscript
-│   └── installer        # Installer dotfiles
-├── examples
-│   └── styles.png       # Example image for README.md
+│   ├── after_install
+│   ├── bdeploy               # Deploy binaries
+│   ├── initvim               # Init nvim shellscript
+│   ├── inittmux              # Init tmux shellscript
+│   └── installer             # Installer dotfiles
 ├── lib
-│   └── utilities.sh     # Utility bash shell functions
+│   └── utilities.sh          # Utility bash shell functions
 ├── nvim
 │   ├── dein
-│   │   ├── lazy.toml    # Lazy load plugins
-│   │   ├── plugins.toml # Dein plugins
-│   │   └── python.toml  # Python plugins
+│   │   ├── go.toml           # Go plugins
+│   │   ├── javascript.toml   # Javascript plugins
+│   │   ├── lazy.toml         # Lazy load plugins
+│   │   ├── plugins.toml      # Common plugins
+│   │   ├── python.toml       # Python plugins
+│   │   └── ruby.toml         # Ruby plugins
 │   ├── rc
-│   │   └── plugins.vim  # Init plugins
-│   └── init.vim         # Initialize vim, a.k.a .vimrc
+│   │   └── plugins.vim       # Init plugins
+│   └── init.vim              # Vim initializer
 ├── pkg
-│   ├── brew.txt         # Brew package list
-│   └── brew_cask.txt    # Brew cask package list
+│   ├── brew.txt              # Brew package list
+│   └── brew_cask.txt         # Brew cask package list
 ├── .dockerignore
-├── .gitconfig           # Global gitconfig, linked $XDG_CONFIG_HOME/git/config
+├── .envrc
+├── .gitconfig
 ├── .gitignore
-├── .tmux.conf           # Tmux configuration file
-├── .zshenv              # Invite you to zsh
+├── .tmux.conf                # Tmux configuration file
+├── .zshenv                   # Invite you to zsh
 ├── Dockerfile
 ├── LICENSE
 ├── Makefile

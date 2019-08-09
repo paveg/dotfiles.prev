@@ -1,3 +1,5 @@
+#!/bin/zsh -e
+
 # Required Keybind
 bindkey "^A" beginning-of-line
 bindkey "^K" kill-line
