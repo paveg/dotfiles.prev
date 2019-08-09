@@ -28,6 +28,7 @@ set ambiwidth=double
 
 " Do not make swapfile
 set noswapfile
+set autoread
 
 set list
 set listchars=tab:>-,trail:*,nbsp:+

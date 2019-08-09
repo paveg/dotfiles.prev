@@ -50,8 +50,8 @@ if [[ -z ${ZPLUG_UPDATE:-} ]]; then
 fi
 
 is_update() {
-  if ([ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/utils/zplug.zsh ] ||\
-    [ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/.zshrc ]) && [ "$ZPLUG_UPDATE" = 1 ] ; then
+  if ([[ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/utils/zplug.zsh ]] ||\
+    [[ ! $ZPLUG_HOME/check.zplug -nt $ZDOTDIR/.zshrc ]]) && [[ "$ZPLUG_UPDATE" = 1 ]]; then
     touch $ZPLUG_HOME/check.zplug
     return 0
   else

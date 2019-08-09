@@ -1,5 +1,8 @@
 #!/bin/zsh -e
 
+# for a tmux -2 session (also for screen)
+export TERM=screen-256color
+
 # is_tmux_running returns true if tmux is running
 is_tmux_running() {
   [[ ! -z "$TMUX" ]]
