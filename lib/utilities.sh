@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 copy_str() {
   if [[ $# -eq 0 ]]; then
@@ -67,9 +67,17 @@ is_zsh() {
   [[ -n "$ZSH_VERSION" ]]
 }
 
+is_logging_pass() {
+  if [[ "${ENABLE_LOGGING_PASS:-1}" = 1 ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 logging() {
   if [[ "$#" -eq 0 ]] || [[ "$#" -gt 2 ]]; then
-    echo "Usage: ink <fmt> <msg>"
+    echo "Usage: logging <fmt> <msg>"
     echo "Formatting Options:"
     echo "  TITLE, ERROR, WARN, INFO, SUCCESS"
     return 1
@@ -108,6 +116,9 @@ logging() {
 }
 
 log_pass() {
+  if ! is_logging_pass; then
+    return
+  fi
   logging SUCCESS "$1"
 }
 
@@ -125,11 +136,6 @@ log_info() {
 
 log_echo() {
   logging TITLE "$1"
-}
-
-# is_tmux_running returns true if tmux is running
-is_tmux_running() {
-  [[ ! -z "$TMUX" ]]
 }
 
 ink() {
@@ -168,7 +174,7 @@ ink() {
 
 # is_debug returns true if $DEBUG is set
 is_debug() {
-  if [[ "$DEBUG" = 1 ]]; then
+  if [[ "${DEBUG:-0}" = 1 ]]; then
     return 0
   else
     return 1
@@ -184,4 +190,19 @@ is_exists() {
 # has is wrapper function
 has() {
   is_exists "$@"
+}
+
+prepare_secrets() {
+  local creds="$HOME/.local/secrets"
+  if [[ ! -e "$creds" ]]; then
+    local cred_dir="$(dirname $HOME/.local/secrets)"
+    if [[ ! -e "$cred_dir" ]]; then
+      mkdir -p "$cred_dir"
+      log_pass "create directory - $cred_dir."
+    fi
+    touch "$creds"
+    log_pass "create local credentials file - $creds."
+  else
+    . "$creds"
+  fi
 }

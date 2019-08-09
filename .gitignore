@@ -2,3 +2,4 @@
 .idea
 *.zwc
 .zcompdump
+.zsh.d/.zcompcache/*
