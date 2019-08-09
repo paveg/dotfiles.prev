@@ -1,0 +1,3 @@
+[submodule ".dir_colors"]
+	path = .dir_colors
+	url = https://github.com/trapd00r/LS_COLORS

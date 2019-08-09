@@ -3,8 +3,6 @@ filetype plugin indent off
 " Able to control mouse
 set mouse=a
 
-" Use true colors on terminal
-set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
@@ -78,5 +76,13 @@ call s:load('plugins')
 
 " Remapping jj to escape
 inoremap <silent> jj <ESC>
-filetype plugin indent on
+
+" Use true colors on terminal
+syntax enable
+set termguicolors
+set t_Co=256
+set background=dark
+colorscheme material-theme
+
 syntax on
+filetype plugin indent on

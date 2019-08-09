@@ -13,6 +13,13 @@
 
 ![styles](./examples/styles.png)
 
+### Main color theme
+
+* Neovim
+  * [vim-material-theme](https://github.com/jdkanani/vim-material-theme)
+* Terminal theme
+  * [MaterialDark](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/xfce4terminal/colorschemes/MaterialDark.theme)
+
 ## Prepare
 
 required:

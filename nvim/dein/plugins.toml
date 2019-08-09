@@ -18,7 +18,11 @@ repo  = 'cespare/vim-toml'
 
 # Colors
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
+repo = 'jdkanani/vim-material-theme'
+[[plugins]]
+repo = 'tomasr/molokai'
+[[plugins]]
+repo = 'jacoborus/tender.vim'
 
 # vim-git
 [[plugins]]
