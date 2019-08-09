@@ -1,7 +1,7 @@
 #!/bin/zsh -e
 
 fbr() {
-  local branches=$(git branch -vv | fzf --ansi --reverse --query "$LBUFFER")
+  local branches=$(git branch -vv | fzf --prompt "[branch name]: " --query "$LBUFFER")
   if [[ -n "$branches" ]]; then
     BUFFER="git checkout $(echo "$branches" | awk '{print $1}' | sed "s/.* //")"
     zle accept-line
@@ -19,14 +19,14 @@ fzf-select-history() {
   fi
   BUFFER=$(\history -n 1 | \
     eval $tac | \
-    fzf --ansi --reverse --query "$LBUFFER")
+    fzf --prompt "[history]: " --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
 zle -N fzf-select-history
 
 ghq-fcd() {
-  local selected_dir=$(ghq list -p | fzf --reverse -m --preview 'bat --color always --style header,grid --line-range :100 {}/README.*' --query "$LBUFFER")
+  local selected_dir=$(ghq list -p | fzf --prompt "[repository]: " --preview 'bat --color always --style header,grid --line-range :100 {}/README.*' --query "$LBUFFER")
   if [[ -n "$selected_dir" ]]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
@@ -36,7 +36,7 @@ ghq-fcd() {
 zle -N ghq-fcd
 
 fvim() {
-  local file=$(fd "$BUFFER" ./ -t file -H | fzf --reverse -m --preview 'bat --color always --style header,grid --line-range :100 {}' --query "$LBUFFER")
+  local file=$(fd "$BUFFER" ./ -t file -H | fzf --prompt "[file]: " --preview 'bat --color always --style header,grid --line-range :100 {}' --query "$LBUFFER")
   if [[ -n "$file" ]]; then
     BUFFER="nvim ${file}"
     zle accept-line
@@ -51,7 +51,7 @@ fzf-fd() {
   else
     source_files=$(fd "$BUFFER" ./ -t file -H)
   fi
-  selected_files=$(echo $source_files | fzf --ansi --reverse --prompt "[find file]" --query "$LBUFFER")
+  selected_files=$(echo $source_files | fzf --prompt "[file]: " --query "$LBUFFER")
 
   result=''
   for file in $selected_files; do
@@ -66,7 +66,7 @@ zle -N fzf-fd
 
 fzf-rg() {
   local lines=$(rg -i --hidden --follow --glob "!.git/*" $BUFFER ./ |
-    fzf --reverse -m --query "$LBUFFER" --prompt "[fzf ripgrep]" |
+    fzf --query "$LBUFFER" --prompt "[lines]: " |
     tr ":" ' ' |
     awk '{print $1}')
   if [[ -n "$lines" ]]; then
@@ -97,12 +97,12 @@ zle -N ref_enter
 
 kex() {
   if [[ "$1" = "" ]]; then
-    echo "Please, set your namespace"
+    log_info "Please, set your namespace"
     return
   fi
-  pod=$(kubectl get pod --namespace $1 | fzf-tmux --ansi --reverse | awk '{print $1}')
+  pod=$(kubectl get pod --namespace $1 | fzf-tmux --prompt "[k8s pod]: " | awk '{print $1}')
   if [[ $? -eq 0 ]] && [[ "$pod" != "" ]]; then
-    echo ">>> exec pod bash $pod"
+    log_info ">>> exec pod bash $pod"
     kubectl exec -it --namespace $1 $pod bash
   fi
 }
@@ -110,8 +110,8 @@ zle -N kex
 
 ksw() {
   local current=$(kubectl config current-context)
-  echo "[info] select context... - current: $current"
-  context=$(kubectl config get-contexts | fzf-tmux --ansi --reverse | awk '{print $2}')
+  log_info "select context... - current: $current"
+  context=$(kubectl config get-contexts | fzf-tmux --prompt "[k8s context]: " | awk '{print $2}')
   if [[ $? -eq 0 ]] && [[ "$context" != "" ]]; then
     kubectl config use-context $context
   fi
@@ -119,7 +119,7 @@ ksw() {
 zle -N ksw
 
 fzf-lsec2() {
-  local ip=$(lsec2 -c | fzf --ansi --reverse --query "$LBUFFER" | awk '{print $2}')
+  local ip=$(lsec2 -c | fzf-tmux --prompt "[host]: " --query "$LBUFFER" | awk '{print $2}')
   if [[ "$ip" != "" ]]; then
     BUFFER="ssh -t -t $ip"
     zle accept-line
@@ -134,3 +134,4 @@ zsh-prof() {
     time zsh -i -c exit
   done
 }
+

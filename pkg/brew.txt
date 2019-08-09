@@ -27,3 +27,4 @@ git-secrets
 awk
 awscli
 saml2aws
+reattach-to-user-namespace

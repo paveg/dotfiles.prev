@@ -51,6 +51,11 @@ fi
 # see: https://github.com/anyenv/anyenv
 export ANYENV_ROOT=$HOME/.anyenv
 
+: "fzf configuration" && {
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+  export FZF_DEFAULT_OPTS='-m --ansi --reverse --border'
+}
+
 # Helm
 export HELM_HOME=$HOME/.helm
 

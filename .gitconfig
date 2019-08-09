@@ -27,10 +27,14 @@
   p = pull
   b = branch
   s = status
+  d = "!f() { args=$@; [ -z \"$args\" ] && args=HEAD; ([ \"$args\" = \"HEAD\" ] && git status --short || git diff --name-status $args | sed 's/\t/  /') | fzf-tmux --reverse --ansi --preview \" echo {} | cut -c 4- | xargs git diff --color=always $args --\" --multi --height 90% | cut -c 4-; }; f"
+  f = fetch
+  rh = reset --hard
   bd = branch -d
   bdf = branch -D
   pu = push
   ci = commit
+  cm = commit -m
   cl = config --list
   co = checkout
   cb = checkout -b

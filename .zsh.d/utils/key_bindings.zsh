@@ -11,4 +11,4 @@ bindkey '^e' fbr
 bindkey '^g' fzf-fd
 bindkey '^l' fvim
 bindkey '^p' fzf-lsec2
-bindkey '^[' fzf-rg
+bindkey '^j' fzf-rg
