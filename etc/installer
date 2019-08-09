@@ -1,5 +1,5 @@
-#!/bin/bash
-set -eu
+#!/bin/bash -eu
+
 export PLATFORM
 
 trap catch ERR
@@ -236,6 +236,9 @@ link_tools!() {
 
   if [[ ! -e "${XDG_CONFIG_HOME:-$HOME/.config}/nvim" ]]; then
     export XDG_CONFIG_HOME="$HOME/.config"
+    if [[ ! -e "$XDG_CONFIG_HOME" ]]; then
+      mkdir -p "$XDG_CONFIG_HOME"
+    fi
     log_info "path $dotpath/nvim/ to $XDG_CONFIG_HOME/nvim ."
     ln -s "$dotpath/nvim/" "$XDG_CONFIG_HOME/nvim"
     log_pass "linked nvim config directory"
