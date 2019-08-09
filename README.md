@@ -4,11 +4,6 @@
 ![Build Status][azure]
 [![DockerHub](https://images.microbadger.com/badges/version/paveg/dotfiles.svg)][dockerhub]
 
-[license]: https://github.com/paveg/dotfiles/blob/master/LICENSE
-[azure]: https://dev.azure.com/pavegy/pavegy/_apis/build/status/paveg.dotfiles?branchName=master
-[circleci]: https://circleci.com/gh/paveg/dotfiles
-[dockerhub]: https://microbadger.com/images/paveg/dotfiles
-
 ## Styles
 
 ![styles](./examples/styles.png)
@@ -17,8 +12,8 @@
 
 * Neovim
   * [vim-material-theme][vim-theme]
-* Terminal theme]
-  * [MaterialDark][terminal]
+* Terminal theme
+  * [MaterialDark][theme]
 
 ## Prepare
 
@@ -130,5 +125,9 @@ pav@ryota.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump
 
 * Respect [b4b4r07/dotfiles](https://github.com/b4b4r07/dotfiles) and borrow part of the code
 
-[vim-terminal]: https://github.com/jdkanani/vim-material-theme
-[terminal]: https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/xfce4terminal/colorschemes/MaterialDark.theme
+[license]: https://github.com/paveg/dotfiles/blob/master/LICENSE
+[azure]: https://dev.azure.com/pavegy/pavegy/_apis/build/status/paveg.dotfiles?branchName=master
+[circleci]: https://circleci.com/gh/paveg/dotfiles
+[dockerhub]: https://microbadger.com/images/paveg/dotfiles
+[vim-theme]: https://github.com/jdkanani/vim-material-theme
+[theme]: https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/xfce4terminal/colorschemes/MaterialDark.theme
