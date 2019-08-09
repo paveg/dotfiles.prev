@@ -73,6 +73,9 @@ path=( \
   done
 }
 
+# attach tmux session.
+tmux_automatically_attach_session
+
 if is_debug; then
   if (which zprof > /dev/null); then
     zprof | less

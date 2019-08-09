@@ -25,7 +25,7 @@ is_ssh_running() {
   [[ ! -z "$SSH_CONECTION" ]]
 }
 
-# tmux_automatically_attach_session attach session for terminal multiplexer tmux or screen.
+# tmux_automatically_attach_session attach session for terminal multiplexer tmux.
 tmux_automatically_attach_session() {
   if is_screen_or_tmux_running; then
     ! is_exists 'tmux' && return 1
@@ -72,4 +72,3 @@ tmux_automatically_attach_session() {
     fi
   fi
 }
-tmux_automatically_attach_session
