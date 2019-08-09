@@ -135,3 +135,12 @@ zsh-prof() {
   done
 }
 
+reset-process() {
+  for pid in $(ps auxww | grep "/usr/local/bin/zsh" | grep -v "grep" | awk '{print $2}'); do
+    if [[ "$pid" != "$$" ]]; then
+      log_info "kill process: $pid"
+      kill -9 "$pid"
+      log_pass "$pid killed"
+    fi
+  done
+}

@@ -1,5 +1,10 @@
 #!/bin/zsh -e
 
+# see: https://github.com/anyenv/anyenv
+if [[ -z "${ANYENV_ROOT:-}" ]]; then
+  export ANYENV_ROOT=$HOME/.anyenv
+fi
+
 : "direnv" && {
   type direnv > /dev/null && eval "$(direnv hook zsh)"
 }
@@ -10,7 +15,6 @@ if [[ ! -e $ANYENV_ROOT/plugins/anyenv-update ]]; then
   git clone https://github.com/znz/anyenv-update.git $ANYENV_ROOT/plugins/anyenv-update
 fi
 
-# anyenv
 if [[ -d $ANYENV_ROOT ]]; then
   export PATH=$ANYENV_ROOT/bin:$PATH
   for D in `command ls $ANYENV_ROOT/envs`

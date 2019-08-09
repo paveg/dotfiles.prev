@@ -32,6 +32,7 @@ path=( \
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
     zstyle ':completion:*:*:docker:*' option-stacking yes
     zstyle ':completion:*:*:docker-*:*' option-stacking yes
+    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
     if [[ -n "$LS_COLORS" ]]; then
         zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
     fi
