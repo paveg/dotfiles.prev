@@ -118,3 +118,7 @@ pav@ryota.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump
 **Keep building the development environment continuously**
 
 #### **Do not stop development\!**
+
+## Note
+
+* Respect [b4b4r07/dotfiles](https://github.com/b4b4r07/dotfiles) and borrow part of the code
