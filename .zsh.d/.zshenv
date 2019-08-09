@@ -54,4 +54,4 @@ export HELM_HOME=$HOME/.helm
 # setup local secret file
 prepare_secrets
 
-# log_pass "Loading complete .zshenv"
+log_pass "Loading complete .zshenv"

@@ -1,5 +1,4 @@
 #!/bin/zsh -e
-
 is_screen_running() { [[ ! -z "$STY" ]]; }
 is_screen_or_tmux_running() { is_screen_running || is_tmux_running; }
 shell_has_started_interactively() { [[ ! -z "$PS1" ]]; }

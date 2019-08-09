@@ -128,3 +128,9 @@ fzf-lsec2() {
 }
 zle -N fzf-lsec2
 
+# zsh-prof measure execution time for startup zsh.
+zsh-prof() {
+  for i in $(seq 1 $1); do
+    time zsh -i -c exit
+  done
+}
