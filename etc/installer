@@ -230,6 +230,42 @@ setup_applications() {
   log_pass "Applications installation is completed."
 }
 
+link_tools!() {
+  log_info "symbolic link: $dotpath/.zshenv to $HOME/.zshenv"
+  ln -sf "$dotpath/.zshenv" "$HOME/.zshenv"
+
+  if [[ ! -e "${XDG_CONFIG_HOME:-$HOME/.config}/nvim" ]]; then
+    export XDG_CONFIG_HOME="$HOME/.config"
+    log_info "path $dotpath/nvim/ to $XDG_CONFIG_HOME/nvim ."
+    ln -s "$dotpath/nvim/" "$XDG_CONFIG_HOME/nvim"
+    log_pass "linked nvim config directory"
+  else
+    log_warn "already linked nvim config directory."
+  fi
+
+  if [[ ! -e "$HOME/.tmux.conf" ]]; then
+    log_info "path $dotpath/.tmux.conf to $HOME/.tmux.conf ."
+    ln -s "$dotpath/.tmux.conf" "$HOME/.tmux.conf"
+    log_pass "linked tmux config directory"
+  else
+    log_warn "already linked tmux config directory."
+  fi
+}
+
+deploy_binary() {
+  local binary_name="$1"
+  if [[ ! -e "$HOME/bin/$binary_name" ]]; then
+    if [[ ! -e "$HOME/bin" ]]; then
+      mkdir -p "$HOME/bin"
+    fi
+    log_info "Not linking $binary_name ."
+    ln -s "$dotpath/bin/$binary_name" "$HOME/bin/$binary_name"
+    log_pass "Deploy completed $binary_name symbolic link."
+  else
+    log_warn "Already deployed $binary_name..."
+  fi
+}
+
 # -----------------------------------------
 
 if is_not_exists git; then
@@ -265,6 +301,9 @@ if [[ -z "${ZPLUG_HOME:-}" ]]; then
 fi
 git clone https://github.com/zplug/zplug "$ZPLUG_HOME"
 
-log_info "symbolic link: $dotpath/.zshenv to $HOME/.zshenv"
-ln -sf "$dotpath/.zshenv" "$HOME/.zshenv"
+link_tools!
+deploy_binary "gcp-context"
+deploy_binary "kube-context"
+deploy_binary "wifi-info"
+
 log_pass "dotfiles OK."

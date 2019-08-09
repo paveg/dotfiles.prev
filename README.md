@@ -37,13 +37,6 @@ $ echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells
 $ sudo chsh -s $(brew --prefix)/bin/zsh
 ```
 
-### after configuration
-
-- zplug
-- nvim
-- tmux
-- bin/\*
-
 ## Configuration
 
 ### Environment
@@ -90,10 +83,6 @@ pav@ryota.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump
 │   ├── kube-context          # Fetch kubectl information
 │   └── wifi-info             # Fetch wi-fi information
 ├── etc
-│   ├── after_install
-│   ├── bdeploy               # Deploy binaries
-│   ├── initvim               # Init nvim shellscript
-│   ├── inittmux              # Init tmux shellscript
 │   └── installer             # Installer dotfiles
 ├── lib
 │   └── utilities.sh          # Utility bash shell functions
