@@ -36,7 +36,7 @@ ghq-fcd() {
 zle -N ghq-fcd
 
 fvim() {
-  local file=$(fd "$BUFFER" ./ -t file | fzf --reverse -m --preview 'bat --color always --style header,grid --line-range :100 {}' --query "$LBUFFER")
+  local file=$(fd "$BUFFER" ./ -t file -H | fzf --reverse -m --preview 'bat --color always --style header,grid --line-range :100 {}' --query "$LBUFFER")
   if [[ -n "$file" ]]; then
     BUFFER="nvim ${file}"
     zle accept-line
@@ -49,7 +49,7 @@ fzf-fd() {
   if git rev-parse 2> /dev/null; then
     source_files=$(git ls-files)
   else
-    source_files=$(fd "$BUFFER" ./ -t f)
+    source_files=$(fd "$BUFFER" ./ -t file -H)
   fi
   selected_files=$(echo $source_files | fzf --ansi --reverse --prompt "[find file]" --query "$LBUFFER")
 

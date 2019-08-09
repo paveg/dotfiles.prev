@@ -32,7 +32,9 @@ path=( \
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
     zstyle ':completion:*:*:docker:*' option-stacking yes
     zstyle ':completion:*:*:docker-*:*' option-stacking yes
-    zstyle ':completion:*' list-colors "${LS_COLORS}"
+    if [[ -n "$LS_COLORS" ]]; then
+        zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+    fi
 
     : "for k8s" && {
       source <(kubectl completion zsh)
