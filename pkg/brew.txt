@@ -6,6 +6,7 @@ ghq
 tree
 direnv
 anyenv
+pyenv-virtualenv
 wget
 htop
 tmux

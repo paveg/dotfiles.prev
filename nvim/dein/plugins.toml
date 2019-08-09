@@ -3,12 +3,14 @@ repo = 'Shougo/dein.vim'
 
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-  let g:lightline = {'colorscheme': 'wombat'}
+  let g:lightline = {'colorscheme': 'material'}
 '''
 
 # auto close
 [[plugins]]
 repo = 'Townk/vim-autoclose'
+[[plugins]]
+repo = 'tpope/vim-endwise'
 
 # Toml
 [[plugins]]
@@ -22,27 +24,38 @@ repo = 'altercation/vim-colors-solarized'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# Golang
+# change quote
 [[plugins]]
-repo = 'fatih/vim-go'
+repo = 'tpope/vim-surround'
+hook_add = '''
+  " replace double with single.
+  nmap ff <Plug>Csurround"'
+  " replace single with double
+  nmap tt <Plug>Csurround'"
+'''
 
-# Ruby
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-
+# execute file on nvim
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 
 # cpp
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
-
-# TypeScript
-[[plugins]]
-repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['cpp']
 
 [[plugins]]
-repo = 'leafgarland/typescript-vim'
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star)
+  nmap # <Plug>(anzu-sharp)
+'''
+
+# check syntax
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+  let g:ale_linters_explicit = 1
+'''
+

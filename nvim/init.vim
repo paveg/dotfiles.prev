@@ -9,9 +9,14 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Every launguage paths
-let g:python_host_prog = expand('$PYENV_ROOT/shims/python2')
-let g:python3_host_prog = expand('$PYENV_ROOT/shims/python3')
-let g:ruby_host_prog = expand('$RBENV_ROOT/shims/ruby')
+if isdirectory(expand('$PYENV_ROOT' .'/versions/nvim-python2/bin'))
+  let g:python_host_prog = expand('$PYENV_ROOT' . '/versions/nvim-python2/bin/python')
+endif
+if isdirectory(expand('$PYENV_ROOT' . '/versions/nvim-python3/bin'))
+  let g:python3_host_prog = expand('$PYENV_ROOT' . '/versions/nvim-python3/bin/python')
+endif
+let g:ruby_host_prog = expand('$RBENV_ROOT' . '/shims/ruby')
+let g:node_host_prog = expand('$NODENV_ROOT' . '/shims/node')
 
 " Combine clipboard
 set clipboard+=unnamedplus
@@ -37,8 +42,8 @@ set shiftwidth=2
 
 " Paste command in correctly
 if &term =~ "xterm"
-  let &t_SI .= "\e[?2004h"
-  let &t_EI .= "\e[?2004l"
+  let &t_ti .= "\e[?2004h"
+  let &t_te .= "\e[?2004l"
   let &pastetoggle = "\e[201~"
 
   function XTermPasteBegin(ret)
@@ -46,7 +51,10 @@ if &term =~ "xterm"
     return a:ret
   endfunction
 
+  noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+  cnoremap <special> <Esc>[200~ <nop>
+  cnoremap <special> <Esc>[201~ <nop>
 endif
 
 " Reset augroup
@@ -68,5 +76,7 @@ endfunction
 
 call s:load('plugins')
 
+" Remapping jj to escape
+inoremap <silent> jj <ESC>
 filetype plugin indent on
 syntax on

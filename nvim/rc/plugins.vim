@@ -24,9 +24,16 @@ let s:toml_dir = expand('$CONFIG/nvim/dein')
 
 call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
 call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
+
+" loading every language plugin
 if has('python3')
   call dein#load_toml(s:toml_dir . '/python.toml', {'lazy': 1})
 endif
+if has('ruby')
+  call dein#load_toml(s:toml_dir . '/ruby.toml', {'lazy' : 1})
+endif
+call dein#load_toml(s:toml_dir . '/go.toml', {'lazy': 1})
+call dein#load_toml(s:toml_dir . '/javascript.toml', {'lazy': 1})
 
 call dein#end()
 call dein#save_state()
