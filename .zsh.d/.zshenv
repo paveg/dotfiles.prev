@@ -2,10 +2,6 @@
 . $ZDOTDIR/utils/core.zsh # enable load function
 load $DOTPATH/lib/utilities.sh
 
-if [[ -z ${DEBUG:-} ]]; then
-  export DEBUG=0
-fi
-
 if is_debug; then
   log_info "profiling..."
   zmodload zsh/zprof && zprof
@@ -55,17 +51,7 @@ export ANYENV_ROOT=$HOME/.anyenv
 # Helm
 export HELM_HOME=$HOME/.helm
 
-local creds="$HOME/.local/secrets"
-if [[ ! -e "$creds" ]]; then
-  local cred_dir="$(dirname $HOME/.local/secrets)"
-  if [[ ! -e "$cred_dir" ]]; then
-    mkdir -p "$cred_dir"
-    log_pass "create directory - $cred_dir."
-  fi
-  touch "$creds"
-  log_pass "create local credentials file - $creds."
-else
-  . "$creds"
-fi
+# setup local secret file
+prepare_secrets
 
 # log_pass "Loading complete .zshenv"

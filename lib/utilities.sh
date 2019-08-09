@@ -185,3 +185,18 @@ is_exists() {
 has() {
   is_exists "$@"
 }
+
+prepare_secrets() {
+  local creds="$HOME/.local/secrets"
+  if [[ ! -e "$creds" ]]; then
+    local cred_dir="$(dirname $HOME/.local/secrets)"
+    if [[ ! -e "$cred_dir" ]]; then
+      mkdir -p "$cred_dir"
+      log_pass "create directory - $cred_dir."
+    fi
+    touch "$creds"
+    log_pass "create local credentials file - $creds."
+  else
+    . "$creds"
+  fi
+}
