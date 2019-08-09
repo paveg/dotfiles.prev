@@ -7,6 +7,6 @@ bindkey '^]' ghq-fcd
 bindkey '^m' ref_enter
 bindkey '^e' fbr
 bindkey '^g' fzf-fd
-bindkey '^v' fvim
+bindkey '^l' fvim
 bindkey '^p' fzf-lsec2
 bindkey '^[' fzf-rg
