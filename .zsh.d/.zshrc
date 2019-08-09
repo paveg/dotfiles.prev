@@ -1,4 +1,4 @@
-if [ $ZDOTDIR/.zshrc -nt $ZDOTDIR/.zshrc.zwc ]; then
+if [[ $ZDOTDIR/.zshrc -nt $ZDOTDIR/.zshrc.zwc ]]; then
   zcompile $ZDOTDIR/.zshrc
 fi
 

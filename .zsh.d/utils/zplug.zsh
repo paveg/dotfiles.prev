@@ -45,7 +45,7 @@ zplug "docker/cli", use:"contrib/completion/zsh/_docker", defer:2
 # emoji
 zplug "b4b4r07/emoji-cli", if:"which jq"
 
-if [ -z ${ZPLUG_UPDATE:-} ]; then
+if [[ -z ${ZPLUG_UPDATE:-} ]]; then
   export ZPLUG_UPDATE=0
 fi
 

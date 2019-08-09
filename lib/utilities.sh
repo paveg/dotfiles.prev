@@ -69,7 +69,7 @@ is_zsh() {
 
 logging() {
   if [[ "$#" -eq 0 ]] || [[ "$#" -gt 2 ]]; then
-    echo "Usage: ink <fmt> <msg>"
+    echo "Usage: logging <fmt> <msg>"
     echo "Formatting Options:"
     echo "  TITLE, ERROR, WARN, INFO, SUCCESS"
     return 1
