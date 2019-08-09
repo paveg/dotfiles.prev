@@ -67,8 +67,8 @@ is_zsh() {
   [[ -n "$ZSH_VERSION" ]]
 }
 
-is_logging() {
-  if [[ "${ENABLE_LOGGING:-1}" = 1 ]]; then
+is_logging_pass() {
+  if [[ "${ENABLE_LOGGING_PASS:-1}" = 1 ]]; then
     return 0
   else
     return 1
@@ -76,9 +76,6 @@ is_logging() {
 }
 
 logging() {
-  if ! is_logging; then
-    return
-  fi
   if [[ "$#" -eq 0 ]] || [[ "$#" -gt 2 ]]; then
     echo "Usage: logging <fmt> <msg>"
     echo "Formatting Options:"
@@ -119,6 +116,9 @@ logging() {
 }
 
 log_pass() {
+  if ! is_logging_pass; then
+    return
+  fi
   logging SUCCESS "$1"
 }
 
@@ -136,11 +136,6 @@ log_info() {
 
 log_echo() {
   logging TITLE "$1"
-}
-
-# is_tmux_running returns true if tmux is running
-is_tmux_running() {
-  [[ ! -z "$TMUX" ]]
 }
 
 ink() {

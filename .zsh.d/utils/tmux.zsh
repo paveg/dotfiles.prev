@@ -1,8 +1,31 @@
 #!/bin/zsh -e
-is_screen_running() { [[ ! -z "$STY" ]]; }
-is_screen_or_tmux_running() { is_screen_running || is_tmux_running; }
-shell_has_started_interactively() { [[ ! -z "$PS1" ]]; }
-is_ssh_running() { [[ ! -z "$SSH_CONECTION" ]]; }
+
+# is_tmux_running returns true if tmux is running
+is_tmux_running() {
+  [[ ! -z "$TMUX" ]]
+}
+
+# is_screen_running returns true if screen is running
+is_screen_running() {
+  [[ ! -z "$STY" ]]
+}
+
+# is is_screen_or_tmux_running returns true if tmux or screen is running
+is_screen_or_tmux_running() {
+  is_screen_running || is_tmux_running
+}
+
+# shell_has_started_interactively returns true if shell has interactively format prompt
+shell_has_started_interactively() {
+  [[ ! -z "$PS1" ]]
+}
+
+# is_ssh_running returns true if ssh is running
+is_ssh_running() {
+  [[ ! -z "$SSH_CONECTION" ]]
+}
+
+# tmux_automatically_attach_session attach session for terminal multiplexer tmux or screen.
 tmux_automatically_attach_session() {
   if is_screen_or_tmux_running; then
     ! is_exists 'tmux' && return 1
