@@ -37,6 +37,9 @@ if (($+commands[nvim])); then
   export GIT_EDITOR="${EDITOR}"
 fi
 
+# for a tmux -2 session (also for screen)
+export TERM=screen-256color
+
 # Shell configuration
 if is_osx; then
   export SHELL=/usr/local/bin/zsh

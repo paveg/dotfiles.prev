@@ -76,9 +76,9 @@ alias zprofile='vi $ZDOTDIR/.zprofile'
 alias zshrc='vi $ZDOTDIR/.zshrc'
 alias zalias='vi $ZDOTDIR/utils/alias.zsh'
 alias zcore='vi $ZDOTDIR/utils/core.zsh'
-alias zfunction='vi $ZDOTDIR/utils/function.zsh'
+alias zfunction='vi $ZDOTDIR/utils/functions.zsh'
 alias zenv='vi $ZDOTDIR/utils/env.zsh'
-alias zkb='vi $ZDOTDIR/utils/keybind.zsh'
+alias zkb='vi $ZDOTDIR/utils/key_bindings.zsh'
 alias ezplug='vi $ZDOTDIR/utils/zplug.zsh'
 
 # edit local secret file

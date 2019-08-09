@@ -1,4 +1,4 @@
-.PHONY: help install install.after docker.build docker.run docker.push init.envs init.vim init.tmux deploy.bin
+.PHONY: help install docker.build docker.run docker.push init.envs
 
 .DEFAULT_GOAL := help
 DOCKERHUB_NAME := paveg
@@ -10,9 +10,6 @@ help: ## Show options
 
 install: ## Install dotfiles
 	./etc/installer
-
-install.after: ## Install after configuration
-	./etc/after_install
 
 docker.build: ## Build docker image
 	@docker build -t $(APP_NAME):$(VERSION_TAG) .
@@ -30,12 +27,3 @@ init.envs: ## Install anyenvs, please execute after `anyenv install --init`
 		echo -ne '\n' | anyenv install $$ev;\
 	done;\
 	echo "installation completed anyenvs!"
-
-init.vim: ## Initialize vim configration
-	./etc/initvim
-
-init.tmux: ## Initialize tmux configration
-	./etc/inittmux
-
-deploy.bin: ## Deploy binaries
-	./etc/bdeploy
