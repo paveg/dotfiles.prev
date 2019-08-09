@@ -67,7 +67,18 @@ is_zsh() {
   [[ -n "$ZSH_VERSION" ]]
 }
 
+is_logging() {
+  if [[ "${ENABLE_LOGGING:-1}" = 1 ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 logging() {
+  if ! is_logging; then
+    return
+  fi
   if [[ "$#" -eq 0 ]] || [[ "$#" -gt 2 ]]; then
     echo "Usage: logging <fmt> <msg>"
     echo "Formatting Options:"

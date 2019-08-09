@@ -61,7 +61,6 @@ path=( \
 : "loading modules" && {
   declare -ax load_paths=(
     $ZPLUG_HOME/init.zsh\
-    $ZDOTDIR/utils/alias.zsh\
     $ZDOTDIR/utils/env.zsh\
     $ZDOTDIR/utils/functions.zsh\
     $ZDOTDIR/utils/key_bindings.zsh\
@@ -70,7 +69,7 @@ path=( \
 
   for load_path in ${load_paths[@]}; do
     load $load_path
-    # log_pass "Loading complete $(basename $load_path)"
+    log_pass "Loading complete $(basename $load_path)"
   done
 }
 
@@ -80,4 +79,4 @@ if is_debug; then
   fi
 fi
 
-# log_pass "Loading complete .zshrc"
+log_pass "Loading complete .zshrc"

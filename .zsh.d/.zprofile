@@ -1,3 +1,5 @@
+load $ZDOTDIR/utils/alias.zsh
+
 # NOTE: git config source XDG Base Directory...
 if [[ ! -e $XDG_CONFIG_HOME/git ]]; then
   mkdir -p $XDG_CONFIG_HOME/git
@@ -9,4 +11,4 @@ if [[ ! -e $XDG_CONFIG_HOME/git ]]; then
   fi
 fi
 
-# log_pass "Loading complete .zprofile"
+log_pass "Loading complete .zprofile"
