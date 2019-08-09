@@ -16,9 +16,9 @@
 ### Main color theme
 
 * Neovim
-  * [vim-material-theme](https://github.com/jdkanani/vim-material-theme)
-* Terminal theme
-  * [MaterialDark](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/xfce4terminal/colorschemes/MaterialDark.theme)
+  * [vim-material-theme][vim-theme]
+* Terminal theme]
+  * [MaterialDark][terminal]
 
 ## Prepare
 
@@ -129,3 +129,6 @@ pav@ryota.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump
 ## Note
 
 * Respect [b4b4r07/dotfiles](https://github.com/b4b4r07/dotfiles) and borrow part of the code
+
+[vim-terminal]: https://github.com/jdkanani/vim-material-theme
+[terminal]: https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/xfce4terminal/colorschemes/MaterialDark.theme
