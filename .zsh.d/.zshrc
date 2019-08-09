@@ -13,22 +13,6 @@ path=( \
   "$path[@]" \
 )
 
-_zpcompinit_custom() {
-  setopt extendedglob local_options
-  autoload -Uz compinit
-  local zcd=${ZDOTDIR:-$HOME}/.zcompdump
-  local zcdc="$zcd.zwc"
-  # Compile the completion dump to increase startup speed, if dump is newer or doesn't exist,
-  # in the background as this is doesn't affect the current session
-  if [[ -f "$zcd"(#qN.m+1) ]]; then
-    compinit -i -d "$zcd"
-    { rm -f "$zcdc" && zcompile "$zcd" } &!
-  else
-    compinit -C -d "$zcd"
-    { [[ ! -f "$zcdc" || "$zcd" -nt "$zcdc" ]] && rm -f "$zcdc" && zcompile "$zcd" } &!
-  fi
-}
-
 : "help command configuration" && {
   autoload -Uz run-help
   autoload -Uz run-help-git
@@ -76,8 +60,8 @@ declare -ax load_paths=(
   $ZPLUG_HOME/init.zsh\
   $ZDOTDIR/utils/alias.zsh\
   $ZDOTDIR/utils/env.zsh\
-  $ZDOTDIR/utils/function.zsh\
-  $ZDOTDIR/utils/keybind.zsh\
+  $ZDOTDIR/utils/functions.zsh\
+  $ZDOTDIR/utils/key_bindings.zsh\
   $ZDOTDIR/utils/tmux.zsh
 )
 

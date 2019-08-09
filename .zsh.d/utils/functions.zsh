@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/zsh -e
 
 fbr() {
   local branches=$(git branch -vv | fzf --ansi --reverse --query "$LBUFFER")

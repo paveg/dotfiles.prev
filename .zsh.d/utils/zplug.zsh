@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/zsh -e
 
 # zplug integrations
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
