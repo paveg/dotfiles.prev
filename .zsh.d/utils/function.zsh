@@ -64,6 +64,20 @@ fzf-fd() {
 }
 zle -N fzf-fd
 
+fzf-rg() {
+  local lines=$(rg -i --hidden --follow --glob "!.git/*" $BUFFER ./ |
+    fzf --reverse -m --query "$LBUFFER" --prompt "[fzf ripgrep]" |
+    tr ":" ' ' |
+    awk '{print $1}')
+  if [[ -n "$lines" ]]; then
+    BUFFER="$lines"
+    zle redisplay
+  fi
+  CURSOR="$#BUFFER"
+  zle clear-screen
+}
+zle -N fzf-rg
+
 ref_enter() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
