@@ -11,7 +11,7 @@ if [[ ! -e $ANYENV_ROOT/plugins/anyenv-update ]]; then
 fi
 
 # anyenv
-if [ -d $ANYENV_ROOT ]; then
+if [[ -d $ANYENV_ROOT ]]; then
   export PATH=$ANYENV_ROOT/bin:$PATH
   for D in `command ls $ANYENV_ROOT/envs`
   do
