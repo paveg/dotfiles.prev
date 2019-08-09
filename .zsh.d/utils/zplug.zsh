@@ -40,7 +40,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 
 # for docker
-zplug "docker/cli", use:"contrib/completion/zsh/_docker", defer:2
+zplug "docker/cli", use:"contrib/completion/zsh/_docker", lazy:true
 
 # emoji
 zplug "b4b4r07/emoji-cli", if:"which jq"
