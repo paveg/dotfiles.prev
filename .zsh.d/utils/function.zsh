@@ -45,6 +45,39 @@ fvim() {
 }
 zle -N fvim
 
+fzf-fd() {
+  if git rev-parse 2> /dev/null; then
+    source_files=$(git ls-files)
+  else
+    source_files=$(fd "$BUFFER" ./ -t f)
+  fi
+  selected_files=$(echo $source_files | fzf --ansi --reverse --prompt "[find file]" --query "$LBUFFER")
+
+  result=''
+  for file in $selected_files; do
+    result="${result}$(echo $file | tr '\n' ' ')"
+  done
+
+  BUFFER="${BUFFER}${result}"
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N fzf-fd
+
+fzf-rg() {
+  local lines=$(rg -i --hidden --follow --glob "!.git/*" $BUFFER ./ |
+    fzf --reverse -m --query "$LBUFFER" --prompt "[fzf ripgrep]" |
+    tr ":" ' ' |
+    awk '{print $1}')
+  if [[ -n "$lines" ]]; then
+    BUFFER="$lines"
+    zle redisplay
+  fi
+  CURSOR="$#BUFFER"
+  zle clear-screen
+}
+zle -N fzf-rg
+
 ref_enter() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
@@ -84,3 +117,14 @@ ksw() {
   fi
 }
 zle -N ksw
+
+fzf-lsec2() {
+  local ip=$(lsec2 -c | fzf --ansi --reverse --query "$LBUFFER" | awk '{print $2}')
+  if [[ "$ip" != "" ]]; then
+    BUFFER="ssh -t -t $ip"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N fzf-lsec2
+
