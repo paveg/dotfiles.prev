@@ -1,4 +1,3 @@
-
 #!/bin/bash -eu
 
 export PLATFORM
