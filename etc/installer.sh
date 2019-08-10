@@ -204,6 +204,7 @@ setup_packages() {
   while read pkg
   do
     if ! brew list | grep "$pkg" &>/dev/null; then
+      is_linux && [[ "$pkg" = "reattach-to-user-namespace" ]] && continue
       log_info "Installing $pkg..."
       if [[ "$pkg" = "saml2aws" ]]; then
         brew tap versent/homebrew-taps
@@ -221,7 +222,6 @@ setup_applications() {
   while read pkg
   do
     if ! brew cask list | grep "$pkg" &>/dev/null; then
-      is_linux && [[ "$pkg" = "reattach-to-user-namespace" ]] && continue
       log_info "Installing $pkg..."
       brew cask install "$pkg"
     else
