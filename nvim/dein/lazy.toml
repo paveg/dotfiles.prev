@@ -20,7 +20,7 @@ hook_add = '''
   set hidden
   let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls'],
-    \ 'ruby': [$RBENV_ROOT . '/versions/2.6.3/bin/solargraph', 'stdio'],
+    \ 'ruby': [expand('$RBENV_ROOT' . '/versions/2.6.3/bin/solargraph'), 'stdio'],
     \ 'javascript': ['javascript-typescript-stdio']
     \ }
   let g:LanguageClient_loadSettings = 1
@@ -28,10 +28,11 @@ hook_add = '''
   nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 '''
 
-# # use coc.nvim
+# use coc.nvim
 # [[plugins]]
 # repo = 'neoclide/coc.nvim'
 # build = 'yarn install --frozen-lockfile'
+# hook_source = 'source $XDG_CONFIG_HOME/nvim/after/coc.vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -53,4 +54,3 @@ repo = 'tbodt/deoplete-tabnine'
 on_event = ['InsertEnter']
 build = './install.sh'
 on_ft = ['ruby', 'go', 'python', 'typescript', 'javascript']
-
