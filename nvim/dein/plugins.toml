@@ -9,18 +9,13 @@ hook_add = '''
 # auto close
 [[plugins]]
 repo = 'Townk/vim-autoclose'
+
 [[plugins]]
 repo = 'tpope/vim-endwise'
 
 # Toml
 [[plugins]]
 repo = 'cespare/vim-toml'
-
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-hook_add = '''
-  let g:vim_markdown_folding_disabled = 1
-'''
 
 # Colors
 [[plugins]]
@@ -33,6 +28,9 @@ repo = 'jacoborus/tender.vim'
 # vim-git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugin]]
+repo = 'junegunn/fzf'
 
 # change quote
 [[plugins]]
@@ -47,11 +45,6 @@ hook_add = '''
 # execute file on nvim
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-
-# cpp
-[[plugins]]
-repo = 'vim-jp/cpp-vim'
-on_ft = ['cpp']
 
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
@@ -68,4 +61,3 @@ repo = 'dense-analysis/ale'
 hook_add = '''
   let g:ale_linters_explicit = 1
 '''
-
