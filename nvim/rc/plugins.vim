@@ -35,7 +35,9 @@ endif
 call dein#load_toml(s:toml_dir . '/go.toml', {'lazy': 1})
 call dein#load_toml(s:toml_dir . '/javascript.toml', {'lazy': 1})
 call dein#load_toml(s:toml_dir . '/cpp.toml', {'lazy': 1})
+call dein#load_toml(s:toml_dir . '/rust.toml', {'lazy': 1})
 call dein#load_toml(s:toml_dir . '/markdown.toml', {'lazy': 1})
+
 
 call dein#end()
 call dein#save_state()
