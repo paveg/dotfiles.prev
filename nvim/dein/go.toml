@@ -13,6 +13,6 @@ repo = 'zchee/deoplete-go'
 build = 'make'
 on_ft = 'go'
 depends = 'deoplete.nvim'
-hook_source = '''
+hook_add = '''
   let g:deoplete#sources#go#gocode_binary = expand($GOPATH . '/bin/gocode')
 '''

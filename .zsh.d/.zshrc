@@ -9,10 +9,12 @@ path=( \
   /usr/local/bin(N-/) \
   $HOME/bin(N-/) \
   $HOME/src/bin(N-/) \
+  $HOME/.cargo/bin(N-/) \
   /usr/local/sbin(N-/) \
   "$path[@]" \
 )
 cdpath=(~)
+fpath+="$ZDOTDIR/.zfunc"
 
 : "common configuration" && {
   autoload -Uz colors

@@ -3,3 +3,4 @@
 *.zwc
 .zcompdump
 .zsh.d/.zcompcache/*
+_rustup
