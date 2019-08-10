@@ -1,0 +1,5 @@
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+hook_source = '''
+  let g:rust_clip_command = 'pbcopy'
+'''

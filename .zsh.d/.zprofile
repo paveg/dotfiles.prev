@@ -12,3 +12,5 @@ if [[ ! -e $XDG_CONFIG_HOME/git ]]; then
 fi
 
 log_pass "Loading complete .zprofile"
+
+export PATH="$HOME/.cargo/bin:$PATH"
