@@ -13,8 +13,8 @@ endif
 if isdirectory(expand('$PYENV_ROOT' . '/versions/nvim-python3/bin'))
   let g:python3_host_prog = expand('$PYENV_ROOT' . '/versions/nvim-python3/bin/python')
 endif
-let g:ruby_host_prog = expand('$RBENV_ROOT' . '/shims/ruby')
-let g:node_host_prog = expand('$NODENV_ROOT' . '/shims/node')
+let g:ruby_host_prog = expand('$ANYENV_ROOT' . '/envs/rbenv/shims/ruby')
+let g:node_host_prog = expand('$ANYENV_ROOT' . '/envs/nodenv/shims/node')
 
 " Combine clipboard
 set clipboard+=unnamedplus
