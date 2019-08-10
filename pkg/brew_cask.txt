@@ -13,3 +13,4 @@ iterm2
 slack
 jetbrains-toolbox
 1password
+

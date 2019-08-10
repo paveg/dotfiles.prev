@@ -12,6 +12,7 @@ path=( \
   /usr/local/sbin(N-/) \
   "$path[@]" \
 )
+cdpath=(~)
 
 : "common configuration" && {
   autoload -Uz colors
@@ -29,18 +30,19 @@ path=( \
     _zpcompinit_custom
     zstyle ':completion:*:default' menu select=1
     zstyle ':completion::complete:*' use-cache true
+    zstyle ':completion:*' verbose yes
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
     zstyle ':completion:*:*:docker:*' option-stacking yes
     zstyle ':completion:*:*:docker-*:*' option-stacking yes
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
     if [[ -n "$LS_COLORS" ]]; then
-        zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+      zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
     fi
 
     : "for k8s" && {
       source <(kubectl completion zsh)
       complete -o default -F __start_kubectl k
-     }
+    }
   }
 }
 
@@ -59,6 +61,7 @@ path=( \
   setopt hist_no_store
   setopt hist_reduce_blanks
   setopt hist_verify
+  setopt extended_history
 }
 
 : "loading modules" && {

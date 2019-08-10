@@ -204,12 +204,12 @@ setup_packages() {
   log_info "Install Packages..."
   while read pkg
   do
-    if ! brew list | grep $pkg &>/dev/null; then
+    if ! brew list | grep "$pkg" &>/dev/null; then
       log_info "Installing $pkg..."
       if [[ "$pkg" = "saml2aws" ]]; then
         brew tap versent/homebrew-taps
       fi
-      brew install $pkg
+      brew install "$pkg"
     else
       log_warn "$pkg is already installed"
     fi
@@ -221,9 +221,9 @@ setup_applications() {
   log_info "Install Applications..."
   while read pkg
   do
-    if ! brew cask list | grep $pkg &>/dev/null; then
+    if ! brew cask list | grep "$pkg" &>/dev/null; then
       log_info "Installing $pkg..."
-      brew cask install $pkg
+      brew cask install "$pkg"
     else
       log_warn "$pkg is already installed."
     fi
@@ -231,7 +231,7 @@ setup_applications() {
   log_pass "Applications installation is completed."
 }
 
-link_tools!() {
+link_tools() {
   log_info "symbolic link: $dotpath/.zshenv to $HOME/.zshenv"
   ln -sf "$dotpath/.zshenv" "$HOME/.zshenv"
 
@@ -290,7 +290,7 @@ if [[ -z "${HOMEBREW_CASK_OPTS:-}" ]]; then
 fi
 
 if [[ ! -d $dotpath ]]; then
-  git clone $repoUrl $dotpath
+  git clone "$repoUrl" "$dotpath"
 fi
 
 prepare
@@ -305,7 +305,7 @@ if [[ -z "${ZPLUG_HOME:-}" ]]; then
 fi
 git clone https://github.com/zplug/zplug "$ZPLUG_HOME"
 
-link_tools!
+link_tools
 deploy_binary "gcp-context"
 deploy_binary "kube-context"
 deploy_binary "wifi-info"
