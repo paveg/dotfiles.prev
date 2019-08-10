@@ -1,4 +1,3 @@
-
 #!/bin/bash -eu
 
 export PLATFORM
@@ -205,6 +204,7 @@ setup_packages() {
   while read pkg
   do
     if ! brew list | grep "$pkg" &>/dev/null; then
+      is_linux && [[ "$pkg" = "reattach-to-user-namespace" ]] && continue
       log_info "Installing $pkg..."
       if [[ "$pkg" = "saml2aws" ]]; then
         brew tap versent/homebrew-taps
