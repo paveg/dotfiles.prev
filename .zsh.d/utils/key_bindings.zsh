@@ -12,6 +12,6 @@ bindkey '^]' ghq-fcd
 bindkey '^m' ref_enter
 bindkey '^b' fbr
 bindkey '^g' fzf-fd
-bindkey '^l' fvim
+bindkey '^j' fvim
 bindkey '^p' fzf-lsec2
-bindkey '^j' fzf-rg
+bindkey '^y' fzf-rg
