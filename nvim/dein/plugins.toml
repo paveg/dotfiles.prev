@@ -29,6 +29,9 @@ repo = 'jacoborus/tender.vim'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+[[plugin]]
+repo = 'junegunn/fzf'
+
 # change quote
 [[plugins]]
 repo = 'tpope/vim-surround'

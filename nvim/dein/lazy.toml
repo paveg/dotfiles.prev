@@ -10,22 +10,27 @@ hook_add = '''
   inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
   inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
 '''
-
 # temporary comment out
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
 rev = 'next'
-hook_add = '''
+hook_source = '''
   set hidden
   let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls'],
-    \ 'ruby': [expand('$RBENV_ROOT' . '/versions/2.6.3/bin/solargraph'), 'stdio'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
     \ 'javascript': ['javascript-typescript-stdio']
     \ }
   let g:LanguageClient_loadSettings = 1
+  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+  " Or map each action separately
   nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
   nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 '''
 
 # use coc.nvim
