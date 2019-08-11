@@ -1,0 +1,20 @@
+name: Build dotfiles
+on: [push]
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-18.04, macOS-latest, macOS-10.14, windows-latest]
+    steps:
+    - uses: actions/checkout@master
+    - name: Prepare for Linux
+      if: ${{ matrix.os }} == 'ubuntu-latest' || ${{ matrix.os }} == 'ubuntu-18.04'
+      run: |
+        sudo apt-get update
+        sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev \
+          libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev bison tzdata \
+          libffi-dev libssl-dev
+    - name: Actual build
+      run: make install
