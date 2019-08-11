@@ -14,8 +14,6 @@
 * Terminal theme
   * [MaterialDark][theme]
 
-![styles](./examples/styles.png)
-
 ## Prepare
 
 required:
