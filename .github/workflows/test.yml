@@ -1,0 +1,21 @@
+name: Build dotfiles
+on: [push]
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest, macOS-10.14] # build only macOS in temporary.
+    steps:
+    - uses: actions/checkout@master
+      # - name: Prepare
+      #   with:
+      #   if: startsWith( matrix.os, 'ubnutu' )
+      #   run: |
+      #     sudo apt-get update && \
+      #       sudo apt-get install -y build-essential curl git m4 ruby texinfo libbz2-dev \
+      #       libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev bison tzdata \
+      #       libffi-dev libssl-dev
+    - name: Actual build
+      run: make install
