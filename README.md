@@ -146,3 +146,5 @@ pav@ryota.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump
 [dockerhub]: https://microbadger.com/images/paveg/dotfiles
 [vim-theme]: https://github.com/jdkanani/vim-material-theme
 [theme]: https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/xfce4terminal/colorschemes/MaterialDark.theme
+
+![dotfiles](https://github.com/paveg/dotfiles/blob/gif/examples/logo.png)
