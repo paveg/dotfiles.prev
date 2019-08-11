@@ -7,5 +7,5 @@
 
 ## PNG
 
-![styles](./examples/styles.png)
+![styles](https://github.com/paveg/dotfiles/blob/gif/examples/styles.png)
 
