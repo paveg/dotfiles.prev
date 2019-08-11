@@ -40,6 +40,13 @@ $ sudo chsh -s $(brew --prefix)/bin/zsh
 
 ## Configuration
 
+### C++
+
+```bash
+# for MacOS
+$ brew install llvm
+```
+
 ### Rust
 
 ```bash
