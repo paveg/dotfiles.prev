@@ -6,7 +6,7 @@
 
 ## Styles
 
-![styles](./examples/styles.png)
+![example](https://github.com/paveg/dotfiles/blob/gif/examples/moving.gif)
 
 ### Main color theme
 
@@ -14,6 +14,8 @@
   * [vim-material-theme][vim-theme]
 * Terminal theme
   * [MaterialDark][theme]
+
+![styles](./examples/styles.png)
 
 ## Prepare
 
