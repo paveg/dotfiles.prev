@@ -204,7 +204,7 @@ setup_packages() {
   while read pkg
   do
     if ! brew list | grep "$pkg" &>/dev/null; then
-      is_linux && [[ "$pkg" = "reattach-to-user-namespace" ]] && continue
+      is_linux && ([[ "$pkg" = "reattach-to-user-namespace" ]] || [[ "$pkg" = "llvm" ]]) && continue
       log_info "Installing $pkg..."
       if [[ "$pkg" = "saml2aws" ]]; then
         brew tap versent/homebrew-taps
