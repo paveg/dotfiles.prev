@@ -19,6 +19,8 @@ repo = 'mattn/emmet-vim'
 source_add = '''
   autocmd BufRead,BufNewFile *.vue setfiletype html
 '''
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
 
 # auto close
 [[plugins]]

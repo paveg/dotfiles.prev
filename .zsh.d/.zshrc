@@ -68,10 +68,11 @@ fpath+="$ZDOTDIR/.zfunc"
 
 : "loading modules" && {
   declare -ax load_paths=(
-    $ZPLUG_HOME/init.zsh\
-    $ZDOTDIR/utils/env.zsh\
-    $ZDOTDIR/utils/functions.zsh\
-    $ZDOTDIR/utils/key_bindings.zsh\
+    $ZPLUG_HOME/init.zsh \
+    $ZDOTDIR/utils/env.zsh \
+    $ZDOTDIR/utils/alias.zsh \
+    $ZDOTDIR/utils/functions.zsh \
+    $ZDOTDIR/utils/key_bindings.zsh \
     $ZDOTDIR/utils/tmux.zsh
   )
 

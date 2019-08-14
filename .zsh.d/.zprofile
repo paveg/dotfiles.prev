@@ -1,5 +1,3 @@
-load $ZDOTDIR/utils/alias.zsh
-
 # NOTE: git config source XDG Base Directory...
 if [[ ! -e $XDG_CONFIG_HOME/git ]]; then
   mkdir -p $XDG_CONFIG_HOME/git

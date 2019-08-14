@@ -64,6 +64,10 @@ fi
   fi
 }
 
+: "aws saml login configuration" && {
+  export AWS_PROFILE=saml
+}
+
 # setup local secret file
 prepare_secrets
 
