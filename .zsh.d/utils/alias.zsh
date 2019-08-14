@@ -51,6 +51,11 @@ if (($+commands[onelogin-aws-login])) && [ -n "$ONELOGIN_AWS_MAIL" ]; then
   alias ol="onelogin-aws-login -u ${usermail}"
 fi
 
+# when saml2aws exists
+if (($+commands[saml2aws])); then
+  alias s2l='saml2aws login --skip-prompt'
+fi
+
 # when remake exists
 if (($+commands[remake])); then
   alias make="remake"
@@ -69,6 +74,7 @@ alias mkdir="mkdir -p"
 
 # Ruby alias
 alias be="bundle exec"
+alias bq="bundle install --quiet; echo 'exit $?'"
 
 # zsh alias
 alias zshenv='vi $ZDOTDIR/.zshenv'
