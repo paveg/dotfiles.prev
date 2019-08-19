@@ -24,7 +24,6 @@ xsv
 ripgrep
 neovim
 git-secrets
-awk
 gawk
 awscli
 saml2aws
