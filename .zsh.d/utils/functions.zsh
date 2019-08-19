@@ -144,3 +144,11 @@ reset-process() {
     fi
   done
 }
+
+upgrade_packages() {
+  log_info "Upgrade packages..."
+  while read pkg
+  do
+    brew upgrade "$pkg"
+  done < "$DOTPATH/pkg/brew.txt"
+}
