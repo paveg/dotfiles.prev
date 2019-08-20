@@ -75,7 +75,7 @@ endfunction
 
 call s:load('plugins')
 
-" Remapping jj to escape
+" Remap jj to escape
 inoremap <silent> jj <ESC>
 
 " Use true colors on terminal

@@ -23,6 +23,7 @@ fd
 xsv
 ripgrep
 neovim
+git
 git-secrets
 gawk
 awscli
