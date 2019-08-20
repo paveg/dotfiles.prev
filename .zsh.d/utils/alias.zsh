@@ -17,7 +17,7 @@ fi
 
 # when bat exists
 if (($+commands[bat])); then
-  alias cat="bat --style header,grid"
+  alias cat="bat --style header,grid,changes"
 fi
 
 # when nvim exists
