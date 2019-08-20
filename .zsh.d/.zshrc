@@ -28,6 +28,7 @@ fpath+="$ZDOTDIR/.zfunc"
   setopt ignoreeof
   setopt no_flow_control
   setopt complete_in_word
+  stty erase "^?"
   : "completion" && {
     _zpcompinit_custom
     zstyle ':completion:*:default' menu select=1
@@ -55,8 +56,8 @@ fpath+="$ZDOTDIR/.zfunc"
 
 : "configuration for history" && {
   HISTFILE=$HOME/.zhistory
-  HISTSIZE=100000
-  SAVEHIST=100000
+  HISTSIZE=10000
+  SAVEHIST=10000
   setopt hist_ignore_dups
   setopt hist_ignore_all_dups
   setopt share_history
