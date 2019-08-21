@@ -40,7 +40,7 @@ _unset() {
 }
 
 anyenv_unset() {
-  declare -ax evs=(nodenv rbenv pyenv goenv sbtenv scalaenv)
+  declare -ax evs=(nodenv rbenv pyenv goenv sbtenv scalaenv tfenv)
   for ev in "${evs[@]}"; do
     _unset "$ev"
   done
@@ -80,6 +80,12 @@ scalaenv() {
   anyenv_unset
   anyenv_init
   scalaenv "$@"
+}
+
+tfenv() {
+  anyenv_unset
+  anyenv_init
+  tfenv "$@"
 }
 
 # setup go

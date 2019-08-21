@@ -172,9 +172,9 @@ ink() {
   printf "${open}${color}${text}${close}"
 }
 
-# is_debug returns true if $DEBUG is set
+# is_debug returns true if $DOTFILE_DEBUG is set
 is_debug() {
-  if [[ "${DEBUG:-0}" = 1 ]]; then
+  if [[ "${DOTFILE_DEBUG:-0}" = 1 ]]; then
     return 0
   else
     return 1
