@@ -7,6 +7,7 @@ let g:LanguageClient_serverCommands = {
   \ 'javascript.tsx': ['javascript-typescript-langserver', '--stdio'],
   \ 'typescript': ['javascript-typescript-langserver', '--stdio'],
   \ 'typescript.tsx': ['javascript-typescript-langserver', '--stdio'],
+  \ 'python': ['pyls'],
   \ 'ruby': ['$RBENV_ROOT/shims/solargraph', 'stdio'],
   \ 'cpp': ['clangd'],
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
