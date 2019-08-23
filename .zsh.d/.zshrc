@@ -29,6 +29,7 @@ fpath+="$ZDOTDIR/.zfunc"
   setopt no_flow_control
   setopt complete_in_word
   stty erase "^?"
+  stty erase "^H"
   : "completion" && {
     _zpcompinit_custom
     zstyle ':completion:*:default' menu select=1
@@ -38,10 +39,7 @@ fpath+="$ZDOTDIR/.zfunc"
     zstyle ':completion:*:*:docker:*' option-stacking yes
     zstyle ':completion:*:*:docker-*:*' option-stacking yes
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
-    if [[ -n "$LS_COLORS" ]]; then
-      zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-    fi
-
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
     : "for k8s" && {
       source <(kubectl completion zsh)
       complete -o default -F __start_kubectl k
