@@ -12,4 +12,5 @@ jobs:
     - name: Prepare
       run: sudo apt-get update && sudo apt-get install -y shellcheck
     - name: Lint
-      run: find . -name '*.sh' | xargs shellcheck -s bash
+      run: |
+        find . -name '*.sh' | xargs shellcheck -e SC2034 -e SC2059 -e SC2119 -e SC2120 -s bash
