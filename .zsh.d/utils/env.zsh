@@ -90,4 +90,4 @@ tfenv() {
 
 # setup go
 export GOENV_DISABLE_GOPATH=1
-export GOPATH="$HOME/src"
+export GOPATH="$HOME"
