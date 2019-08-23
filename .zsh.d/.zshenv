@@ -71,5 +71,6 @@ fi
 
 # setup local secret file
 prepare_secrets
+. $HOME/.local/secrets # loading...
 
 log_pass "Loading complete .zshenv"

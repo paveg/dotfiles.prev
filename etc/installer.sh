@@ -201,10 +201,9 @@ prepare() {
 
 setup_packages() {
   log_info "Install Packages..."
-  while read pkg
-  do
+  while read -r pkg; do
     if ! brew list | grep "$pkg" &>/dev/null; then
-      is_linux && ([[ "$pkg" = "reattach-to-user-namespace" ]] || [[ "$pkg" = "llvm" ]]) && continue
+      is_linux && { [[ "$pkg" = "reattach-to-user-namespace" ]] || [[ "$pkg" = "llvm" ]]; } && continue
       log_info "Installing $pkg..."
       if [[ "$pkg" = "saml2aws" ]]; then
         brew tap versent/homebrew-taps
@@ -219,8 +218,7 @@ setup_packages() {
 
 setup_applications() {
   log_info "Install Applications..."
-  while read pkg
-  do
+  while read -r pkg; do
     if ! brew cask list | grep "$pkg" &>/dev/null; then
       log_info "Installing $pkg..."
       brew cask install "$pkg"

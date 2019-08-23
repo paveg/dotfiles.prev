@@ -1,0 +1,16 @@
+name: Lint *.sh
+on: [push]
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@master
+    - name: Prepare
+      run: sudo apt-get update && sudo apt-get install -y shellcheck
+    - name: Lint
+      run: |
+        find . -name '*.sh' | xargs shellcheck -e SC2034 -e SC2059 -e SC2119 -e SC2120 -s bash
