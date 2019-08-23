@@ -75,7 +75,7 @@ endfunction
 
 call s:load('plugins')
 
-" Remapping jj to escape
+" Remap jj to escape
 inoremap <silent> jj <ESC>
 
 " Use true colors on terminal
@@ -87,3 +87,9 @@ colorscheme material-theme
 
 syntax on
 filetype plugin indent on
+
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight SpecialKey ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
+

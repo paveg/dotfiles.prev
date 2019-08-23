@@ -13,6 +13,9 @@ rev = 'next'
 on_ft = ['rs', 'vue']
 hook_add = 'source $XDG_CONFIG_HOME/nvim/rc/plugins/language_client.vim'
 
+[[plugins]]
+repo = 'jremmen/vim-ripgrep'
+
 # html, css
 [[plugins]]
 repo = 'mattn/emmet-vim'

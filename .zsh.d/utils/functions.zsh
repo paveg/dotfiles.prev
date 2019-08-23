@@ -3,7 +3,7 @@
 fbr() {
   local branches=$(git branch -vv | fzf --prompt "[branch name]: " --query "$LBUFFER")
   if [[ -n "$branches" ]]; then
-    BUFFER="git checkout $(echo "$branches" | awk '{print $1}' | sed "s/.* //")"
+    BUFFER="git switch $(echo "$branches" | awk '{print $1}' | sed "s/.* //")"
     zle accept-line
   fi
   zle clear-screen
@@ -143,4 +143,12 @@ reset-process() {
       log_pass "$pid killed"
     fi
   done
+}
+
+upgrade_packages() {
+  log_info "Upgrade packages..."
+  while read pkg
+  do
+    brew upgrade "$pkg"
+  done < "$DOTPATH/pkg/brew.txt"
 }

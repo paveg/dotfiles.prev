@@ -40,7 +40,7 @@ _unset() {
 }
 
 anyenv_unset() {
-  declare -ax evs=(nodenv rbenv pyenv goenv sbtenv scalaenv)
+  declare -ax evs=(nodenv rbenv pyenv goenv sbtenv scalaenv tfenv)
   for ev in "${evs[@]}"; do
     _unset "$ev"
   done
@@ -82,6 +82,12 @@ scalaenv() {
   scalaenv "$@"
 }
 
+tfenv() {
+  anyenv_unset
+  anyenv_init
+  tfenv "$@"
+}
+
 # setup go
 export GOENV_DISABLE_GOPATH=1
-export GOPATH="$HOME/src"
+export GOPATH="$HOME"
