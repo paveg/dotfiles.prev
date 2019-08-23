@@ -4,7 +4,6 @@
 bindkey "^a" beginning-of-line
 bindkey '^e' end-of-line
 bindkey "^k" kill-line
-stty erase ^H
 bindkey "^[[3~" delete-char
 
 bindkey "^r" fzf-select-history

@@ -5,6 +5,9 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 zplug 'chrissicool/zsh-256color', use:"zsh-256color.plugin.zsh"
 
+# addrev
+zplug "momo-lab/zsh-abbrev-alias"
+
 # pure theme
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme &&
