@@ -23,8 +23,9 @@ fd
 xsv
 ripgrep
 neovim
+git
 git-secrets
-awk
+gawk
 awscli
 saml2aws
 reattach-to-user-namespace
