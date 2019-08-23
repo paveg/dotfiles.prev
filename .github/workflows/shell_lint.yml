@@ -6,10 +6,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest] # build only macOS in temporary.
+        os: [ubuntu-latest]
     steps:
     - uses: actions/checkout@master
     - name: Prepare
-      run: apt-get update && apt-get install -y shellcheck
+      run: sudo apt-get update && sudo apt-get install -y shellcheck
     - name: Lint
       run: find . -name '*.sh' | xargs shellcheck -s bash
