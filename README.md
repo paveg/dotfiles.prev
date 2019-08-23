@@ -81,21 +81,23 @@ $ rustup completions zsh > ~/.zfunc/_rustup
 
 ```textmate
 ~/dotfiles
-pav@ryota.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump|.zcompcache|examples' .
+pav@ryota-2.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump|.zcompcache|examples|.circleci|.github|LICENSE|README.md|.dockerignore|Dockerfile|.envrc' .
 .
-├── .circleci
-│   └── config.yml
 ├── .zsh.d
+│   ├── .zfunc
+│   │   ├── .keep
+│   │   └── _rustup
 │   ├── utils
 │   │   ├── alias.zsh         # Define the alias you usually use
 │   │   ├── core.zsh          # Define core zsh configuration
 │   │   ├── env.zsh           # Define environment
-│   │   ├── functions.zsh     # Define convenient function
+│   │   ├── functions.zsh     # Define convenient functions
 │   │   ├── key_bindings.zsh  # Define zsh key bindings
+│   │   ├── tmux.zsh          # Define tmux functions
 │   │   └── zplug.zsh         # Zsh plugin manager configuration
 │   ├── .zprofile             # Source only once library at startup terminal
 │   ├── .zshenv               # Actual zsh environment
-│   └── .zshrc                # Normal zshrc; defined common zsh configuration
+│   └── .zshrc                # Defined common zsh configuration
 ├── bin
 │   ├── gcp-context           # Fetch Google Cloud Platform information
 │   ├── kube-context          # Fetch kubectl information
@@ -105,30 +107,33 @@ pav@ryota.local ❯❯❯ tree -aL 3 --dirsfirst -I '.git|.idea|*.zwc|.zcompdump
 ├── lib
 │   └── utilities.sh          # Utility bash shell functions
 ├── nvim
+│   ├── after
+│   │   └── coc.vim           # Coc configuration file
 │   ├── dein
+│   │   ├── cpp.toml          # C++ plugins
 │   │   ├── go.toml           # Go plugins
-│   │   ├── javascript.toml   # Javascript plugins
+│   │   ├── javascript.toml   # JavaScript and TypeScript plugins
 │   │   ├── lazy.toml         # Lazy load plugins
+│   │   ├── markdown.toml     # Markdown plugins
+│   │   ├── plugins.toml      # Common plugins
 │   │   ├── plugins.toml      # Common plugins
 │   │   ├── python.toml       # Python plugins
 │   │   └── ruby.toml         # Ruby plugins
+│   │   └── rust.toml         # Rust plugins
 │   ├── rc
+│   │   ├── plugins           # Vim plugins directory
 │   │   └── plugins.vim       # Init plugins
+│   ├── coc-settings.json     # Coc configuration json file
 │   └── init.vim              # Vim initializer
 ├── pkg
 │   ├── brew.txt              # Brew package list
 │   └── brew_cask.txt         # Brew cask package list
-├── .dockerignore
-├── .envrc
-├── .gitconfig
-├── .gitignore
+├── .commit_template          # Commit template
+├── .gitconfig                # Global git config file
+├── .gitignore                # Global git ignore file
 ├── .tmux.conf                # Tmux configuration file
 ├── .zshenv                   # Invite you to zsh
-├── Dockerfile
-├── LICENSE
-├── Makefile
-├── README.md
-└── azure-pipelines.yml
+└── Makefile
 ```
 
 ## Continuous Integration
