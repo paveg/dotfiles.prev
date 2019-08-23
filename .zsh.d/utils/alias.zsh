@@ -2,6 +2,14 @@
 
 # alias utilities
 
+# Global alias
+abbrev-alias -g G="| grep"
+abbrev-alias -g L="| less"
+abbrev-alias -g T="| tail"
+abbrev-alias -g X="| xargs"
+abbrev-alias -g E="2>&1 > /dev/null"
+abbrev-alias -g N="> /dev/null"
+
 # when exa exists
 if (($+commands[exa])); then
   alias ls="exa -F"
