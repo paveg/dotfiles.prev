@@ -28,6 +28,7 @@ fpath+="$ZDOTDIR/.zfunc"
   setopt ignoreeof
   setopt no_flow_control
   setopt complete_in_word
+  setopt nonomatch
   stty erase "^?"
   stty erase "^H"
   : "completion" && {
