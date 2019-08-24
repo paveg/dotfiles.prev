@@ -36,7 +36,7 @@ fi
 
 # when hub exists
 if (($+commands[hub])); then
-  alias g="hub"
+  alias g="noglob hub"
   alias hb="hub browse"
 fi
 
