@@ -24,6 +24,7 @@
   cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [alias]
   a = add
+  c = commit
   p = pull
   b = branch
   s = status
