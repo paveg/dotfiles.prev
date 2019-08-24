@@ -1,6 +1,6 @@
 ---
-name: :bug: Bug report
-about: Create a bug report
+name: ":bug: Bug report"
+about: "Create a bug report"
 labels: 'i: bug'
 assignees: ''
 
