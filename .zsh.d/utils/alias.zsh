@@ -3,12 +3,21 @@
 # alias utilities
 
 # Global alias
-abbrev-alias -g G="| grep"
-abbrev-alias -g L="| less"
-abbrev-alias -g T="| tail"
-abbrev-alias -g X="| xargs"
-abbrev-alias -g E="2>&1 > /dev/null"
-abbrev-alias -g N="> /dev/null"
+if (($+commands[abbrev-alias])); then
+  abbrev-alias -g G="| grep"
+  abbrev-alias -g L="| less"
+  abbrev-alias -g T="| tail"
+  abbrev-alias -g X="| xargs"
+  abbrev-alias -g E="2>&1 > /dev/null"
+  abbrev-alias -g N="> /dev/null"
+else
+  alias -g G="| grep"
+  alias -g L="| less"
+  alias -g T="| tail"
+  alias -g X="| xargs"
+  alias -g E="2>&1 > /dev/null"
+  alias -g N="> /dev/null"
+fi
 
 # when exa exists
 if (($+commands[exa])); then
