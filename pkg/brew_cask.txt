@@ -8,9 +8,13 @@ docker
 karabiner-elements
 dropbox
 google-chrome
+firefox
 kindle
 iterm2
 slack
 jetbrains-toolbox
 1password
 postman
+menubar-stats
+minikube
+
