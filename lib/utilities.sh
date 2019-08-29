@@ -75,6 +75,14 @@ is_logging_pass() {
   fi
 }
 
+is_logging_info() {
+  if [[ "${ENABLE_LOGGING_INFO:-0}" = 0 ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 logging() {
   if [[ "$#" -eq 0 ]] || [[ "$#" -gt 2 ]]; then
     echo "Usage: logging <fmt> <msg>"
@@ -116,10 +124,9 @@ logging() {
 }
 
 log_pass() {
-  if ! is_logging_pass; then
-    return
+  if is_logging_pass; then
+    logging SUCCESS "$1"
   fi
-  logging SUCCESS "$1"
 }
 
 log_fail() {
@@ -131,7 +138,9 @@ log_warn() {
 }
 
 log_info() {
-  logging INFO "$1"
+  if is_logging_info; then
+    logging INFO "$1"
+  fi
 }
 
 log_echo() {

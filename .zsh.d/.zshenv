@@ -52,7 +52,7 @@ fi
 
 : "fzf configuration" && {
   export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-  export FZF_DEFAULT_OPTS='--multi --ansi --reverse --border'
+  export FZF_DEFAULT_OPTS='--multi --reverse --border'
   : "emoji filter" && {
     export EMOJI_CLI_FILTER="fzf-tmux -d 30% --multi --ansi --reverse --border"
   }
