@@ -8,6 +8,10 @@ if [[ ! -e $XDG_CONFIG_HOME/git ]]; then
     echo "backup and mv global config"
     mv $HOME/.gitconfig $HOME/.gitconfig.bk
   fi
+  if [[ -n $XDG_CONFIG_HOME/karabiner ]]; then
+    mkdir -p $XDG_CONFIG_HOME/karabiner
+  fi
+  ln -sf $DOTPATH/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
 fi
 
 log_pass "Loading complete .zprofile"
