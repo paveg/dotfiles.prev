@@ -66,43 +66,17 @@
             },
             "devices": [
                 {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 632,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": [
+                    "disable_built_in_keyboard_if_exists": true,
+                    "fn_function_keys": [
                         {
                             "from": {
-                                "key_code": "caps_lock"
+                                "key_code": "f1"
                             },
                             "to": {
-                                "key_code": "left_control"
+                                "key_code": "fn"
                             }
                         }
-                    ]
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 34304,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": true,
-                    "fn_function_keys": [],
+                    ],
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
@@ -120,7 +94,7 @@
                         "key_code": "f1"
                     },
                     "to": {
-                        "consumer_key_code": "display_brightness_decrement"
+                        "key_code": "display_brightness_decrement"
                     }
                 },
                 {
@@ -128,7 +102,7 @@
                         "key_code": "f2"
                     },
                     "to": {
-                        "consumer_key_code": "display_brightness_increment"
+                        "key_code": "display_brightness_increment"
                     }
                 },
                 {
@@ -160,7 +134,7 @@
                         "key_code": "f6"
                     },
                     "to": {
-                        "key_code": "f6"
+                        "key_code": "illumination_increment"
                     }
                 },
                 {
@@ -168,7 +142,7 @@
                         "key_code": "f7"
                     },
                     "to": {
-                        "consumer_key_code": "rewind"
+                        "key_code": "rewind"
                     }
                 },
                 {
@@ -176,7 +150,7 @@
                         "key_code": "f8"
                     },
                     "to": {
-                        "consumer_key_code": "play_or_pause"
+                        "key_code": "play_or_pause"
                     }
                 },
                 {
@@ -184,7 +158,7 @@
                         "key_code": "f9"
                     },
                     "to": {
-                        "consumer_key_code": "fastforward"
+                        "key_code": "fastforward"
                     }
                 },
                 {
@@ -192,7 +166,7 @@
                         "key_code": "f10"
                     },
                     "to": {
-                        "consumer_key_code": "mute"
+                        "key_code": "mute"
                     }
                 },
                 {
@@ -200,7 +174,7 @@
                         "key_code": "f11"
                     },
                     "to": {
-                        "consumer_key_code": "volume_decrement"
+                        "key_code": "volume_decrement"
                     }
                 },
                 {
@@ -208,7 +182,7 @@
                         "key_code": "f12"
                     },
                     "to": {
-                        "consumer_key_code": "volume_increment"
+                        "key_code": "volume_increment"
                     }
                 }
             ],
