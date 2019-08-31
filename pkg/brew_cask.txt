@@ -17,4 +17,5 @@ jetbrains-toolbox
 postman
 menubar-stats
 minikube
+gas-mask
 
