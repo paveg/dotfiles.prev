@@ -91,3 +91,4 @@ tfenv() {
 # setup go
 export GOENV_DISABLE_GOPATH=1
 export GOPATH="$HOME"
+export GO111MODULE=on
