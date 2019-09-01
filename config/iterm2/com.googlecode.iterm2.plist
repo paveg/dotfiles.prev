@@ -3768,8 +3768,10 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 9</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/src/github.com/paveg/dotfiles/config/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -3782,8 +3784,8 @@
 	<false/>
 	<key>NSSplitView Subview Frames NSColorPanelSplitView</key>
 	<array>
-		<string>0.000000, 0.000000, 224.000000, 258.000000, NO, NO</string>
-		<string>0.000000, 259.000000, 224.000000, 48.000000, NO, NO</string>
+		<string>0.000000, 0.000000, 224.000000, 263.000000, NO, NO</string>
+		<string>0.000000, 264.000000, 224.000000, 43.000000, NO, NO</string>
 	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
@@ -3813,18 +3815,24 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>640 690 400 129 0 0 1680 1050 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>530 476 620 392 0 0 1680 1027 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 456 0 0 1680 1027 </string>
+	<string>530 493 620 392 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>436 578 918 394 0 0 1680 1050 </string>
+	<string>187 311 918 512 0 0 1680 1050 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>127 443 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>53 0 1674 1027 0 0 1680 1050 </string>
+	<string>14 0 1210 1027 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1365 1050 2560 1417 1365 1050 2560 1417 </string>
+	<string>212 0 1210 1050 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 0 1680 1027 0 0 1680 1027 </string>
+	<string>233 78 850 537 0 0 1680 1050 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>254 55 850 537 0 0 1680 1050 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>275 32 850 537 0 0 1680 1050 </string>
 	<key>NeverWarnAboutShortLivedSessions_BDE1F085-4BC6-4903-8055-512139A2F5A9</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_BDE1F085-4BC6-4903-8055-512139A2F5A9_selection</key>
@@ -4790,57 +4798,46 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/ryota</string>
+      <string>~/</string>
 		</dict>
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
+		<string>3.2.6</string>
 		<string>3.3.2</string>
-		<string>3.2.9</string>
 		<string>3.3.1</string>
+		<string>3.3.20190820-nightly</string>
 		<string>3.3.0</string>
 	</array>
-	<key>NoSyncBFPFavorites</key>
-	<array>
-		<string>Monaco</string>
-	</array>
-	<key>NoSyncBFPRecents</key>
-	<array>
-		<string>PT Mono</string>
-		<string>Monaco</string>
-		<string>Menlo for Powerline</string>
-		<string>Menlo</string>
-	</array>
-	<key>NoSyncFrame_SessionsPreferences</key>
-	<dict>
-		<key>screenFrame</key>
-		<string>{{0, 0}, {1680, 1050}}</string>
-		<key>topLeft</key>
-		<string>{537, 899}</string>
-	</dict>
+	<key>NoSyncAutoBurialReveal</key>
+	<true/>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{517, 823}</string>
+		<string>{218, 737}</string>
 	</dict>
-	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
+	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
 	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>6590B11D-68B3-43CE-A057-6DBBAC677B7A</string>
-	<key>NoSyncLastTipTime</key>
-	<real>505661371.60876101</real>
+	<string>2FEB3780-D1A0-4A22-9C56-C3A0863BC6C1</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>47</integer>
+	<integer>26</integer>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>586604648.41064298</real>
+	<real>586432782.05240905</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
 	<true/>
 	<key>NoSyncPermissionToShowTip</key>
-	<true/>
+	<false/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
 		<key>0</key>
@@ -5183,7 +5180,31 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>currentTab.currentSession.tmuxClientName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.currentSession.tmuxRole</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>currentTab.currentSession.termid</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.tmuxWindowName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -5200,6 +5221,14 @@
 				<true/>
 				<key>name</key>
 				<string>currentTab.currentSession.terminalIconName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.currentSession.tmuxPaneTitle</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -5255,14 +5284,6 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentTab.currentSession.path</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
 				<string>currentTab.currentSession.commandLine</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -5271,7 +5292,15 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>number</string>
+				<string>currentTab.currentSession.path</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.tmuxWindowTitle</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -5280,6 +5309,14 @@
 				<true/>
 				<key>name</key>
 				<string>currentTab.currentSession.hostname</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.titleOverrideFormat</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -5319,7 +5356,31 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>currentTab.currentSession.tmuxStatusLeft</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>number</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>currentTab.currentSession.jobName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.currentSession.tmuxStatusRight</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -5354,7 +5415,23 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>currentSession.tmuxClientName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>currentSession.presentationName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession.tmuxRole</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -5539,28 +5616,21 @@
 			</dict>
 		</array>
 	</dict>
-	<key>NoSyncSearchHistory</key>
+	<key>NoSyncSearchHistory2</key>
 	<array>
-		<string>go env</string>
-		<string>osyo-manga/vim-anz</string>
+		<string>swmOvwsG3RZDQ5839LCUVQJ1pgP/DjXVX9CTCyOaQnI6uc0W//Y= </string>
+		<string>-----BEGIN RSA PRIVATE KEY----- MIIEogIBAAKCAQEAv2wOFGgqc/B6rH2wANgo6NuEP4rCr8mBttSBfo1AtXuYNueq O6iPnw/PAx/qUcuES9LmWqbbrCkgBSX7DjU802TD3FRD8ACaEsfkwNZ48f24AynE 9bgRWudDgRqAJMqH9H8aHO9bInr/Y/4yvpOgCEZRT0u4Ehl5C2aojz+IIJbdNf+K 3P0YBfyeMLMjLLyR63Rwev+ebcLscVzuTCTvc/NeFZ6nWH9WcgSfOJJwG+BZgQW0 0BioyNv2pnUZoubhY/FYzi9lBwfOJe1sYxKcM/fx50jh9zF4GTLnjj5DuKBpXRGp GykdYmK+oJnZauHiXIhubyimVYBKQYvQH0GhawIDAQABAoIBAAO5W3DEMgc9Z3WR oGnzyp/1HVaLIYx/9BkVe0t1/gtJ00VGLoaomdqzWQirh0h+GB3NhZO/6UgpKKlQ +thk6sEGFdVkgknaCSVSZD3oLkQu9nSBTIanRRcqpqKNXG7azdhQ3LYxZel+0Rcl 6+DPSG7Ax3Yud+9KNZOmNKNMzh4sKIrf5qtB9FJ3WKi0J1KeEuqQ3h5eCACGExQR wrNFe5OdbfcPZEKTvRwDFVkwVbM67wTVnxS1pZCHg9ueQVN/puD/ZhcDN3xWSbOX yAGxqUoxTPX3BHEbIZ/pn2tue/EHPS/LeoHE97m/x/vebo5MT8OPhBIxlR/J2f9C E2LVLBECgYEA9VZKgVtRducEVbH5R38bG8dfRdE9O8weHJ1Dxy5vW3FBS9dXBq0Y CnMhD0acOdsJRNVjBHkPssPj0LoFAefv/ni95KLUXj4VfdvXkGTfyuaPCqaAq0AE F1LMFRqye+L9MhshU2NNGwNQy0BoSKpNWqDY4bWxJlb/CFpiOPdL6CMCgYEAx73i 6FhibW9Zo3C1b4Bf5gzVyDtMP/wuoTe4OGCIogu6yhA6gykYQDMN2vvdIt1THY0w Qj5kqhZr7EWQOrdazRqHw/+5S4rzG+ibqYAsMeiywtuXV2sqa5vJI8ISbpVZr4VE zfAvPEENL3sD5vFlvCncMqFxNjtY8V3PteT8khkCgYBbqMqbO6fa+YKIFb8hdB6H qVwx9HOhNKiHXkYlU3btPgn8MM7lwqO5u7u9Pk892lTDL8oXsLcpvcAOioE2bhYf B7NCiYc4Uo+q/wixfM6TusH0Y7KsyHT+1cNDmz7VxD9+id5QjkgPcJSt6zlK9L2D v5Zn9X7i6RvNXh9WUyY76wKBgCnZVAhANGcfVFWVEL6K1AzcFZJ9Mg2Z5Z8rkHJn b1kcQgeB/PBsFMOmrrl52awrWPWxFjJa5jZoujXnoT9cGS8t5tIe6xCzzRnE05Bg 5WGTkpiW74+GSX4ARtUyHTCEJCVNM8w+DXd/XabcDEY/v4P79UG6Z4DoUEtJz3IZ xv1JAoGAUyUhLnTU9fuV43xUB42RT2E63cay0fbMNHDBirwvTBrSRSxlvEibLYFI 4Xvpi3VXhLJyW/OZy5+4Uvr/xZYLNiJL0gsodF1zwNPrw7TDnCQu3TEAPa+gGqQE swmOvwsG3RZDQ5839LCUVQJ1pgP/DjXVX9CTCyOaQnI6uc0W//Y= -----END RSA PRIVATE KEY----- </string>
+		<string>Balance</string>
+		<string>Blanc</string>
+		<string>Blance</string>
+		<string>debug</string>
+		<string>debu/g</string>
+		<string>debug/</string>
 	</array>
+	<key>NoSyncSuppressBroadcastInputWarning</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>502974483.089329</real>
-	<key>NoSyncTipsDisabled</key>
-	<true/>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>000</string>
-		<string>0000</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0003</string>
-		<string>0004</string>
-		<string>0005</string>
-		<string>0006</string>
-		<string>0007</string>
-		<string>0008</string>
-	</array>
+	<real>527998268.47126597</real>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
 	<key>PMPrintingExpandedStateForPrint2</key>
@@ -5599,7 +5669,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~/src/github.com/paveg/dotfiles/</string>
+	<string>~/src/github.com/paveg/dotfiles/config/iterm2</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
@@ -5607,11 +5677,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final_new.xml?shard=86</string>
+	<string>https://iterm2.com/appcasts/final_new.xml?shard=47</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-08-28T08:44:40Z</date>
+	<date>2019-09-01T23:41:37Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -5628,6 +5698,8 @@
 	<integer>0</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1565768064</real>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WordCharacters</key>
