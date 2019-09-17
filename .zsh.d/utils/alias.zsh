@@ -61,7 +61,8 @@ fi
 
 # when saml2aws exists
 if (($+commands[saml2aws])); then
-  alias s2l='saml2aws login --skip-prompt'
+  alias s2ll='saml2aws login --skip-prompt --session-duration 43200'
+  alias s2ls='saml2aws list-roles --skip-prompt'
 fi
 
 # when remake exists
