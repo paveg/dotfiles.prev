@@ -7,7 +7,6 @@ google-japanese-ime
 docker
 karabiner-elements
 dropbox
-google-chrome
 firefox
 kindle
 iterm2
