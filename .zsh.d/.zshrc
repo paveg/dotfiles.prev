@@ -6,6 +6,7 @@ umask 022
 typeset -gx -U path PATH
 
 path=( \
+  /usr/local/opt/openssl/bin/(N-/) \
   /usr/local/bin(N-/) \
   $HOME/bin(N-/) \
   $HOME/src/bin(N-/) \
