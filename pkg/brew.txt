@@ -32,3 +32,4 @@ reattach-to-user-namespace
 llvm
 zlib
 kubectx
+mysql
