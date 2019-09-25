@@ -57,6 +57,14 @@ $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 $ rustup completions zsh > ~/.zfunc/_rustup
 ```
 
+### Helm
+
+```bash
+$ helm plugin install https://github.com/databus23/helm-diff --version master
+$ helm plugin install https://github.com/futuresimple/helm-secrets
+$ helm plugin install https://github.com/rimusz/helm-tiller
+```
+
 ### Environment
 
 |key|value|

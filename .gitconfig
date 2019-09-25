@@ -15,7 +15,7 @@
 [credential]
   helper = osxkeychain
 [diff "sopsdiffer"]
-  textconv = sops -d
+	textconv = sops -d
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
