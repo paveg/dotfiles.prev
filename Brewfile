@@ -25,6 +25,7 @@ brew "jq"
 brew "kubectx"
 brew "llvm"
 brew "mysql"
+brew "mysql@5.7", link: true
 brew "neovim"
 brew "nkf"
 brew "openssl"
