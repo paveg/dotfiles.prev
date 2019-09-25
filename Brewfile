@@ -23,6 +23,7 @@ brew "htop"
 brew "hub"
 brew "jq"
 brew "kubectx"
+brew "libmagic"
 brew "llvm"
 brew "mysql"
 brew "mysql@5.7", link: true
