@@ -31,6 +31,7 @@ fpath+="$ZDOTDIR/.zfunc"
   setopt complete_in_word
   stty erase "^?"
   stty erase "^H"
+  eval "$(starship init zsh)"
   : "completion" && {
     _zpcompinit_custom
     zstyle ':completion:*:default' menu select=1

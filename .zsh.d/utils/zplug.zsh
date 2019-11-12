@@ -8,10 +8,10 @@ zplug 'chrissicool/zsh-256color', use:"zsh-256color.plugin.zsh"
 # addrev
 zplug "momo-lab/zsh-abbrev-alias"
 
-# pure theme
 zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme &&
-  export PURE_PROMPT_SYMBOL="%{$fg[green]%}pav %{$fg[red]%}❯❯❯"
+# pure theme
+# zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme &&
+#  export PURE_PROMPT_SYMBOL="%{$fg[green]%}pav %{$fg[red]%}❯❯❯"
 
 # completion
 zplug "zsh-users/zsh-completions"
