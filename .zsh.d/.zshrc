@@ -6,6 +6,7 @@ umask 022
 typeset -gx -U path PATH
 
 path=( \
+  /usr/local/opt/openssl/bin/(N-/) \
   /usr/local/bin(N-/) \
   $HOME/bin(N-/) \
   $HOME/src/bin(N-/) \
@@ -30,6 +31,7 @@ fpath+="$ZDOTDIR/.zfunc"
   setopt complete_in_word
   stty erase "^?"
   stty erase "^H"
+  eval "$(starship init zsh)"
   : "completion" && {
     _zpcompinit_custom
     zstyle ':completion:*:default' menu select=1

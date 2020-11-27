@@ -30,3 +30,6 @@ awscli
 saml2aws
 reattach-to-user-namespace
 llvm
+zlib
+kubectx
+mysql

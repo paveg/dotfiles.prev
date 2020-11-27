@@ -47,6 +47,7 @@ fi
 
 # when kubectl exists
 if (($+commands[kubectl])); then
+  alias kubectl="kubecolor"
   alias k="kubectl"
   alias kc="kubectl config current-context"
   alias ku="kubectl config use-context"
@@ -61,7 +62,7 @@ fi
 
 # when saml2aws exists
 if (($+commands[saml2aws])); then
-  alias s2ll='saml2aws login --skip-prompt --session-duration 43200'
+  alias s2ll='saml2aws login --skip-prompt --session-duration 10800'
   alias s2ls='saml2aws list-roles --skip-prompt'
 fi
 

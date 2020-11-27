@@ -54,3 +54,5 @@
   allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [commit]
   template = ~/.config/git/.commit_template
+[pull]
+  rebase = false
