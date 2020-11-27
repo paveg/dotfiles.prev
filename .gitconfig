@@ -15,7 +15,7 @@
 [credential]
   helper = osxkeychain
 [diff "sopsdiffer"]
-	textconv = sops -d
+  textconv = sops -d
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
@@ -54,3 +54,5 @@
   allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [commit]
   template = ~/.config/git/.commit_template
+[pull]
+  rebase = false
